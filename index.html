@@ -3,10 +3,52 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Esma Ari</title>
+    <title>Welcome to My Site</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            text-align: center;
+            background-color: #f4f4f4;
+        }
+        h1 {
+            color: #333;
+        }
+        p {
+            color: #666;
+        }
+        button {
+            padding: 10px 20px;
+            margin-top: 10px;
+            font-size: 16px;
+            border: none;
+            background-color: #007bff;
+            color: white;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: 0.3s;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
 </head>
 <body>
-    <h1>Welcome to My GitHub Page!</h1>
-    <p>Test commit 2 - This is my personal developer portfolio.</p>
+
+    <h1>Welcome to My Website</h1>
+    <p>This is a simple landing page. I will turn this into a Vue.js project later.</p>
+    <button onclick="showMessage()">Click Me</button>
+
+    <script>
+        function showMessage() {
+            alert("Hello! This is a simple static website.");
+        }
+    </script>
+
 </body>
 </html>
+
