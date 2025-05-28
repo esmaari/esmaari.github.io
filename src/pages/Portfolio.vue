@@ -22,8 +22,8 @@
               target="_blank"
               class="custom-btn-sm custom-btn w-100 fw-bold text-center"
             >
-            Explore Project ↗
-          </a>
+              Explore Project ↗
+            </a>
 
           </div>
         </div>

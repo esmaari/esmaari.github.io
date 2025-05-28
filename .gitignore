@@ -1,4 +1,4 @@
 *.vue.js
 .vscode/
 node_modules/
-dist/
+
