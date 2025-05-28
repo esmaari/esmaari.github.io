@@ -1,10 +1,10 @@
-/// <reference types="node" />
-import { fileURLToPath, URL } from 'node:url'
+/// <reference types="vite/client" />
 import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
+import { fileURLToPath, URL } from 'node:url'
 
 export default defineConfig({
-  base: '/esmaari.github.io/',
+  base: '/esmaari.github.io/', 
   plugins: [vue()],
   resolve: {
     alias: {
