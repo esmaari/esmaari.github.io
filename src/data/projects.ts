@@ -1,29 +1,67 @@
-// src/data/projects.ts
+import sinevegaPreview from '@/assets/sinevega/sinevega-preview.png'
+import svHome from '@/assets/sinevega/SV_Desktop - 1140px (Home).png'
+import svLogin from '@/assets/sinevega/SV_Desktop - 1140px (Login).png'
+import svMovieDetails from '@/assets/sinevega/SV_Desktop - 1140px (Movie Details).png'
+import svPersonDetails from '@/assets/sinevega/SV_Desktop - 1140px (PersonDetails).png'
+import svProfile from '@/assets/sinevega/SV_Desktop - 1140px (Profile).png'
+import svRegister from '@/assets/sinevega/SV_Desktop - 1140px (Register).png'
+import svSearchResult from '@/assets/sinevega/SV_Desktop - 1140px (SearchResult).png'
+
+import sevilayImg from '@/assets/SevilayE.png'
+import uadImg from '@/assets/Uad.png'
+import kboImg from '@/assets/project.png'
 
 export const projects = [
     {
+        slug: 'sinevega',
         title: 'SineVega',
-        description: 'A movie search and favorites app built with Vue.js.',
-        image: 'https://via.placeholder.com/600x400?text=SineVega',
-        link: '/projects/sinevega'
+        description: 'A movie search and favorites app built with Vue 3 and TMDb API.',
+        longDescription: `This project was built with Vue 3 and uses the TMDb API in real time.  
+You can search for movies and create your own favorites list.`,
+        image: sinevegaPreview,
+        gallery: [
+            svHome,
+            svLogin,
+            svMovieDetails,
+            svPersonDetails,
+            svProfile,
+            svRegister,
+            svSearchResult
+        ],
+        technologies: ['Vue 3', 'TMDb API', 'Pinia', 'Bootstrap'],
+        route: '/projects/sinevega',
+        liveUrl: 'https://sinevega-fe-production.up.railway.app/',
+        github: 'https://github.com/esmaari/sinevega'
     },
     {
-        title: 'UI Portfolio Design',
-        description: 'A personal UI/UX portfolio design created in Figma.',
-        image: 'https://via.placeholder.com/600x400?text=UI+Design',
-        link: '/projects/uianalysis'
+        slug: 'kbo',
+        title: 'Kozmik Bilinç Okulu',
+        description: 'A WordPress-based site for an online spiritual school, with digital product sales.',
+        longDescription: `The site is designed for an online school offering digital products via WooCommerce.`,
+        image: kboImg,
+        technologies: ['WordPress', 'WooCommerce', 'Elementor'],
+        route: '/projects/kbo',
+        liveUrl: 'https://kozmikbilincokulu.com/'
     },
     {
-        title: 'YouTube Vlog Page',
-        description: 'A landing page designed for my YouTube channel.',
-        image: 'https://via.placeholder.com/600x400?text=YouTube+Landing',
-        link: '/projects/videoeditor'
+        slug: 'uad',
+        title: 'Uranyen Astroloji Derneği',
+        description: 'A WordPress site with a custom membership system for an astrology association.',
+        longDescription: `Built on WordPress with a customized membership system for user registration, login, and gated content.`,
+        image: uadImg,
+        technologies: ['WordPress', 'Membership Plugin', 'Elementor'],
+        route: '/projects/uad',
+        liveUrl: 'https://uranyenastrolojidernegi.com/'
     },
     {
-        title: 'Mini Toolset',
-        description: 'A web app bundle including simple, useful tools.',
-        image: 'https://via.placeholder.com/600x400?text=Toolset',
-        link: '/projects/toolset'
+        slug: 'se',
+        title: 'Sevilay Eriçdem Website',
+        description: 'Personal brand website for an author, created with WordPress classic theme.',
+        longDescription: `Personal blog and presentation site for Sevilay Eriçdem, author and public speaker.`,
+        image: sevilayImg,
+        technologies: ['WordPress', 'Classic Theme'],
+        route: '/projects/se',
+        liveUrl: 'https://www.sevilayericdem.com/',
+        github: 'https://github.com/esmaari/sevilayeV_1.0'
     }
 ]
-  

@@ -4,7 +4,7 @@ import About from '@/pages/About.vue'
 import Portfolio from '@/pages/Portfolio.vue'
 import Youtube from '@/pages/Youtube.vue'
 import Contact from '@/pages/Contact.vue'
-import SineVega from '@/pages/projects/SineVega.vue'
+import ProjectDetail from '@/pages/ProjectDetail.vue'
 
 
 
@@ -14,7 +14,7 @@ const routes = [
     { path: '/portfolio', component: Portfolio },
     { path: '/youtube', component: Youtube },
     { path: '/contact', component: Contact },
-    { path: '/projects/sinevega', component: SineVega },
+    {path: '/projects/:slug', component: ProjectDetail }
 ]
 
 const router = createRouter({

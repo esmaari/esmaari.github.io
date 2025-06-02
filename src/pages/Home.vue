@@ -24,14 +24,36 @@
       <div class="col-lg-3">
         <div class="p-4 rounded block-bg h-100 highlight-border">
           <h4 class="mb-3 heading-highlight">Latest Projects</h4>
-          <div v-for="(project, index) in latestProjects" :key="index" class="mb-2">
-            <a :href="project.link" target="_blank" class="text-black text-decoration-none">{{ project.title }}</a>
+
+          <div v-for="(project, index) in latestProjects" :key="index" class="mb-3">
+            <router-link
+              :to="project.route"
+              class="text-black text-decoration-none d-block mb-1"
+            >
+              {{ project.title }}
+            </router-link>
+
+            <div class="d-flex flex-column">
+              <a
+                v-if="project.liveUrl"
+                :href="project.liveUrl"
+                target="_blank"
+                rel="noopener"
+                class="text-decoration-none small text-black"
+              >
+              </a>
+            </div>
           </div>
-          <router-link to="/portfolio" class="d-block mt-3 text-black text-decoration-none hover-highlight fw-bold">
+
+          <router-link
+            to="/portfolio"
+            class="d-block mt-3 text-black text-decoration-none hover-highlight fw-bold"
+          >
             View All Projects ↗
           </router-link>
         </div>
       </div>
+
 
       <!-- Biyografi -->
       <div class="col-md-6">

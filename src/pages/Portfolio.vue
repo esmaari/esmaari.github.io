@@ -17,14 +17,12 @@
               <p class="mb-3">{{ project.description }}</p>
             </div>
 
-            <a
-              :href="project.link"
-              target="_blank"
+            <router-link
+              :to="project.route"
               class="custom-btn-sm custom-btn w-100 fw-bold text-center"
             >
               Explore Project ↗
-            </a>
-
+            </router-link>
           </div>
         </div>
       </div>
