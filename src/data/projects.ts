@@ -10,14 +10,15 @@ import svSearchResult from '@/assets/sinevega/SV_Desktop - 1140px (SearchResult)
 import sevilayImg from '@/assets/SevilayE.png'
 import uadImg from '@/assets/Uad.png'
 import kboImg from '@/assets/project.png'
+import tetrisImg from '@/assets/tetris.png'
 
 export const projects = [
     {
         slug: 'sinevega',
         title: 'SineVega',
         description: 'A movie search and favorites app built with Vue 3 and TMDb API.',
-        longDescription: `This project was built with Vue 3 and uses the TMDb API in real time.  
-You can search for movies and create your own favorites list.`,
+        longDescription: `This project was built with Vue 3 and uses the TMDb API in real time. 
+        You can search for movies and create your own favorites list.`,
         image: sinevegaPreview,
         gallery: [
             svHome,
@@ -32,6 +33,17 @@ You can search for movies and create your own favorites list.`,
         route: '/projects/sinevega',
         liveUrl: 'https://sinevega-fe-production.up.railway.app/',
         github: 'https://github.com/esmaari/sinevega'
+    },
+    {
+        slug: 'tetris',
+        title: 'Tetris Game',
+        description: 'A classic Tetris game built with HTML, CSS and JavaScript.',
+        longDescription: `A fun and responsive browser-based Tetris game created using only vanilla JavaScript and HTML canvas.`,
+        image: tetrisImg,
+        technologies: ['HTML5', 'CSS3', 'JavaScript'],
+        route: '/projects/tetris',
+        liveUrl: 'https://esmaari.github.io/tetris-game/',
+        github: 'https://github.com/esmaari/tetris-game'
     },
     {
         slug: 'kbo',
