@@ -7,14 +7,13 @@ import Contact from '@/pages/Contact.vue'
 import ProjectDetail from '@/pages/ProjectDetail.vue'
 
 
-
 const routes = [
     { path: '/', component: Home },
     { path: '/about', component: About },
     { path: '/portfolio', component: Portfolio },
     { path: '/youtube', component: Youtube },
     { path: '/contact', component: Contact },
-    {path: '/projects/:slug', component: ProjectDetail }
+    { path: '/projects/:slug', component: ProjectDetail }
 ]
 
 const router = createRouter({
