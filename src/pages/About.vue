@@ -38,7 +38,7 @@
       <!-- Portrait -->
       <div class="col-sm-12 col-md-6 col-lg-4 col-xl-3">
         <div class="p-0 rounded block-bg h-100 overflow-hidden">
-          <img src="@/assets/esma.jpeg" alt="Esma Ari" class="img-cover" />
+          <img src="@/assets/esma2.jpg" alt="Esma Ari" class="img-cover" />
         </div>
       </div>
 
@@ -101,13 +101,14 @@
             <li>Drawing and illustration</li>
             <li>Blogging & digital content creation</li>
             <li>Learning Thai language & culture</li>
+            <li>Cat person</li>
           </ul>
         </div>
       </div>
 
       <div class="col-lg-2">
         <div class="p-0 rounded block-bg h-100 overflow-hidden">
-          <img src="@/assets/esma.jpeg" alt="Esma Ari" class="img-cover" />
+          <img src="@/assets/esma3.jpg" alt="Esma Ari" class="img-cover" />
         </div>
       </div>
 

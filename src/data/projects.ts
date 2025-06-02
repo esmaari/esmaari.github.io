@@ -38,7 +38,7 @@ export const projects = [
         slug: 'tetris',
         title: 'Tetris Game',
         description: 'A classic Tetris game built with HTML, CSS and JavaScript.',
-        longDescription: `A fun and responsive browser-based Tetris game created using only vanilla JavaScript and HTML canvas.`,
+        longDescription: `A fun browser-based Tetris game created using only vanilla JavaScript and HTML canvas. (Best viewed on desktop.)`,
         image: tetrisImg,
         technologies: ['HTML5', 'CSS3', 'JavaScript'],
         route: '/projects/tetris',
