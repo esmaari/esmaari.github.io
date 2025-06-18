@@ -1,4 +1,7 @@
 import sinevegaPreview from '@/assets/sinevega/sinevega-preview.png'
+import cosmicPreview from '@/assets/cosmictrack/cosmicPreview.png'
+import ctHome from '@/assets/cosmictrack/ctHome.png'
+import ctAddStep from '@/assets/cosmictrack/ctAddstep.png'
 import svHome from '@/assets/sinevega/SV_Desktop - 1140px (Home).png'
 import svLogin from '@/assets/sinevega/SV_Desktop - 1140px (Login).png'
 import svMovieDetails from '@/assets/sinevega/SV_Desktop - 1140px (Movie Details).png'
@@ -13,6 +16,25 @@ import kboImg from '@/assets/project.png'
 import tetrisImg from '@/assets/tetris.png'
 
 export const projects = [
+    {
+        slug: 'cosmictrack',
+        title: 'CosmicTrack',
+        description: 'A minimal tarot-based journaling app built in 15 days with Vue 3 and Supabase.',
+        longDescription: `CosmicTrack is an early-stage spiritual journaling app designed for personal growth and self-reflection. 
+        It includes tarot card pulls, step-by-step note-taking, and symbolic categorization.
+        The first version was built in just 15 days, focusing on functionality over aesthetics. 
+        The design is still a work in progress and will be a major focus in the next version.
+        This project is not fully public yet — both the GitHub repository and full showcase are currently private.`,
+        image: cosmicPreview,
+        gallery: [
+            ctHome,
+            ctAddStep
+        ],
+        technologies: ['Vue 3', 'Vite', 'Supabase', 'Tailwind CSS'],
+        route: '/projects/cosmictrack',
+        liveUrl: 'https://jolly-chimera-f23145.netlify.app/'
+        // no public GitHub link
+    },
     {
         slug: 'sinevega',
         title: 'SineVega',
