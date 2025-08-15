@@ -9,6 +9,7 @@ import svPersonDetails from '@/assets/sinevega/SV_Desktop - 1140px (PersonDetail
 import svProfile from '@/assets/sinevega/SV_Desktop - 1140px (Profile).png'
 import svRegister from '@/assets/sinevega/SV_Desktop - 1140px (Register).png'
 import svSearchResult from '@/assets/sinevega/SV_Desktop - 1140px (SearchResult).png'
+import reactTodoImg from '@/assets/reacttodoapp.png'
 
 import sevilayImg from '@/assets/SevilayE.png'
 import uadImg from '@/assets/Uad.png'
@@ -97,5 +98,18 @@ export const projects = [
         route: '/projects/se',
         liveUrl: 'https://www.sevilayericdem.com/',
         github: 'https://github.com/esmaari/sevilayeV_1.0'
+    },
+    {
+        slug: 'react-todo',
+        title: 'React ToDo App',
+        description: 'A simple to-do list app built with React and localStorage support.',
+        longDescription: `A clean and functional to-do list application created with React. 
+        Features persistent storage with localStorage, task completion toggles, and delete functionality.`,
+        image: reactTodoImg, // buraya projenin ekran görüntüsünü import edip eklemen lazım
+        technologies: ['React', 'JavaScript', 'localStorage', 'Vite'],
+        route: '/projects/react-todo',
+        liveUrl: 'https://esmasreactlabtodoapp.netlify.app/',
+        github: 'https://github.com/esmaari/reactlab_todo_app' 
     }
+
 ]
