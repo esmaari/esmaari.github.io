@@ -1,9 +1,6 @@
 # node modules
 node_modules/
 
-# dist build
-dist/
-
 # local env files
 .env
 .env.*.local
