@@ -1,0 +1,27 @@
+# node modules
+node_modules/
+
+# dist build
+dist/
+
+# local env files
+.env
+.env.*.local
+
+# logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# macOS
+.DS_Store
+
+# editor settings
+.vscode/
+.idea/
+
+# TypeScript build artifacts
+*.tsbuildinfo
+
+# system
+Thumbs.db
