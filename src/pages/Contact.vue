@@ -2,39 +2,57 @@
   <section class="contact-container py-5">
     <h2 class="mb-4 fw-bold heading-highlight text-center">Get in Touch</h2>
 
+   <!-- Üstte iletişim satırları -->
+    <div class="text-center mb-5">
+      <p class="mb-3 fs-5">You can reach me directly via:</p>
+
+      <!-- 1. satır: e-posta + mailto link -->
+      <div class="d-flex justify-content-center align-items-center gap-2 flex-wrap mb-3">
+        <span class="fw-semibold text-black">esmaari.dev@gmail.com</span>
+        <a href="mailto:esmaari.dev@gmail.com"
+          class="fw-semibold text-decoration-none hover-highlight ms-2">
+          Send email ↗
+        </a>
+      </div>
+
+      <!-- 2. satır: diğer linkler -->
+      <div class="d-flex justify-content-center gap-3 flex-wrap">
+        <a href="https://www.linkedin.com/in/esma-ari/" target="_blank" rel="noopener"
+          class="fw-semibold text-decoration-none hover-highlight">
+          LinkedIn ↗
+        </a>
+
+        <a href="https://github.com/esmaari" target="_blank" rel="noopener"
+          class="fw-semibold text-decoration-none hover-highlight">
+          GitHub ↗
+        </a>
+
+        <a href="https://www.upwork.com/freelancers/~01c9ebe832d863bbaf?mp_source=share"
+          target="_blank" rel="noopener"
+          class="fw-semibold text-decoration-none hover-highlight">
+          Hire me on Upwork ↗
+        </a>
+
+      </div>
+    </div>
+
+
+    <!-- Form -->
     <div class="contact-form p-4 highlight-border block-bg rounded">
       <form @submit.prevent="handleSubmit">
         <div class="mb-3">
           <label for="name" class="form-label fw-semibold">Your Name</label>
-          <input
-            type="text"
-            id="name"
-            class="form-control"
-            v-model="name"
-            required
-          />
+          <input type="text" id="name" class="form-control" v-model="name" required />
         </div>
 
         <div class="mb-3">
           <label for="email" class="form-label fw-semibold">Your Email</label>
-          <input
-            type="email"
-            id="email"
-            class="form-control"
-            v-model="email"
-            required
-          />
+          <input type="email" id="email" class="form-control" v-model="email" required />
         </div>
 
         <div class="mb-3">
           <label for="message" class="form-label fw-semibold">Your Message</label>
-          <textarea
-            id="message"
-            class="form-control"
-            rows="5"
-            v-model="message"
-            required
-          ></textarea>
+          <textarea id="message" class="form-control" rows="5" v-model="message" required></textarea>
         </div>
 
         <button type="submit" class="btn-sm custom-btn w-100 fw-bold">
@@ -69,4 +87,10 @@ const handleSubmit = () => {
   max-width: 600px;
   margin: 0 auto;
 }
+
+.hover-highlight:hover {
+  color: var(--highlight-2);
+  transition: 0.3s;
+}
+
 </style>

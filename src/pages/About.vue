@@ -71,13 +71,14 @@
             <span class="px-2 rounded text-black" style="background-color: var(--highlight-4)">Key Skills</span>
           </h3>
           <ul class="mb-0 ps-3">
-            <li><strong>Frontend:</strong> HTML5, CSS3, JavaScript, Vue.js, Tailwind CSS, Bootstrap, Pimcore, Twig</li>
+            <li><strong>Frontend:</strong> HTML5, CSS3, JavaScript, Vue.js, React, Tailwind CSS, Bootstrap, Pimcore, Twig</li>
             <li><strong>Tools:</strong> Git, JIRA, Adobe XD, Figma, PatternLab</li>
-            <li><strong>Testing:</strong> Cypress, Browserstack</li>
-            <li><strong>Web:</strong> Responsive Design, REST APIs, Cross-Browser Compatibility</li>
+            <li><strong>Testing:</strong> Cypress, BrowserStack</li>
+            <li><strong>Web & E-Commerce:</strong> Responsive Design, REST APIs, Cross-Browser Compatibility, Shopify</li>
           </ul>
         </div>
       </div>
+
 
       <!-- Certifications & Languages -->
       <div class="col-lg-6">

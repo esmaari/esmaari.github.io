@@ -16,6 +16,8 @@ import kboImg from '@/assets/project.png'
 import tetrisImg from '@/assets/tetris.png'
 import reactTodoImg from '@/assets/reacttodoapp.png'
 import reactWeatherApp from '@/assets/reactweatherapp.png'
+import reactcreatememe from '@/assets/reactcreatememe.png'
+import reacttraveljournal from '@/assets/reacttraveljournal.png'
 
 export const projects = [
     {
@@ -23,10 +25,11 @@ export const projects = [
         title: 'CosmicTrack',
         description: 'A minimal tarot-based journaling app built in 15 days with Vue 3 and Supabase.',
         longDescription: `CosmicTrack is an early-stage spiritual journaling app designed for personal growth and self-reflection. 
-        It includes tarot card pulls, step-by-step note-taking, and symbolic categorization.
-        The first version was built in just 15 days, focusing on functionality over aesthetics. 
-        The design is still a work in progress and will be a major focus in the next version.
-        This project is not fully public yet — both the GitHub repository and full showcase are currently private.`,
+        It includes tarot card pulls, step-by-step note-taking, and symbolic categorization. The first version was built in just 15 
+        days, focusing on functionality over aesthetics, and the design will be a major focus in the next release. Currently, 
+        I’m developing the next version of CosmicTrack, which integrates AI-powered tarot card interpretations for instant readings, 
+        along with a completely redesigned interface and improved user experience. This project is not fully public yet — both the 
+        GitHub repository and full showcase are currently private.`,
         image: cosmicPreview,
         gallery: [
             ctHome,
@@ -124,5 +127,31 @@ export const projects = [
         route: '/projects/react-weather',
         liveUrl: 'https://esmasreactlabweatherapp.netlify.app/',
         github: 'https://github.com/esmaari/reactlab_weather_app' 
-    }
+    },
+    {
+        slug: 'react-meme',
+        title: 'React Meme Generator',
+        description: 'A fun meme generator app built with React, allowing users to add custom text to random images.',
+        longDescription: `A small project built with React that fetches random meme images from an API 
+        and lets users add custom top and bottom text. It’s designed to practice state management, 
+        form handling, and image rendering in React.`,
+        image: reactcreatememe,
+        technologies: ['React', 'JavaScript', 'Vite', 'API'],
+        route: '/projects/react-meme',
+        liveUrl: 'https://esmasreactlabcreatememe.netlify.app/',
+        github: 'https://github.com/esmaari/reactlab_create_meme'
+    },
+    {
+        slug: 'react-travel-journal',
+        title: 'React Travel Journal',
+        description: 'A minimalist travel journal app built with React and custom components.',
+        longDescription: `This project was created to explore React components, props, and reusable layouts. 
+        It displays a series of travel cards with images, locations, and short notes — designed to feel like 
+        a digital postcard gallery.`,
+        image: reacttraveljournal,
+        technologies: ['React', 'JavaScript', 'Vite', 'CSS Modules'],
+        route: '/projects/react-travel-journal',
+        liveUrl: 'https://esmasreactlabtraveljournal.netlify.app/',
+        github: 'https://github.com/esmaari/reactlab_travel_journal'
+  }
 ]

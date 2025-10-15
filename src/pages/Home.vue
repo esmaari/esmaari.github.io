@@ -3,13 +3,23 @@
     <div class="row gy-4">
       <!-- Başlık -->
       <div class="col-md-6 col-lg-6">
-        <div class="p-4 rounded block-bg h-100">
+        <div class="p-4 rounded block-bg h-100 d-flex flex-column justify-content-between">
           <h1 class="fw-bold display-5">
-            <span class="px-2 rounded text-black" style="background-color: var(--highlight-1)">Developer.</span><br />
-            <span class="px-2 rounded text-black" style="background-color: var(--highlight-2)">Designer.</span><br />
-            <span class="px-2 rounded text-black" style="background-color: var(--highlight-3)">Programmer.</span><br />
-            <span class="px-2 rounded text-black" style="background-color: var(--highlight-4)">Youtuber.</span>
+            <span class="px-2 rounded text-black" style="background-color: var(--highlight-1)">Frontend Developer.</span><br />
+            <span class="px-2 rounded text-black" style="background-color: var(--highlight-2)">UI Designer.</span><br />
+            <span class="px-2 rounded text-black" style="background-color: var(--highlight-3)">Contant Creater.</span><br />
+            <span class="px-2 rounded text-black" style="background-color: var(--highlight-4)">Storyteller.</span>
           </h1>
+
+           <p class="mt-3 fs-5">
+            <span class="fw-semibold">Freelance Frontend Developer</span> — available for remote projects.
+            <a href="https://www.upwork.com/freelancers/~01c9ebe832d863bbaf?mp_source=share"
+              target="_blank" rel="noopener"
+              class="fw-semibold text-decoration-none hover-highlight ms-2">
+              Hire me on Upwork ↗
+            </a>
+          </p>
+
         </div>
       </div>
 
@@ -57,10 +67,10 @@
 
       <!-- Biyografi -->
       <div class="col-md-6">
-        <div class="p-4 rounded block-bg highlight-border h-100">
+        <div class="p-4 rounded block-bg highlight-border h-100 d-flex align-items-center">
           <p>
-            Esma Ari is a creative who merges digital design with frontend development. She brings imagination to life through technology.
-          </p>
+          Esma Ari is a <strong>mid-senior freelance frontend developer</strong> specializing in 
+          <strong>Vue, TypeScript, and UI design</strong>. and currently diving into <strong>React.</strong></p>
         </div>
       </div>
 
@@ -80,7 +90,9 @@
           <a href="https://www.linkedin.com/in/esma-ari/" class="text-black text-decoration-none fw-bold hover-highlight mb-1">LINKEDIN</a>
           <a href="https://github.com/esmaari" class="text-black text-decoration-none fw-bold hover-highlight mb-1">GITHUB</a>
           <a href="https://www.instagram.com/esma.acts/" class="text-black text-decoration-none fw-bold hover-highlight mb-1">INSTAGRAM</a>
-          <a href="https://www.youtube.com/@esmaActs" class="text-black text-decoration-none fw-bold hover-highlight">YOUTUBE</a>
+          <a href="https://www.youtube.com/@esmaacts90" class="text-black text-decoration-none fw-bold hover-highlight">YOUTUBE</a>
+          <a href="https://www.upwork.com/freelancers/~01c9ebe832d863bbaf?mp_source=share" target="_blank" rel="noopener" class="text-black text-decoration-none fw-bold hover-highlight">UPWORK</a>
+
         </div>
       </div>
     </div>
