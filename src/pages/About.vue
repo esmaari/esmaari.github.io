@@ -79,15 +79,68 @@
         </div>
       </div>
 
-
       <!-- Certifications & Languages -->
       <div class="col-lg-6">
         <div class="p-4 rounded block-bg h-100">
           <h3 class="fw-bold mb-3">
-            <span class="px-2 rounded text-black" style="background-color: var(--highlight-1)">Certifications & Languages</span>
+            <span class="px-2 rounded text-black" style="background-color: var(--highlight-1)">
+              Certifications & Languages
+            </span>
           </h3>
-          <p class="mb-2"><strong>Certifications:</strong> Google UX Design, JavaScript, PHP with MySQL</p>
-          <p class="mb-0"><strong>Languages:</strong> German (Fluent), English (Fluent), Turkish (Native), Thai (Beginner)</p>
+
+          <ul class="mb-3 ps-3">
+            <li>
+              <strong>Certifications:</strong>
+              <ul class="mt-2">
+                <li>
+                  <a href="https://www.linkedin.com/in/esma-ari/details/certifications/"
+                    target="_blank" rel="noopener"
+                    class="fw-semibold text-decoration-none hover-highlight">
+                    Shopify Development
+                  </a> — Udemy (2023)
+                </li>
+                <li>
+                  <a href="https://www.linkedin.com/in/esma-ari/details/certifications/"
+                    target="_blank" rel="noopener"
+                    class="fw-semibold text-decoration-none hover-highlight">
+                    Getting Started with Git and GitHub
+                  </a> — Coursera (2023)
+                </li>
+                <li>
+                  <a href="https://www.linkedin.com/in/esma-ari/details/certifications/"
+                    target="_blank" rel="noopener"
+                    class="fw-semibold text-decoration-none hover-highlight">
+                    Introduction to Cloud Computing
+                  </a> — Coursera (2023)
+                </li>
+                <li>
+                  <a href="https://www.linkedin.com/in/esma-ari/details/certifications/"
+                    target="_blank" rel="noopener"
+                    class="fw-semibold text-decoration-none hover-highlight">
+                    Introduction to Web Development with HTML, CSS, JavaScript
+                  </a> — Coursera (2023)
+                </li>
+                <li>
+                  <a href="https://www.linkedin.com/in/esma-ari/details/certifications/"
+                    target="_blank" rel="noopener"
+                    class="fw-semibold text-decoration-none hover-highlight">
+                    Google UX Design Professional Certificate
+                  </a> — Coursera (2022)
+                </li>
+                <li>
+                  <a href="https://www.linkedin.com/in/esma-ari/details/certifications/"
+                    target="_blank" rel="noopener"
+                    class="fw-semibold text-decoration-none hover-highlight">
+                    Scrum Foundations Professional Certificate (SFPC)
+                  </a> — BadgeCert (2023)
+                </li>
+              </ul>
+            </li>
+
+            <li class="mt-3">
+              <strong>Languages:</strong> German (Fluent), English (Fluent), Turkish (Native), Thai (Beginner)
+            </li>
+          </ul>
         </div>
       </div>
 
