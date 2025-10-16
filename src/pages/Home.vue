@@ -104,7 +104,7 @@
   import { useHead, useSeoMeta } from '@unhead/vue'
 
   const base = 'https://portfolio-esmaari.netlify.app'
-  const og   = `${base}/og-preview.png` // OG görselinin mutlak URL’i
+  const og   = `${base}/og-preview.png` 
 
   // Canonical
   useHead({

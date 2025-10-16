@@ -203,7 +203,7 @@
   import { useHead, useSeoMeta } from '@unhead/vue'
 
   const base = 'https://portfolio-esmaari.netlify.app'
-  const og = `${base}/og-about-preview.png`
+  const og = `${base}/og-preview.png`
 
   // Canonical + Title
   useHead({
