@@ -38,7 +38,7 @@
       <!-- Portrait -->
       <div class="col-sm-12 col-md-6 col-lg-4 col-xl-3">
         <div class="p-0 rounded block-bg h-100 overflow-hidden">
-          <img src="@/assets/esma2.jpg" alt="Esma Ari" class="img-cover" />
+          <img src="@/assets/esma2.jpg" alt="Esma Ari holding a manual film camera — creative portrait" class="img-cover" />
         </div>
       </div>
 
@@ -162,7 +162,7 @@
 
       <div class="col-lg-2">
         <div class="p-0 rounded block-bg h-100 overflow-hidden">
-          <img src="@/assets/esma3.jpg" alt="Esma Ari" class="img-cover" />
+          <img src="@/assets/esma3.jpg" alt="Esma Ari, freelance frontend developer, with her cat on her lap" class="img-cover" />
         </div>
       </div>
 
@@ -198,6 +198,36 @@
     </div>
   </section>
 </template>
+
+<script setup lang="ts">
+  import { useHead, useSeoMeta } from '@unhead/vue'
+
+  const base = 'https://portfolio-esmaari.netlify.app'
+  const og = `${base}/og-about-preview.png`
+
+  // Canonical + Title
+  useHead({
+    title: 'About | Esma Ari Portfolio',
+    link: [{ rel: 'canonical', href: base + '/about' }]
+  })
+
+  // SEO + Social
+  useSeoMeta({
+    title: 'About | Esma Ari Portfolio',
+    description: 'Learn more about Esma Ari — Frontend Developer, Designer, and Creative based in Munich.',
+    ogTitle: 'About Esma Ari',
+    ogDescription: 'Discover Esma’s background, skills, and creative journey as a frontend developer and designer.',
+    ogType: 'website',
+    ogUrl: base + '/about',
+    ogImage: og,
+    twitterCard: 'summary_large_image',
+    twitterTitle: 'About | Esma Ari',
+    twitterDescription: 'Frontend Developer, Designer & Creative based in Munich.',
+    twitterImage: og
+  })
+</script>
+
+
 
 <style scoped>
 .block-bg {

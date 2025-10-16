@@ -37,29 +37,55 @@
   </section>
 </template>
 
-<script setup>
-const services = [
-  {
-    title: 'Landing Page Design & Development',
-    description: 'Modern, responsive landing pages built with Vue or React — optimized for performance, accessibility, and conversions.'
-  },
-  {
-    title: 'Portfolio Website',
-    description: 'Personal or professional portfolio websites with a clean design and strong visual identity, built using Vue or Tailwind CSS.'
-  },
-  {
-    title: 'Website Redesign & UI Improvements',
-    description: 'Transform outdated designs into modern, user-friendly interfaces that enhance the overall user experience.'
-  },
-  {
-    title: 'Custom Components (Vue / React)',
-    description: 'Reusable and scalable UI components crafted with Vue 3 or React, fully tailored for your brand and app logic.'
-  },
-  {
-    title: 'Design to Code Conversion',
-    description: 'Pixel-perfect implementation of Figma or Adobe XD designs into responsive, maintainable front-end code.'
-  }
-]
+<script setup lang="ts">
+  import { useHead, useSeoMeta } from '@unhead/vue'
+
+  const base = 'https://portfolio-esmaari.netlify.app'
+  const og = `${base}/og-services-preview.png`
+
+  // Canonical + Title
+  useHead({
+    title: 'Services | Esma Ari',
+    link: [{ rel: 'canonical', href: base + '/services' }]
+  })
+
+  // SEO + Social
+  useSeoMeta({
+    title: 'Services | Esma Ari',
+    description: 'Freelance frontend development and design services by Esma Ari — specialized in Vue.js, TypeScript, and responsive UI. Available for remote projects via Upwork.',
+    ogTitle: 'Services | Esma Ari',
+    ogDescription: 'Discover Esma Ari’s freelance frontend and UI/UX services. Hire via Upwork for Vue.js, TypeScript, or Bootstrap-based projects.',
+    ogType: 'website',
+    ogUrl: base + '/services',
+    ogImage: og,
+    twitterCard: 'summary_large_image',
+    twitterTitle: 'Services | Esma Ari',
+    twitterDescription: 'Frontend • Vue.js • TypeScript • UI/UX Design — Available on Upwork.',
+    twitterImage: og
+  })
+
+  const services = [
+    {
+      title: 'Landing Page Design & Development',
+      description: 'Modern, responsive landing pages built with Vue or React — optimized for performance, accessibility, and conversions.'
+    },
+    {
+      title: 'Portfolio Website',
+      description: 'Personal or professional portfolio websites with a clean design and strong visual identity, built using Vue or Tailwind CSS.'
+    },
+    {
+      title: 'Website Redesign & UI Improvements',
+      description: 'Transform outdated designs into modern, user-friendly interfaces that enhance the overall user experience.'
+    },
+    {
+      title: 'Custom Components (Vue / React)',
+      description: 'Reusable and scalable UI components crafted with Vue 3 or React, fully tailored for your brand and app logic.'
+    },
+    {
+      title: 'Design to Code Conversion',
+      description: 'Pixel-perfect implementation of Figma or Adobe XD designs into responsive, maintainable front-end code.'
+    }
+  ]
 </script>
 
 <style scoped>

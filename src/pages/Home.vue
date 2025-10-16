@@ -7,7 +7,7 @@
           <h1 class="fw-bold display-5">
             <span class="px-2 rounded text-black" style="background-color: var(--highlight-1)">Frontend Developer.</span><br />
             <span class="px-2 rounded text-black" style="background-color: var(--highlight-2)">UI Designer.</span><br />
-            <span class="px-2 rounded text-black" style="background-color: var(--highlight-3)">Contant Creater.</span><br />
+            <span class="px-2 rounded text-black" style="background-color: var(--highlight-3)">Content Creator.</span><br />
             <span class="px-2 rounded text-black" style="background-color: var(--highlight-4)">Storyteller.</span>
           </h1>
 
@@ -26,7 +26,7 @@
       <!-- Görsel -->
       <div class="col-md-6 col-lg-3">
         <div class="p-0 rounded block-bg h-100 overflow-hidden">
-          <img src="@/assets/esma.jpeg" alt="Esma Ari" class="img-cover" />
+          <img src="@/assets/esma.jpeg" alt="Esma Ari — Frontend Developer & Designer professional headshot" class="img-cover" />
         </div>
       </div>
 
@@ -100,8 +100,36 @@
 </template>
 
 <script setup lang="ts">
-import { projects } from '@/data/projects'
-const latestProjects = projects.slice(0, 3)
+  import { projects } from '@/data/projects'
+  import { useHead, useSeoMeta } from '@unhead/vue'
+
+  const base = 'https://portfolio-esmaari.netlify.app'
+  const og   = `${base}/og-preview.png` // OG görselinin mutlak URL’i
+
+  // Canonical
+  useHead({
+    title: 'Home | Esma Ari Portfolio',
+    link: [{ rel: 'canonical', href: base + '/' }]
+  })
+
+  // SEO + Social
+  useSeoMeta({
+    title: 'Home | Esma Ari Portfolio',
+    description: 'Frontend Developer & Designer specializing in Vue.js, TypeScript, and modern UI design.',
+    // Open Graph
+    ogTitle: 'Esma Ari Portfolio',
+    ogDescription: 'Explore Esma Ari’s latest frontend projects, UI designs, and creative works.',
+    ogType: 'website',
+    ogUrl: base + '/',
+    ogImage: og,
+    // Twitter
+    twitterCard: 'summary_large_image',
+    twitterTitle: 'Esma Ari | Frontend Developer & Designer',
+    twitterDescription: 'Frontend • Vue • TypeScript • UI/UX',
+    twitterImage: og
+  })
+
+  const latestProjects = projects.slice(0, 3)
 </script>
 
 <style scoped>

@@ -32,8 +32,8 @@ export const projects = [
         GitHub repository and full showcase are currently private.`,
         image: cosmicPreview,
         gallery: [
-            ctHome,
-            ctAddStep
+            { name: 'Home Screen', path: ctHome },
+            { name: 'Add Step Screen', path: ctAddStep }
         ],
         technologies: ['Vue 3', 'Vite', 'Supabase', 'Tailwind CSS'],
         route: '/projects/cosmictrack',
@@ -48,13 +48,13 @@ export const projects = [
         You can search for movies and create your own favorites list.`,
         image: sinevegaPreview,
         gallery: [
-            svHome,
-            svLogin,
-            svMovieDetails,
-            svPersonDetails,
-            svProfile,
-            svRegister,
-            svSearchResult
+            { name: 'Home', path: svHome },
+            { name: 'Login', path: svLogin },
+            { name: 'Movie Details', path: svMovieDetails },
+            { name: 'Person Details', path: svPersonDetails },
+            { name: 'Profile', path: svProfile },
+            { name: 'Register', path: svRegister },
+            { name: 'Search Result', path: svSearchResult }
         ],
         technologies: ['Vue 3', 'TMDb API', 'Pinia', 'Bootstrap'],
         route: '/projects/sinevega',

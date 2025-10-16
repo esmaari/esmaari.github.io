@@ -31,8 +31,34 @@
 </template>
 
 <script setup lang="ts">
-import { projects } from '@/data/projects'
+  import { projects } from '@/data/projects'
+  import { useHead, useSeoMeta } from '@unhead/vue'
+
+  const base = 'https://portfolio-esmaari.netlify.app'
+  const og = `${base}/og-project-preview.png`
+
+  // Canonical + Title
+  useHead({
+    title: 'Portfolio | Esma Ari',
+    link: [{ rel: 'canonical', href: base + '/portfolio' }]
+  })
+
+  // SEO + Social
+  useSeoMeta({
+    title: 'Portfolio | Esma Ari',
+    description: 'A showcase of Esma Ari’s frontend development and design projects — built with Vue.js, TypeScript, and modern UI frameworks.',
+    ogTitle: 'Portfolio | Esma Ari',
+    ogDescription: 'Explore web projects and creative works by Esma Ari, Frontend Developer & Designer based in Munich.',
+    ogType: 'website',
+    ogUrl: base + '/portfolio',
+    ogImage: og,
+    twitterCard: 'summary_large_image',
+    twitterTitle: 'Portfolio | Esma Ari',
+    twitterDescription: 'Frontend projects & design work by Esma Ari.',
+    twitterImage: og
+  })
 </script>
+
 
 <style scoped>
 .block-bg {

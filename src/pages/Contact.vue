@@ -64,17 +64,43 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue'
+  import { ref } from 'vue'
+  import { useHead, useSeoMeta } from '@unhead/vue'
 
-const name = ref('')
-const email = ref('')
-const message = ref('')
+  const base = 'https://portfolio-esmaari.netlify.app'
+  const og = `${base}/og-preview.png`
 
-const handleSubmit = () => {
-  console.log('Form submitted:', name.value, email.value, message.value)
-  alert('Thank you! Your message has been received.')
-}
+  // Canonical + Title
+  useHead({
+    title: 'Contact | Esma Ari Portfolio',
+    link: [{ rel: 'canonical', href: base + '/contact' }]
+  })
+
+  // SEO + Social
+  useSeoMeta({
+    title: 'Contact | Esma Ari Portfolio',
+    description: 'Get in touch with Esma Ari — Frontend Developer & Designer based in Munich.',
+    ogTitle: 'Contact | Esma Ari',
+    ogDescription: 'Reach out for freelance or remote collaboration opportunities.',
+    ogType: 'website',
+    ogUrl: base + '/contact',
+    ogImage: og,
+    twitterCard: 'summary_large_image',
+    twitterTitle: 'Contact | Esma Ari',
+    twitterDescription: 'Freelance Frontend Developer & Designer — Contact Page',
+    twitterImage: og
+  })
+
+  const name = ref('')
+  const email = ref('')
+  const message = ref('')
+
+  const handleSubmit = () => {
+    console.log('Form submitted:', name.value, email.value, message.value)
+    alert('Thank you! Your message has been received.')
+  }
 </script>
+
 
 <style scoped>
 .contact-container {
