@@ -18,6 +18,7 @@ import reactTodoImg from '@/assets/reacttodoapp.png'
 import reactWeatherApp from '@/assets/reactweatherapp.png'
 import reactcreatememe from '@/assets/reactcreatememe.png'
 import reacttraveljournal from '@/assets/reacttraveljournal.png'
+import reactapptentiesgame from '@/assets/reactapptentiesgame.png'
 
 export const projects = [
     {
@@ -153,5 +154,19 @@ export const projects = [
         route: '/projects/react-travel-journal',
         liveUrl: 'https://esmasreactlabtraveljournal.netlify.app/',
         github: 'https://github.com/esmaari/reactlab_travel_journal'
-  }
+  },
+  {
+        slug: 'react-tenzies-game',
+        title: 'React Tenzies Game',
+        description: 'A fun dice game built with React and Vite, featuring roll and hold mechanics.',
+        longDescription: `This project was created to practice React state management and conditional rendering. 
+        The goal is to roll the dice until all values match — players can hold dice between rolls, and a confetti 
+        animation celebrates the win. It demonstrates component reusability, event handling, and state updates 
+        with hooks.`,
+        image: reactapptentiesgame,
+        technologies: ['React', 'JavaScript', 'Vite', 'CSS'],
+        route: '/projects/react-tenzies-game',
+        liveUrl: 'https://esmasreactlabtenziesgame.netlify.app/',
+        github: 'https://github.com/esmaari/tenziesgame'
+    }
 ]
