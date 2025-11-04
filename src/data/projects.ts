@@ -19,6 +19,7 @@ import reactWeatherApp from '@/assets/reactweatherapp.png'
 import reactcreatememe from '@/assets/reactcreatememe.png'
 import reacttraveljournal from '@/assets/reacttraveljournal.png'
 import reactapptentiesgame from '@/assets/reactapptentiesgame.png'
+import takeaguess from '@/assets/takeaguess.png'
 
 export const projects = [
     {
@@ -168,5 +169,19 @@ export const projects = [
         route: '/projects/react-tenzies-game',
         liveUrl: 'https://esmasreactlabtenziesgame.netlify.app/',
         github: 'https://github.com/esmaari/tenziesgame'
-    }
+    },
+    {
+        slug: 'react-take-a-guess',
+        title: 'Take a Guess — Clapperboard Hangman',
+        description: 'A film-themed hangman game built with React and Vite, featuring animated clapperboards and 9 takes to guess the word.',
+        longDescription: `This project was built to practice React state management, conditional rendering, and component composition. 
+        The game challenges players to guess a random word within 9 attempts — each wrong guess closes a clapperboard, 
+        mimicking a real film take. It demonstrates useState logic, derived state, and clean UI updates with clsx.`,
+        image: takeaguess, 
+        technologies: ['React', 'JavaScript', 'Vite', 'clsx', 'CSS'],
+        route: '/projects/react-take-a-guess',
+        liveUrl: 'https://esmasreactlabtakeaguessgame.netlify.app/', 
+        github: 'https://github.com/esmaari/take-a-guess'
+        }
+
 ]
