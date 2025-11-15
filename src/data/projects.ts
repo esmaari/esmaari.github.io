@@ -20,6 +20,9 @@ import reactcreatememe from '@/assets/reactcreatememe.png'
 import reacttraveljournal from '@/assets/reacttraveljournal.png'
 import reactapptentiesgame from '@/assets/reactapptentiesgame.png'
 import takeaguess from '@/assets/takeaguess.png'
+import kanbanBoard from '@/assets/kanbanIssueTracker.png'
+import kanbanLogin from '@/assets/kanbanIssueTrackerLogin.png'
+import kanbanEditDialog from '@/assets/kanbanIssueTrackerEditIssue.png'
 
 export const projects = [
     {
@@ -40,7 +43,6 @@ export const projects = [
         technologies: ['Vue 3', 'Vite', 'Supabase', 'Tailwind CSS'],
         route: '/projects/cosmictrack',
         liveUrl: 'https://jolly-chimera-f23145.netlify.app/'
-        // no public GitHub link
     },
     {
         slug: 'sinevega',
@@ -182,6 +184,34 @@ export const projects = [
         route: '/projects/react-take-a-guess',
         liveUrl: 'https://esmasreactlabtakeaguessgame.netlify.app/', 
         github: 'https://github.com/esmaari/take-a-guess'
-        }
+    },
+    {
+    slug: 'kanban-issue-tracker',
+    title: 'Kanban Issue Tracker',
+    description: 'A feature-sliced Kanban board built with Vue 3, TypeScript, Pinia, and Vite.',
+    longDescription: `Kanban Issue Tracker is a production-grade frontend architecture project that showcases real-world 
+    concepts such as authentication, state management, routing, CRUD workflows, and multi-layer testing. It includes a 
+    fully abstracted API layer with automatic mock-backend mode, enabling the entire app to run seamlessly on Netlify 
+    without a server.
+
+    The app provides a complete authentication flow with protected routes, token persistence, auto-logout on expiration, 
+    and a mock login system (username: "demo", password: "1234") for demonstration purposes. Issues can be created, edited, 
+    deleted, and filtered by status, priority, and search query — all built using the FAST UI methodology and 
+    feature-based slice architecture.
+
+    UI design focuses on accessibility, reusable Base UI components, and clean UX patterns such as loading, empty, and 
+    error states. Testing includes Vitest for unit testing and Cypress for end-to-end flows. This project is fully public, 
+    including both the GitHub repository and the live Netlify deployment.`,
+    image: kanbanBoard, // you will add this yourself
+    gallery: [
+        { name: 'Login View', path: kanbanLogin },   
+        { name: 'Edit Dialog Screen', path: kanbanEditDialog }
+    ],
+    technologies: ['Vue 3', 'TypeScript', 'Pinia', 'Vite', 'Cypress', 'Vitest'],
+    route: '/projects/kanban-issue-tracker',
+    liveUrl: 'https://kanban-issue-tracker.netlify.app/#/login',
+    githubUrl: 'https://github.com/esmaari/-kanban-issue-tracker'
+}
+
 
 ]
