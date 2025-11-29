@@ -212,7 +212,7 @@ export const projects = [
     technologies: ['Vue 3', 'TypeScript', 'Pinia', 'Vite', 'Cypress', 'Vitest'],
     route: '/projects/kanban-issue-tracker',
     liveUrl: 'https://kanban-issue-tracker.netlify.app/#/login',
-    githubUrl: 'https://github.com/esmaari/-kanban-issue-tracker'
+    github: 'https://github.com/esmaari/-kanban-issue-tracker'
 },
 
 
@@ -244,7 +244,7 @@ export const projects = [
     technologies: ['React', 'TypeScript', 'React Router 6', 'Supabase', 'Vite', 'Netlify'],
     route: '/projects/vanlife-react',
     liveUrl: 'https://esmasreactlabvanlife.netlify.app/',
-    githubUrl: 'https://github.com/esmaari/vanlife'
+    github: 'https://github.com/esmaari/vanlife'
 }
 
 
