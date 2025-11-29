@@ -23,6 +23,8 @@ import takeaguess from '@/assets/takeaguess.png'
 import kanbanBoard from '@/assets/kanbanIssueTracker.png'
 import kanbanLogin from '@/assets/kanbanIssueTrackerLogin.png'
 import kanbanEditDialog from '@/assets/kanbanIssueTrackerEditIssue.png'
+import vanlifePreview from '@/assets/reactappvanlife2.png'
+import vanlifeListing from '@/assets/reactappvanlife1.png'
 
 export const projects = [
     {
@@ -211,6 +213,38 @@ export const projects = [
     route: '/projects/kanban-issue-tracker',
     liveUrl: 'https://kanban-issue-tracker.netlify.app/#/login',
     githubUrl: 'https://github.com/esmaari/-kanban-issue-tracker'
+},
+
+
+{
+    slug: 'vanlife-react',
+    title: 'VanLife – React App',
+    description: 'A fully rebuilt VanLife application using React Router 6, TypeScript, and Supabase.',
+    longDescription: `VanLife is a modern React application rebuilt from the classic Scrimba project but enhanced with 
+    real backend capabilities using Supabase. The app features dynamic van listings, route-based filtering, protected 
+    routes for host-only sections, real-time data loading from Supabase, and a fully implemented login flow using 
+    localStorage-based auth guards.
+
+    Supabase replaces the original MirageJS mock server, providing real API requests, Row Level Security policies, 
+    and database-driven content. All vans are fetched from a Supabase table with dynamic filtering (simple, luxury, rugged) 
+    and individual detail pages. Host-only routes are protected using a custom <AuthRequired /> component that redirects 
+    guests to the login page while preserving their intended route (e.g., redirecting back to /host/vans after login).
+
+    The project is deployed on Netlify with environment variables for Supabase keys, a SPA-friendly redirect configuration, 
+    and a clean build pipeline using Vite. This version demonstrates end-to-end production flow: database schema design, 
+    security policies, environment setup, dynamic routing, state handling, and optimized frontend architecture — all wrapped 
+    in a polished UI following the original VanLife visual style.
+    
+    This project is fully public, including both the GitHub repository and the live Netlify deployment.`,
+    
+    image: vanlifePreview,   
+    gallery: [
+        { name: 'Vans Listing', path: vanlifeListing }
+    ],
+    technologies: ['React', 'TypeScript', 'React Router 6', 'Supabase', 'Vite', 'Netlify'],
+    route: '/projects/vanlife-react',
+    liveUrl: 'https://esmasreactlabvanlife.netlify.app/',
+    githubUrl: 'https://github.com/esmaari/vanlife'
 }
 
 
