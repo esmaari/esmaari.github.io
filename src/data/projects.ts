@@ -1,7 +1,7 @@
 import sinevegaPreview from '@/assets/sinevega/sinevega-preview.png'
-import cosmicPreview from '@/assets/cosmictrack/cosmicPreview.png'
-import ctHome from '@/assets/cosmictrack/ctHome.png'
-import ctAddStep from '@/assets/cosmictrack/ctAddstep.png'
+import cosmicPreview from '@/assets/cosmictrack/cosmicPreview26.png'
+import cosmictrackJourneys from '@/assets/cosmictrack/cosmictrack-journeys.png'
+import cosmictrackAddStep from '@/assets/cosmictrack/cosmictrack-addstep.png'
 import svHome from '@/assets/sinevega/SV_Desktop - 1140px (Home).png'
 import svLogin from '@/assets/sinevega/SV_Desktop - 1140px (Login).png'
 import svMovieDetails from '@/assets/sinevega/SV_Desktop - 1140px (Movie Details).png'
@@ -10,41 +10,45 @@ import svProfile from '@/assets/sinevega/SV_Desktop - 1140px (Profile).png'
 import svRegister from '@/assets/sinevega/SV_Desktop - 1140px (Register).png'
 import svSearchResult from '@/assets/sinevega/SV_Desktop - 1140px (SearchResult).png'
 
-import sevilayImg from '@/assets/SevilayE.png'
-import uadImg from '@/assets/Uad.png'
-import kboImg from '@/assets/project.png'
-import tetrisImg from '@/assets/tetris.png'
-import reactTodoImg from '@/assets/reacttodoapp.png'
-import reactWeatherApp from '@/assets/reactweatherapp.png'
-import reactcreatememe from '@/assets/reactcreatememe.png'
-import reacttraveljournal from '@/assets/reacttraveljournal.png'
-import reactapptentiesgame from '@/assets/reactapptentiesgame.png'
-import takeaguess from '@/assets/takeaguess.png'
-import kanbanBoard from '@/assets/kanbanIssueTracker.png'
-import kanbanLogin from '@/assets/kanbanIssueTrackerLogin.png'
-import kanbanEditDialog from '@/assets/kanbanIssueTrackerEditIssue.png'
-import vanlifePreview from '@/assets/reactappvanlife2.png'
-import vanlifeListing from '@/assets/reactappvanlife1.png'
+import SevilayE26 from '@/assets/sevilaye/SevilayE26.png'
+import SevilayECardChoosingPage from '@/assets/sevilaye/SevilayECardChoosingPage.png'
+import SevilayEDesignMockups from '@/assets/sevilaye/SevilayEDeviceMockups.png'
+import uadImg from '@/assets/uad/Uad.png'
+import kboCardDesign from '@/assets/kbo/kboCardDesign.png'
+import kboHomePage from '@/assets/kbo/kboHomePage.png'
+import kboMenuPage from '@/assets/kbo/kboMenuPage.png'
+import tetrisImg from '@/assets/tetris/tetris.png'
+import reactTodoImg from '@/assets/react-todo/reacttodoapp.png'
+import reactWeatherApp from '@/assets/react-weather/reactweatherapp.png'
+import reactcreatememe from '@/assets/react-meme/reactcreatememe.png'
+import reacttraveljournal from '@/assets/react-travel-journal/reacttraveljournal.png'
+import reactapptentiesgame from '@/assets/react-tenzies-game/reactapptentiesgame.png'
+import takeaguess from '@/assets/react-take-a-guess/takeaguess.png'
+import kanbanBoard from '@/assets/kanban-issue-tracker/kanbanIssueTracker.png'
+import kanbanLogin from '@/assets/kanban-issue-tracker/kanbanIssueTrackerLogin.png'
+import kanbanEditDialog from '@/assets/kanban-issue-tracker/kanbanIssueTrackerEditIssue.png'
+import vanlifePreview from '@/assets/vanlife-react/reactappvanlife2.png'
+import vanlifeListing from '@/assets/vanlife-react/reactappvanlife1.png'
 
 export const projects = [
     {
         slug: 'cosmictrack',
         title: 'CosmicTrack',
-        description: 'A minimal tarot-based journaling app built in 15 days with Vue 3 and Supabase.',
+        description: 'A tarot-based journaling app built with Vue 3 and Supabase, now upgraded for a 2026 release.',
         longDescription: `CosmicTrack is an early-stage spiritual journaling app designed for personal growth and self-reflection. 
         It includes tarot card pulls, step-by-step note-taking, and symbolic categorization. The first version was built in just 15 
-        days, focusing on functionality over aesthetics, and the design will be a major focus in the next release. Currently, 
-        I’m developing the next version of CosmicTrack, which integrates AI-powered tarot card interpretations for instant readings, 
-        along with a completely redesigned interface and improved user experience. This project is not fully public yet — both the 
-        GitHub repository and full showcase are currently private.`,
+        days with a focus on core functionality. In January 2026, I shipped a second version with significant improvements and a 
+        redesigned interface, and it is now preparing for official public release. I’m also working on AI-powered tarot card 
+        interpretations for instant readings. This project is not fully public yet — both the GitHub repository and full showcase 
+        are currently private.`,
         image: cosmicPreview,
         gallery: [
-            { name: 'Home Screen', path: ctHome },
-            { name: 'Add Step Screen', path: ctAddStep }
+            { name: 'Home Screen', path: cosmictrackJourneys },
+            { name: 'Add Step Screen', path: cosmictrackAddStep }
         ],
         technologies: ['Vue 3', 'Vite', 'Supabase', 'Tailwind CSS'],
         route: '/projects/cosmictrack',
-        liveUrl: 'https://jolly-chimera-f23145.netlify.app/'
+        liveUrl: 'https://cosmictrack.netlify.app/'
     },
     {
         slug: 'sinevega',
@@ -83,7 +87,11 @@ export const projects = [
         title: 'Kozmik Bilinç Okulu',
         description: 'A WordPress-based site for an online spiritual school, with digital product sales.',
         longDescription: `The site is designed for an online school offering digital products via WooCommerce.`,
-        image: kboImg,
+        image: kboHomePage,
+        gallery: [
+            { name: 'Menu Page', path: kboMenuPage },
+            { name: 'Card Design', path: kboCardDesign }
+        ],
         technologies: ['WordPress', 'WooCommerce', 'Elementor'],
         route: '/projects/kbo',
         liveUrl: 'https://kozmikbilincokulu.com/'
@@ -101,10 +109,14 @@ export const projects = [
     {
         slug: 'se',
         title: 'Sevilay Eriçdem Website',
-        description: 'Personal brand website for an author, created with WordPress classic theme.',
-        longDescription: `Personal blog and presentation site for Sevilay Eriçdem, author and public speaker.`,
-        image: sevilayImg,
-        technologies: ['WordPress', 'Classic Theme'],
+        description: 'Corporate showcase website built for Sevilay Eriçdem on Next.js 16.',
+        longDescription: `A corporate showcase site for Sevilay Eriçdem built with Next.js 16. It includes a masculine/feminine card draw interface, articles, about, and contact pages.`,
+        image: SevilayE26,
+        gallery: [
+            { name: 'Card Choosing Page', path: SevilayECardChoosingPage },
+            { name: 'Design Mockups', path: SevilayEDesignMockups }
+        ],
+        technologies: ['Next.js 16', 'React', 'Figma'],
         route: '/projects/se',
         liveUrl: 'https://www.sevilayericdem.com/',
         github: 'https://github.com/esmaari/sevilayeV_1.0'

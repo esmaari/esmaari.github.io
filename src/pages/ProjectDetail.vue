@@ -58,9 +58,29 @@
                 <img
                   :src="item.path"
                   :alt="`${project.title} ${item.name} Design Preview Screenshot`"
-                  class="w-100 shadow rounded"
+                  class="w-100 shadow rounded gallery-image"
+                  role="button"
+                  @click="openGallery(item)"
                 />
             </div>
+        </div>
+  
+        <div
+          v-if="activeImage"
+          class="gallery-modal"
+          role="dialog"
+          aria-modal="true"
+          @click.self="closeGallery"
+        >
+          <button class="gallery-close" type="button" @click="closeGallery" aria-label="Close image preview">
+            ×
+          </button>
+          <img
+            :src="activeImage.path"
+            :alt="`${project.title} ${activeImage.name} Full Preview`"
+            class="gallery-modal-image"
+          />
+          <p class="gallery-caption">{{ activeImage.name }}</p>
         </div>
       </div>
     </section>
@@ -68,7 +88,7 @@
   
 <script setup>
   import { useRoute } from 'vue-router'
-  import { computed, watchEffect } from 'vue'
+  import { computed, watchEffect, ref, onMounted, onBeforeUnmount } from 'vue'
   import { useHead, useSeoMeta } from '@unhead/vue'
   import { projects } from '@/data/projects'
 
@@ -78,6 +98,30 @@
   const project = computed(() =>
     projects.find(p => p.slug === route.params.slug)
   )
+
+  const activeImage = ref(null)
+
+  const openGallery = (item) => {
+    activeImage.value = item
+  }
+
+  const closeGallery = () => {
+    activeImage.value = null
+  }
+
+  const onKeydown = (event) => {
+    if (event.key === 'Escape') {
+      closeGallery()
+    }
+  }
+
+  onMounted(() => {
+    window.addEventListener('keydown', onKeydown)
+  })
+
+  onBeforeUnmount(() => {
+    window.removeEventListener('keydown', onKeydown)
+  })
 
   // SEO + JSON-LD updates when new project
   watchEffect(() => {
@@ -134,6 +178,55 @@
   }
   .lead {
     font-style: italic;
+  }
+  .gallery-image {
+    cursor: zoom-in;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+  .gallery-image:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.12);
+  }
+  .gallery-modal {
+    position: fixed;
+    inset: 0;
+    background: rgba(10, 10, 10, 0.82);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+    z-index: 1000;
+  }
+  .gallery-modal-image {
+    max-width: min(1100px, 92vw);
+    max-height: 78vh;
+    width: auto;
+    height: auto;
+    border-radius: 12px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.35);
+  }
+  .gallery-close {
+    position: absolute;
+    top: 20px;
+    right: 24px;
+    background: rgba(255, 255, 255, 0.1);
+    color: #fff;
+    border: none;
+    font-size: 32px;
+    line-height: 1;
+    padding: 6px 12px;
+    border-radius: 999px;
+    cursor: pointer;
+  }
+  .gallery-close:hover {
+    background: rgba(255, 255, 255, 0.2);
+  }
+  .gallery-caption {
+    margin-top: 12px;
+    color: #f5f5f5;
+    font-size: 0.95rem;
+    text-align: center;
   }
   </style>
   
