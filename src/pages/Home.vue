@@ -13,11 +13,6 @@
 
            <p class="mt-3 fs-5">
             <span class="fw-semibold">Freelance Frontend Developer</span> — available for remote projects.
-            <a href="https://www.upwork.com/freelancers/~01c9ebe832d863bbaf?mp_source=share"
-              target="_blank" rel="noopener"
-              class="fw-semibold text-decoration-none hover-highlight ms-2">
-              Hire me on Upwork ↗
-            </a>
           </p>
 
         </div>
@@ -26,7 +21,7 @@
       <!-- Görsel -->
       <div class="col-md-6 col-lg-3">
         <div class="p-0 rounded block-bg h-100 overflow-hidden">
-          <img src="@/assets/esma.jpeg" alt="Esma Ari — Frontend Developer & Designer professional headshot" class="img-cover" />
+          <img src="@/assets/esmaHome.JPG" alt="Esma Ari — Frontend Developer & Designer professional headshot" class="img-cover" />
         </div>
       </div>
 
