@@ -39,7 +39,14 @@
 
     <!-- Form -->
     <div class="contact-form p-4 highlight-border block-bg rounded">
-      <form @submit.prevent="handleSubmit">
+      <form name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+        <input type="hidden" name="form-name" value="contact" />
+        <p class="d-none">
+          <label>
+            Don’t fill this out if you're human:
+            <input name="bot-field" />
+          </label>
+        </p>
         <div class="mb-3">
           <label for="name" class="form-label fw-semibold">Your Name</label>
           <input type="text" id="name" class="form-control" v-model="name" required />
@@ -95,10 +102,7 @@
   const email = ref('')
   const message = ref('')
 
-  const handleSubmit = () => {
-    console.log('Form submitted:', name.value, email.value, message.value)
-    alert('Thank you! Your message has been received.')
-  }
+  // Netlify handles the POST; no client-side submit handler needed.
 </script>
 
 
