@@ -1,11 +1,12 @@
 :root {
     /* Arka Planlar */
-    --primary-bg: #fdecef;
+    --primary-bg: #2c2326;
     --block-bg: #f9cfd6;
     --block-bg-dark: #f8b5c4;
 
     /* Metinler ve Genel */
     --text-color: #1a1a1a;
+    --text-on-primary: #f3eef1;
     --accent: #e91e63; // Genel vurgu rengi
     --subtle-text: #777;
     --border-radius: 12px;
@@ -53,7 +54,7 @@ a:hover,
 /* Body ve Genel Ayarlar */
 body {
     background-color: var(--primary-bg) !important;
-    color: var(--text-color);
+    color: var(--text-on-primary);
     font-family: 'Inter', sans-serif;
     margin: 0;
     padding: 0;
@@ -65,6 +66,23 @@ a {
     text-decoration: none;
     transition: color 0.3s ease;
 }
+
+.text-on-primary {
+    color: var(--text-on-primary) !important;
+}
+
+.text-muted-on-primary {
+    color: rgba(243, 238, 241, 0.7) !important;
+}
+
+.block-bg {
+    color: var(--text-color);
+}
+
+.block-bg a {
+    color: var(--text-color);
+}
+
 
 .custom-btn {
     appearance: none;

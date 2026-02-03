@@ -5,7 +5,7 @@
       <div class="col-md-6 col-lg-6">
         <div class="p-4 rounded block-bg h-100 d-flex flex-column justify-content-between">
           <h1 class="fw-bold display-5">
-            <span class="px-2 rounded text-black" style="background-color: var(--highlight-1)">Frontend Developer.</span><br />
+            <span class="px-2 rounded text-black" style="background-color: var(--highlight-1)">Freelance Frontend Developer.</span><br />
             <span class="px-2 rounded text-black" style="background-color: var(--highlight-2)">UI Designer.</span><br />
             <span class="px-2 rounded text-black" style="background-color: var(--highlight-3)">Content Creator.</span><br />
             <span class="px-2 rounded text-black" style="background-color: var(--highlight-4)">Storyteller.</span>
@@ -71,9 +71,9 @@
 
       <!-- Contact -->
       <div class="col-md-3">
-        <div class="p-4 rounded block-bg h-100 d-grid">
+        <div class="p-4 rounded block-bg h-100 d-flex flex-column justify-content-center">
           <p class="label mb-2">Have some questions?</p>
-          <router-link to="/contact" class="text-black text-decoration-none fs-5 fw-bold hover-highlight">
+          <router-link to="/contact" class="custom-btn w-100 text-center">
             Contact me ↗
           </router-link>
         </div>
@@ -82,12 +82,26 @@
       <!-- Sosyal Medya -->
       <div class="col-md-3">
         <div class="p-3 rounded block-bg highlight-border h-100 d-flex flex-column justify-content-center">
-          <a href="https://www.linkedin.com/in/esma-ari/" class="text-black text-decoration-none fw-bold hover-highlight mb-1">LINKEDIN</a>
-          <a href="https://github.com/esmaari" class="text-black text-decoration-none fw-bold hover-highlight mb-1">GITHUB</a>
-          <a href="https://www.instagram.com/esma.acts/" class="text-black text-decoration-none fw-bold hover-highlight mb-1">INSTAGRAM</a>
-          <a href="https://www.youtube.com/@esmaacts90" class="text-black text-decoration-none fw-bold hover-highlight">YOUTUBE</a>
-          <a href="https://www.upwork.com/freelancers/~01c9ebe832d863bbaf?mp_source=share" target="_blank" rel="noopener" class="text-black text-decoration-none fw-bold hover-highlight">UPWORK</a>
-
+          <a href="https://www.linkedin.com/in/esma-ari/" class="social-link fw-bold hover-highlight mb-1">
+            <Linkedin :size="16" />
+            <span>LINKEDIN</span>
+          </a>
+          <a href="https://github.com/esmaari" class="social-link fw-bold hover-highlight mb-1">
+            <Github :size="16" />
+            <span>GITHUB</span>
+          </a>
+          <a href="https://www.instagram.com/esma.acts/" class="social-link fw-bold hover-highlight mb-1">
+            <Instagram :size="16" />
+            <span>INSTAGRAM</span>
+          </a>
+          <a href="https://www.youtube.com/@esmaacts90" class="social-link fw-bold hover-highlight mb-1">
+            <Youtube :size="16" />
+            <span>YOUTUBE</span>
+          </a>
+          <a href="https://www.upwork.com/freelancers/~01c9ebe832d863bbaf?mp_source=share" target="_blank" rel="noopener" class="social-link fw-bold hover-highlight">
+            <Briefcase :size="16" />
+            <span>UPWORK</span>
+          </a>
         </div>
       </div>
     </div>
@@ -97,6 +111,7 @@
 <script setup lang="ts">
   import { projects } from '@/data/projects'
   import { useHead, useSeoMeta } from '@unhead/vue'
+  import { Briefcase, Github, Instagram, Linkedin, Youtube } from 'lucide-vue-next'
 
   const base = 'https://portfolio-esmaari.netlify.app'
   const og   = `${base}/og-preview.png` 
@@ -136,4 +151,13 @@
   font-size: 0.9rem;
   color: var(--subtle-text);
 }
+
+.social-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+  color: var(--text-color);
+}
+
 </style>

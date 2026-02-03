@@ -59,7 +59,7 @@ const toggleMenu = () => {
   position: absolute;
   height: 3px;
   width: 100%;
-  background-color: var(--text-color);
+  background-color: var(--text-on-primary);
   border-radius: 3px;
   transition: all 0.3s ease;
 }
@@ -98,7 +98,7 @@ const toggleMenu = () => {
 
 .nav-links a {
   text-decoration: none;
-  color: var(--text-color);
+  color: var(--text-on-primary);
   font-weight: 500;
   transition: color 0.3s ease;
   padding-bottom: 4px;

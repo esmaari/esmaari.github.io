@@ -13,6 +13,12 @@
               </h2>
 
               <p class="mb-3">
+                <strong>Freelance Frontend Developer</strong><br />
+                Munich (Remote, global clients) — <em>May 2025 – Present</em><br />
+                Delivering responsive web interfaces and UI implementation for client projects.
+              </p>
+
+              <p class="mb-3">
                 <strong>Frontend Web Developer / Designer</strong><br />
                 Netformic GmbH, Stuttgart (Remote) — <em>Jul 2023 – Feb 2025</em><br />
                 Developed responsive e-commerce platforms using Pimcore, Tailwind CSS, Bootstrap, and Alpine.js. Created design systems with PatternLab and improved UX with the design team. Participated in client meetings and code reviews.
