@@ -10,7 +10,13 @@
 
     <!-- Form -->
     <div class="contact-form p-4 highlight-border block-bg rounded">
-      <form name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+      <form
+        name="contact"
+        method="POST"
+        data-netlify="true"
+        netlify-honeypot="bot-field"
+        @submit.prevent="handleSubmit"
+      >
         <input type="hidden" name="form-name" value="contact" />
         <p class="d-none">
           <label>
@@ -33,9 +39,13 @@
           <textarea id="message" name="message" class="form-control" rows="5" v-model="message" required></textarea>
         </div>
 
-        <button type="submit" class="btn-sm custom-btn w-100 fw-bold">
-          Send Message
+        <button type="submit" class="btn-sm custom-btn w-100 fw-bold" :disabled="isSubmitting">
+          {{ isSubmitting ? 'Sending...' : 'Send Message' }}
         </button>
+
+        <p v-if="status === 'error'" class="mt-3 mb-0 text-danger fw-semibold">
+          Message could not be sent. Please try again.
+        </p>
       </form>
     </div>
 
@@ -66,6 +76,7 @@
 
 <script setup lang="ts">
   import { ref } from 'vue'
+  import { useRouter } from 'vue-router'
   import { useHead, useSeoMeta } from '@unhead/vue'
   import { Briefcase, Linkedin } from 'lucide-vue-next'
 
@@ -96,8 +107,46 @@
   const name = ref('')
   const email = ref('')
   const message = ref('')
+  const isSubmitting = ref(false)
+  const status = ref<'idle' | 'error'>('idle')
+  const router = useRouter()
 
-  // Netlify handles the POST; no client-side submit handler needed.
+  const encode = (data: Record<string, string>) =>
+    Object.entries(data)
+      .map(([key, value]) => `${encodeURIComponent(key)}=${encodeURIComponent(value)}`)
+      .join('&')
+
+  const handleSubmit = async () => {
+    isSubmitting.value = true
+    status.value = 'idle'
+
+    try {
+      const response = await fetch('/', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: encode({
+          'form-name': 'contact',
+          name: name.value,
+          email: email.value,
+          message: message.value
+        })
+      })
+
+      if (!response.ok) {
+        throw new Error(`Form submit failed with status ${response.status}`)
+      }
+
+      name.value = ''
+      email.value = ''
+      message.value = ''
+      await router.push('/thank-you')
+    } catch (error) {
+      console.error(error)
+      status.value = 'error'
+    } finally {
+      isSubmitting.value = false
+    }
+  }
 </script>
 
 

@@ -9,21 +9,36 @@
 
     <!-- Navigation Links -->
     <ul class="nav-links d-md-flex gap-4 m-0 p-0" :class="{ open: isOpen }">
-      <li><router-link to="/" exact>Home</router-link></li>
-      <li><router-link to="/about">About</router-link></li>
-      <li><router-link to="/portfolio">Portfolio</router-link></li>
-      <li><router-link to="/services">Services</router-link></li>
-      <li><router-link to="/contact">Contact</router-link></li>
+      <li><router-link to="/" exact @click="closeMenu">Home</router-link></li>
+      <li><router-link to="/about" @click="closeMenu">About</router-link></li>
+      <li><router-link to="/portfolio" @click="closeMenu">Portfolio</router-link></li>
+      <li><router-link to="/services" @click="closeMenu">Services</router-link></li>
+      <li><router-link to="/contact" @click="closeMenu">Contact</router-link></li>
     </ul>
   </nav>
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue'
+import { ref, watch } from 'vue'
+import { useRoute } from 'vue-router'
+
 const isOpen = ref(false)
+const route = useRoute()
+
 const toggleMenu = () => {
   isOpen.value = !isOpen.value
 }
+
+const closeMenu = () => {
+  isOpen.value = false
+}
+
+watch(
+  () => route.fullPath,
+  () => {
+    closeMenu()
+  }
+)
 </script>
 
 <style scoped>
@@ -115,6 +130,10 @@ const toggleMenu = () => {
 
 /* Mobile dropdown menu */
 @media (max-width: 768px) {
+  .custom-navbar {
+    padding: 0.9rem 1rem !important;
+  }
+
   .nav-links {
     display: none;
     flex-direction: column;
@@ -123,8 +142,14 @@ const toggleMenu = () => {
     top: 64px;
     left: 0;
     right: 0;
-    padding: 1.5rem 2rem;
+    gap: 0.25rem;
+    padding: 1rem 1rem 1.25rem;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+  }
+
+  .nav-links a {
+    display: block;
+    padding: 0.65rem 0.75rem;
   }
 
   .nav-links.open {
