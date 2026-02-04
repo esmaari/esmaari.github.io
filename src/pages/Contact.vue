@@ -13,9 +13,9 @@
       <form
         name="contact"
         method="POST"
+        action="/thank-you"
         data-netlify="true"
         netlify-honeypot="bot-field"
-        @submit.prevent="handleSubmit"
       >
         <input type="hidden" name="form-name" value="contact" />
         <p class="d-none">
@@ -26,26 +26,22 @@
         </p>
         <div class="mb-3">
           <label for="name" class="form-label fw-semibold text-on-primary">Your Name</label>
-          <input type="text" id="name" name="name" class="form-control" v-model="name" required />
+          <input type="text" id="name" name="name" class="form-control" required />
         </div>
 
         <div class="mb-3">
           <label for="email" class="form-label fw-semibold text-on-primary">Your Email</label>
-          <input type="email" id="email" name="email" class="form-control" v-model="email" required />
+          <input type="email" id="email" name="email" class="form-control" required />
         </div>
 
         <div class="mb-3">
           <label for="message" class="form-label fw-semibold text-on-primary">Your Message</label>
-          <textarea id="message" name="message" class="form-control" rows="5" v-model="message" required></textarea>
+          <textarea id="message" name="message" class="form-control" rows="5" required></textarea>
         </div>
 
-        <button type="submit" class="btn-sm custom-btn w-100 fw-bold" :disabled="isSubmitting">
-          {{ isSubmitting ? 'Sending...' : 'Send Message' }}
+        <button type="submit" class="btn-sm custom-btn w-100 fw-bold">
+          Send Message
         </button>
-
-        <p v-if="status === 'error'" class="mt-3 mb-0 text-danger fw-semibold">
-          Message could not be sent. Please try again.
-        </p>
       </form>
     </div>
 
@@ -75,8 +71,6 @@
 </template>
 
 <script setup lang="ts">
-  import { ref } from 'vue'
-  import { useRouter } from 'vue-router'
   import { useHead, useSeoMeta } from '@unhead/vue'
   import { Briefcase, Linkedin } from 'lucide-vue-next'
 
@@ -104,49 +98,6 @@
     twitterImage: og
   })
 
-  const name = ref('')
-  const email = ref('')
-  const message = ref('')
-  const isSubmitting = ref(false)
-  const status = ref<'idle' | 'error'>('idle')
-  const router = useRouter()
-
-  const encode = (data: Record<string, string>) =>
-    Object.entries(data)
-      .map(([key, value]) => `${encodeURIComponent(key)}=${encodeURIComponent(value)}`)
-      .join('&')
-
-  const handleSubmit = async () => {
-    isSubmitting.value = true
-    status.value = 'idle'
-
-    try {
-      const response = await fetch('/', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-        body: encode({
-          'form-name': 'contact',
-          name: name.value,
-          email: email.value,
-          message: message.value
-        })
-      })
-
-      if (!response.ok) {
-        throw new Error(`Form submit failed with status ${response.status}`)
-      }
-
-      name.value = ''
-      email.value = ''
-      message.value = ''
-      await router.push('/thank-you')
-    } catch (error) {
-      console.error(error)
-      status.value = 'error'
-    } finally {
-      isSubmitting.value = false
-    }
-  }
 </script>
 
 
