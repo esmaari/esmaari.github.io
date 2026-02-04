@@ -53,6 +53,12 @@
           <Briefcase :size="18" />
           <span>Upwork</span>
         </a>
+        <a href="https://www.malt.de/profile/esmaari"
+          target="_blank" rel="noopener"
+          class="icon-link">
+          <Briefcase :size="18" />
+          <span>Malt</span>
+        </a>
       </div>
     </div>
   </section>

@@ -98,6 +98,10 @@
             <Youtube :size="16" />
             <span>YOUTUBE</span>
           </a>
+          <a href="https://www.malt.de/profile/esmaari" target="_blank" rel="noopener" class="social-link fw-bold hover-highlight mb-1">
+            <Briefcase :size="16" />
+            <span>MALT</span>
+          </a>
           <a href="https://www.upwork.com/freelancers/~01c9ebe832d863bbaf?mp_source=share" target="_blank" rel="noopener" class="social-link fw-bold hover-highlight">
             <Briefcase :size="16" />
             <span>UPWORK</span>
@@ -139,7 +143,7 @@
     twitterImage: og
   })
 
-  const latestProjects = projects.slice(0, 3)
+  const latestProjects = projects.slice(0, 5)
 </script>
 
 <style scoped>
