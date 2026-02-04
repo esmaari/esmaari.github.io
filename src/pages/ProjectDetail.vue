@@ -92,7 +92,7 @@
   import { useHead, useSeoMeta } from '@unhead/vue'
   import { projects } from '@/data/projects'
 
-  const base = 'https://portfolio-esmaari.netlify.app'
+  const base = 'https://esmaari.dev'
   const route = useRoute()
 
   const project = computed(() =>

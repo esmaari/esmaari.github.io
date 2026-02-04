@@ -34,7 +34,7 @@
   import { projects } from '@/data/projects'
   import { useHead, useSeoMeta } from '@unhead/vue'
 
-  const base = 'https://portfolio-esmaari.netlify.app'
+  const base = 'https://esmaari.dev'
   const og = `${base}/og-preview.png`
 
   // Canonical + Title

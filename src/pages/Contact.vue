@@ -13,7 +13,8 @@
       <form
         name="contact"
         method="POST"
-        action="/thank-you"
+        action="/thank-you.html"
+        netlify
         data-netlify="true"
         netlify-honeypot="bot-field"
       >
@@ -48,6 +49,10 @@
     <div class="contact-alt mt-4 text-center">
       <p class="mb-3 text-muted-on-primary">Prefer another channel?</p>
       <div class="d-flex justify-content-center gap-3 flex-wrap">
+        <a href="mailto:esmaari.dev@gmail.com" class="icon-link">
+          <Mail :size="18" />
+          <span>Email</span>
+        </a>
         <a href="https://www.linkedin.com/in/esma-ari/" target="_blank" rel="noopener"
           class="icon-link">
           <Linkedin :size="18" />
@@ -72,9 +77,9 @@
 
 <script setup lang="ts">
   import { useHead, useSeoMeta } from '@unhead/vue'
-  import { Briefcase, Linkedin } from 'lucide-vue-next'
+  import { Briefcase, Linkedin, Mail } from 'lucide-vue-next'
 
-  const base = 'https://portfolio-esmaari.netlify.app'
+  const base = 'https://esmaari.dev'
   const og = `${base}/og-preview.png`
 
   // Canonical + Title
