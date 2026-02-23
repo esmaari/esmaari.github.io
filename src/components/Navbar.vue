@@ -1,29 +1,36 @@
 <template>
-  <nav class="custom-navbar px-4 py-3 d-flex justify-content-between align-items-center">
-    <router-link to="/" class="brand highlight-4-text">Esma Ari</router-link>
+  <nav class="custom-navbar" :class="{ 'is-home-top': isHomeTop }">
+    <div class="page-shell nav-inner d-flex justify-content-between align-items-center">
+      <router-link to="/" class="brand">Esma Ari</router-link>
 
-    <!-- Hamburger Button (mobile only) -->
-    <button class="menu-toggle d-md-none" @click="toggleMenu">
-      <span :class="{ open: isOpen }"></span>
-    </button>
+      <button class="menu-toggle d-md-none" type="button" aria-label="Toggle menu" @click="toggleMenu">
+        <span :class="{ open: isOpen }"></span>
+      </button>
 
-    <!-- Navigation Links -->
-    <ul class="nav-links d-md-flex gap-4 m-0 p-0" :class="{ open: isOpen }">
-      <li><router-link to="/" exact @click="closeMenu">Home</router-link></li>
-      <li><router-link to="/about" @click="closeMenu">About</router-link></li>
-      <li><router-link to="/portfolio" @click="closeMenu">Portfolio</router-link></li>
-      <li><router-link to="/services" @click="closeMenu">Services</router-link></li>
-      <li><router-link to="/contact" @click="closeMenu">Contact</router-link></li>
-    </ul>
+      <ul class="nav-links d-md-flex gap-md-4 m-0 p-0" :class="{ open: isOpen }">
+        <li><router-link to="/" exact @click="closeMenu">Home</router-link></li>
+        <li><router-link to="/about" @click="closeMenu">About</router-link></li>
+        <li><router-link to="/portfolio" @click="closeMenu">Portfolio</router-link></li>
+        <li><router-link to="/services" @click="closeMenu">Services</router-link></li>
+        <li><router-link to="/contact" @click="closeMenu">Contact</router-link></li>
+      </ul>
+    </div>
   </nav>
 </template>
 
 <script setup lang="ts">
-import { ref, watch } from 'vue'
+import { computed, onBeforeUnmount, onMounted, ref, watch } from 'vue'
 import { useRoute } from 'vue-router'
 
 const isOpen = ref(false)
+const isTop = ref(true)
 const route = useRoute()
+
+const isHomeTop = computed(() => route.path === '/' && isTop.value)
+
+const onScroll = () => {
+  isTop.value = window.scrollY < 32
+}
 
 const toggleMenu = () => {
   isOpen.value = !isOpen.value
@@ -37,46 +44,68 @@ watch(
   () => route.fullPath,
   () => {
     closeMenu()
+    onScroll()
   }
 )
+
+onMounted(() => {
+  onScroll()
+  window.addEventListener('scroll', onScroll, { passive: true })
+})
+
+onBeforeUnmount(() => {
+  window.removeEventListener('scroll', onScroll)
+})
 </script>
 
 <style scoped>
 .custom-navbar {
-  background-color: var(--primary-bg);
   position: sticky;
   top: 0;
-  z-index: 1000;
-  backdrop-filter: blur(6px);
-  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.04);
+  z-index: 1100;
+  background: rgba(255, 255, 255, 0.96);
+  border-bottom: 1px solid rgba(167, 139, 250, 0.28);
+  backdrop-filter: saturate(160%) blur(6px);
+  transition: background-color var(--transition-fast), border-color var(--transition-fast);
+}
+
+.custom-navbar.is-home-top {
+  background: transparent;
+  border-bottom-color: transparent;
+  backdrop-filter: none;
+}
+
+.nav-inner {
+  min-height: 72px;
 }
 
 .brand {
-  font-weight: bold;
-  font-size: 1.3rem;
-  text-decoration: none;
-  transition: color 0.3s ease;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--text);
+  letter-spacing: 0.04em;
 }
 
 .menu-toggle {
-  background: none;
   border: none;
-  cursor: pointer;
+  background: transparent;
   width: 28px;
-  height: 24px;
+  height: 20px;
+  padding: 0;
   position: relative;
 }
 
 .menu-toggle span,
 .menu-toggle span::before,
 .menu-toggle span::after {
-  content: '';
+  content: "";
   position: absolute;
-  height: 3px;
+  left: 0;
   width: 100%;
-  background-color: var(--text-on-primary);
-  border-radius: 3px;
-  transition: all 0.3s ease;
+  height: 2px;
+  border-radius: 2px;
+  background: var(--text);
+  transition: transform var(--transition-fast), opacity var(--transition-fast);
 }
 
 .menu-toggle span {
@@ -89,67 +118,85 @@ watch(
 }
 
 .menu-toggle span::after {
-  bottom: -8px;
+  top: 8px;
 }
 
 .menu-toggle span.open {
-  background-color: transparent;
+  background: transparent;
 }
 
 .menu-toggle span.open::before {
-  top: 0;
-  transform: rotate(45deg);
+  transform: translateY(8px) rotate(45deg);
 }
 
 .menu-toggle span.open::after {
-  bottom: 0;
-  transform: rotate(-45deg);
+  transform: translateY(-8px) rotate(-45deg);
 }
 
 .nav-links {
   list-style: none;
-  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 1.3rem;
 }
 
 .nav-links a {
-  text-decoration: none;
-  color: var(--text-on-primary);
+  position: relative;
+  color: var(--text);
   font-weight: 500;
-  transition: color 0.3s ease;
-  padding-bottom: 4px;
+  padding-block: 0.2rem;
 }
 
-.nav-links a:hover {
-  color: var(--highlight-3);
+.nav-links a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -3px;
+  width: 100%;
+  height: 1px;
+  background: var(--interactive);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform var(--transition-fast);
 }
 
-.router-link-exact-active {
-  border-bottom: 2px solid var(--highlight-1);
-  color: var(--highlight-1);
+.nav-links a:hover::after,
+.nav-links .router-link-exact-active::after {
+  transform: scaleX(1);
 }
 
-/* Mobile dropdown menu */
+.nav-links .router-link-exact-active {
+  color: var(--interactive);
+}
+
 @media (max-width: 768px) {
-  .custom-navbar {
-    padding: 0.9rem 1rem !important;
+  .nav-inner {
+    position: relative;
+    min-height: 66px;
   }
 
   .nav-links {
     display: none;
-    flex-direction: column;
-    background-color: var(--primary-bg);
     position: absolute;
-    top: 64px;
+    top: calc(100% + 1px);
     left: 0;
     right: 0;
-    gap: 0.25rem;
-    padding: 1rem 1rem 1.25rem;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    background: #ffffff;
+    border-bottom: 1px solid rgba(167, 139, 250, 0.3);
+    padding: 0.9rem 0;
+    gap: 0.45rem;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .nav-links li {
+    width: 100%;
   }
 
   .nav-links a {
     display: block;
-    padding: 0.65rem 0.75rem;
+    width: 100%;
+    padding: 0.45rem 1.25rem;
   }
 
   .nav-links.open {

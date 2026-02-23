@@ -2,23 +2,23 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
   <!-- Home page -->
-  <url><loc>https://portfolio-esmaari.netlify.app/</loc></url>
+  <url><loc>https://esmaari.dev/</loc></url>
 
   <!-- Pages -->
-  <url><loc>https://portfolio-esmaari.netlify.app/portfolio</loc></url>
-  <url><loc>https://portfolio-esmaari.netlify.app/services</loc></url>
-  <url><loc>https://portfolio-esmaari.netlify.app/contact</loc></url>
+  <url><loc>https://esmaari.dev/portfolio</loc></url>
+  <url><loc>https://esmaari.dev/services</loc></url>
+  <url><loc>https://esmaari.dev/contact</loc></url>
 
   <!-- Project -->
-  <url><loc>https://portfolio-esmaari.netlify.app/projects/cosmictrack</loc></url>
-  <url><loc>https://portfolio-esmaari.netlify.app/projects/sinevega</loc></url>
-  <url><loc>https://portfolio-esmaari.netlify.app/projects/tetris</loc></url>
-  <url><loc>https://portfolio-esmaari.netlify.app/projects/kbo</loc></url>
-  <url><loc>https://portfolio-esmaari.netlify.app/projects/uad</loc></url>
-  <url><loc>https://portfolio-esmaari.netlify.app/projects/se</loc></url>
-  <url><loc>https://portfolio-esmaari.netlify.app/projects/react-todo</loc></url>
-  <url><loc>https://portfolio-esmaari.netlify.app/projects/react-weather</loc></url>
-  <url><loc>https://portfolio-esmaari.netlify.app/projects/react-meme</loc></url>
-  <url><loc>https://portfolio-esmaari.netlify.app/projects/react-travel-journal</loc></url>
+  <url><loc>https://esmaari.dev/projects/cosmictrack</loc></url>
+  <url><loc>https://esmaari.dev/projects/sinevega</loc></url>
+  <url><loc>https://esmaari.dev/projects/tetris</loc></url>
+  <url><loc>https://esmaari.dev/projects/kbo</loc></url>
+  <url><loc>https://esmaari.dev/projects/uad</loc></url>
+  <url><loc>https://esmaari.dev/projects/se</loc></url>
+  <url><loc>https://esmaari.dev/projects/react-todo</loc></url>
+  <url><loc>https://esmaari.dev/projects/react-weather</loc></url>
+  <url><loc>https://esmaari.dev/projects/react-meme</loc></url>
+  <url><loc>https://esmaari.dev/projects/react-travel-journal</loc></url>
 
 </urlset>

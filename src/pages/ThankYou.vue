@@ -1,13 +1,16 @@
 <template>
-  <section class="thank-you-container py-5">
-    <div class="thank-you-card p-4 p-md-5 text-center highlight-border block-bg rounded">
-      <h1 class="mb-3 fw-bold heading-highlight">Thank You</h1>
-      <p class="mb-4 text-on-primary">
-        Your message has been sent successfully. I will get back to you within 24 business hours.
-      </p>
-      <router-link to="/" class="btn-sm custom-btn fw-bold px-4 py-2 d-inline-block text-decoration-none">
-        Back to Home
-      </router-link>
+  <section class="section-spacious thank-you-container">
+    <div class="page-shell">
+      <div class="thank-you-card p-4 p-md-5 text-center thank-you-shell">
+        <p class="hero-label mb-2">Thank You</p>
+        <h1 class="mb-3 fw-bold">Thank You</h1>
+        <p class="mb-4 text-on-primary">
+          Your message has been sent successfully. I will get back to you within 24 business hours.
+        </p>
+        <router-link to="/" class="custom-btn fw-bold px-4 py-2 d-inline-block text-decoration-none">
+          Back to Home
+        </router-link>
+      </div>
     </div>
   </section>
 </template>
@@ -40,17 +43,19 @@ useSeoMeta({
 
 <style scoped>
 .thank-you-container {
-  background-color: var(--primary-bg);
-  color: var(--text-color);
   min-height: calc(100vh - 80px);
   display: flex;
   align-items: center;
-  justify-content: center;
-  padding-inline: 1rem;
 }
 
 .thank-you-card {
-  max-width: 680px;
+  max-width: 720px;
   width: 100%;
+  margin-inline: auto;
+}
+
+.thank-you-shell {
+  background: #ffffff;
+  border: 1px solid rgba(167, 139, 250, 0.35);
 }
 </style>

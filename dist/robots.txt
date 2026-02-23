@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://portfolio-esmaari.netlify.app/sitemap.xml
+Sitemap: https://esmaari.dev/sitemap.xml

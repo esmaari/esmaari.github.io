@@ -1,293 +1,506 @@
 <template>
-  <section class="mx-3 py-5 min-vh-100">
-    <div class="row gy-4">
+  <section class="section-spacious min-vh-100">
+    <div class="page-shell">
+      <header class="about-hero">
+        <p class="hero-label mb-2">About</p>
+        <div class="row g-5 align-items-center">
+          <div class="col-lg-8">
+            <h1 class="about-hero-title mb-4">I design frontend systems that stay predictable as products scale.</h1>
+            <p class="about-hero-copy mb-0">
+              I build interfaces with clear architecture, disciplined state management, and maintainable component systems.
+              The focus is not only visual quality, but product reliability under real usage and growing complexity.
+            </p>
+          </div>
+          <div class="col-lg-4">
+            <figure class="about-portrait-wrap mb-0">
+              <img
+                src="@/assets/esmaAbout1.JPG"
+                alt="Esma Ari, senior frontend engineer"
+                class="about-portrait"
+              />
+            </figure>
+          </div>
+        </div>
+      </header>
+      <section class="about-section">
+        <h2 class="about-section-title">Professional Summary</h2>
+        <p class="about-text">
+          I am a frontend engineer with product design awareness, focused on turning complex requirements into stable interfaces.
+          My work sits at the intersection of architecture, implementation quality, and user clarity.
+          I care about systems that remain maintainable as teams, features, and product scope grow.
+        </p>
+      </section>
 
-      <!-- Row 1 -->
-      <div class="col-12">
-        <div class="row gy-4">
-          <!-- Work Experience -->
+      <section class="about-section">
+        <h2 class="about-section-title">Experience</h2>
+        <div class="experience-list">
+          <article class="experience-item">
+            <p class="experience-date mb-1">May 2025 – Present</p>
+            <h3 class="experience-role mb-2">Freelance Frontend Engineer · Munich (Remote)</h3>
+            <p class="about-text mb-0">
+              Partner with product teams and founders to deliver production-grade frontend systems with clear architecture,
+              predictable delivery scope, and maintainable implementation standards.
+            </p>
+          </article>
+
+          <article class="experience-item">
+            <p class="experience-date mb-1">Jul 2023 – Feb 2025</p>
+            <h3 class="experience-role mb-2">Frontend Developer / Designer · Netformic GmbH</h3>
+            <p class="about-text mb-0">
+              Built and improved e-commerce interfaces, contributed to reusable UI patterns, and collaborated with design teams
+              to raise consistency and implementation quality across client projects.
+            </p>
+          </article>
+
+          <article class="experience-item">
+            <p class="experience-date mb-1">Jun 2018 – Jun 2023</p>
+            <h3 class="experience-role mb-2">Frontend Developer / Designer · Pharma4u GmbH</h3>
+            <p class="about-text mb-0">
+              Developed SPA features with Vue, improved frontend reliability with testing workflows, and helped shape UX decisions
+              through structured design-to-development collaboration.
+            </p>
+          </article>
+
+          <article class="experience-item">
+            <p class="experience-date mb-1">Nov 2016 – Nov 2017</p>
+            <h3 class="experience-role mb-2">Web Designer · Bavarian State Library</h3>
+            <p class="about-text mb-0">
+              Contributed to website relaunches, built responsive template systems, and supported quality assurance workflows
+              to improve consistency across public-facing pages.
+            </p>
+          </article>
+
+          <article class="experience-item">
+            <p class="experience-date mb-1">Jun 2016 – Jul 2016</p>
+            <h3 class="experience-role mb-2">Project Assistant · VirtualWorks GmbH</h3>
+            <p class="about-text mb-0">
+              Supported language-data structuring for an e-commerce lexicon initiative, with focus on clarity, classification,
+              and practical usability.
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <section class="about-section">
+        <h2 class="about-section-title">Core Competencies</h2>
+        <div class="row g-4">
           <div class="col-lg-6">
-            <div class="p-4 rounded block-bg h-100 highlight-border">
-              <h2 class="fw-bold mb-3">
-                <span class="px-2 rounded text-black" style="background-color: var(--highlight-2)">Work Experience</span>
-              </h2>
-
-              <p class="mb-3">
-                <strong>Freelance Frontend Developer</strong><br />
-                Munich (Remote, global clients) — <em>May 2025 – Present</em><br />
-                Delivering responsive web interfaces and UI implementation for client projects.
-              </p>
-
-              <p class="mb-3">
-                <strong>Frontend Web Developer / Designer</strong><br />
-                Netformic GmbH, Stuttgart (Remote) — <em>Jul 2023 – Feb 2025</em><br />
-                Developed responsive e-commerce platforms using Pimcore, Tailwind CSS, Bootstrap, and Alpine.js. Created design systems with PatternLab and improved UX with the design team. Participated in client meetings and code reviews.
-              </p>
-
-              <p class="mb-3">
-                <strong>Frontend Web Developer / Designer</strong><br />
-                Pharma4u GmbH, Munich — <em>Jun 2018 – Jun 2023</em><br />
-                Designed and developed SPAs using Vue.js, Material Design, and Tailwind CSS. Created wireframes and prototypes, and led testing with Cypress. Collaborated across teams to improve the app experience.
-              </p>
-
-              <p class="mb-3">
-                <strong>Web Designer</strong><br />
-                Bavarian State Library, Munich — <em>Nov 2016 – Nov 2017</em><br />
-                Contributed to website relaunches, created responsive layouts with Bootstrap, and built Typo3 templates. Used Selenium for testing.
-              </p>
-
-              <p class="mb-0">
-                <strong>Project Assistant</strong><br />
-                VirtualWorks GmbH, Munich — <em>Jun 2016 – Jul 2016</em><br />
-                Developed a Turkish electronic lexicon and synonym database for e-commerce usability.
-              </p>
-            </div>
+            <h3 class="competency-title">Frontend Engineering</h3>
+            <p class="about-text mb-0">
+              TypeScript, JavaScript, Vue 3 (Composition API), Pinia, Vue Router, React foundations, modular component architecture,
+              and long-term maintainability patterns.
+            </p>
           </div>
-
-          <!-- Portrait -->
-          <div class="col-lg-3 col-md-6">
-            <div class="p-0 rounded block-bg h-100 overflow-hidden">
-              <img src="@/assets/esmaAbout1.JPG" alt="Esma Ari holding a manual film camera — creative portrait" class="img-cover" />
-            </div>
+          <div class="col-lg-6">
+            <h3 class="competency-title">Product UI Systems</h3>
+            <p class="about-text mb-0">
+              Design systems, responsive interface strategy, accessible interaction patterns, and clean design-to-code execution
+              across scalable product surfaces.
+            </p>
           </div>
-
-          <!-- Education -->
-          <div class="col-lg-3 col-md-6">
-            <div class="p-4 rounded block-bg h-100 highlight-border">
-              <h3 class="fw-bold mb-3">
-                <span class="px-2 rounded text-black" style="background-color: var(--highlight-3)">Education</span>
-              </h3>
-              <p class="mb-2">
-                <strong>B.Sc. in Computational Linguistics</strong><br />
-                Ludwig Maximilian University of Munich (2011–2016)<br />
-                Minor: Language, Literature & Culture
-              </p>
-              <p class="mb-2">
-                <strong>Studienkolleg</strong><br />
-                Pre-University Studies, Munich (2010–2011)
-              </p>
-              <p class="mb-2">
-                <strong>Burhan Felek High School</strong><br />
-                Istanbul, Turkey (2004–2007)
-              </p>
-            </div>
+          <div class="col-lg-6">
+            <h3 class="competency-title">Integration & Quality</h3>
+            <p class="about-text mb-0">
+              REST API integration, auth flows, state lifecycle discipline, Cypress testing, and structured code reviews
+              with a focus on reliability in production.
+            </p>
+          </div>
+          <div class="col-lg-6">
+            <h3 class="competency-title">Cross-Functional Execution</h3>
+            <p class="about-text mb-0">
+              Direct collaboration with designers and stakeholders, scoped delivery planning, and engineering decisions aligned
+              with product priorities rather than feature churn.
+            </p>
           </div>
         </div>
-      </div>
+      </section>
 
-      <!-- Row 2 -->
-      <div class="col-12">
-        <div class="row gy-4">
-          <!-- Key Skills -->
-          <div class="col-lg-4 col-md-6">
-            <div class="p-4 rounded block-bg h-100">
-              <h3 class="fw-bold mb-3">
-                <span class="px-2 rounded text-black" style="background-color: var(--highlight-4)">Key Skills</span>
-              </h3>
-              <ul class="mb-0 ps-3">
-                <li><strong>Frontend:</strong> HTML5, CSS3, JavaScript (ES6+), TypeScript, Vue 3 (Composition API), Pinia (persisted state), Vue Router, Next.js, React (foundations)</li>
-                <li><strong>UI / Styling:</strong> Tailwind CSS, Bootstrap, PatternLab, Alpine.js, Responsive Design</li>
-                <li><strong>Architecture & Backend:</strong> SPA development, REST APIs, Supabase Auth, JWT token flow, GitHub Pages deploy, Node.js (basic)</li>
-                <li><strong>Testing:</strong> Cypress (E2E + component testing), Vitest (basic), BrowserStack</li>
-                <li><strong>UX & Design:</strong> Figma, Adobe XD, Wireframing, Design Systems, Prototyping, Accessibility</li>
-              </ul>
-            </div>
-          </div>
+      <section class="about-section">
+        <h2 class="about-section-title">Approach & Creative Perspective</h2>
+        <p class="about-text">
+          I approach frontend work as system design, not page assembly. My default process is to define boundaries early,
+          keep components composable, and treat UX consistency as an engineering responsibility.
+        </p>
+        <p class="about-text mb-0">
+          I value clarity over trend-driven complexity, stable architecture over short-term shortcuts, and thoughtful visual rhythm
+          that supports user decisions.
+        </p>
+        <h3 class="competency-title mt-4">Outside Work</h3>
+        <ul class="clean-list mb-0">
+          <li>Filmmaking and cinematic storytelling</li>
+          <li>Drawing and illustration</li>
+          <li>Blogging and digital content creation</li>
+          <li>Learning Thai language and culture</li>
+        </ul>
+      </section>
 
-          <!-- Portrait -->
-          <div class="col-lg-4 col-md-6">
-            <div class="p-0 rounded block-bg h-100 overflow-hidden">
-              <img src="@/assets/esmaAbout2.jpg" alt="Esma Ari, freelance frontend developer, with her cat on her lap" class="img-cover" />
-            </div>
-          </div>
+      <section class="about-section">
+        <h2 class="about-section-title">Education</h2>
+        <p class="about-text mb-0">
+          <strong>B.Sc. Computational Linguistics</strong> · Ludwig Maximilian University of Munich (2011–2016)
+        </p>
+      </section>
 
-          <!-- Certifications & Languages -->
-          <div class="col-lg-4 col-md-6">
-            <div class="p-4 rounded block-bg h-100">
-              <h3 class="fw-bold mb-3">
-                <span class="px-2 rounded text-black" style="background-color: var(--highlight-1)">
-                  Certifications & Languages
-                </span>
-              </h3>
+      <section class="about-section">
+        <h2 class="about-section-title">Certifications</h2>
+        <ul class="clean-list mb-0">
+          <li>
+            <a
+              href="https://www.linkedin.com/in/esma-ari/details/certifications/"
+              target="_blank"
+              rel="noopener"
+              class="fw-semibold hover-highlight"
+            >
+              Learn Next.js
+            </a>
+            · Scrimba (2025)
+          </li>
+          <li>
+            <a
+              href="https://www.linkedin.com/in/esma-ari/details/certifications/"
+              target="_blank"
+              rel="noopener"
+              class="fw-semibold hover-highlight"
+            >
+              Learn React
+            </a>
+            · Scrimba (2025)
+          </li>
+          <li>
+            <a
+              href="https://www.linkedin.com/in/esma-ari/details/certifications/"
+              target="_blank"
+              rel="noopener"
+              class="fw-semibold hover-highlight"
+            >
+              Shopify Development
+            </a>
+            · Udemy (2023)
+          </li>
+          <li>
+            <a
+              href="https://www.linkedin.com/in/esma-ari/details/certifications/"
+              target="_blank"
+              rel="noopener"
+              class="fw-semibold hover-highlight"
+            >
+              Getting Started with Git & GitHub
+            </a>
+            · Coursera (2023)
+          </li>
+          <li>
+            <a
+              href="https://www.linkedin.com/in/esma-ari/details/certifications/"
+              target="_blank"
+              rel="noopener"
+              class="fw-semibold hover-highlight"
+            >
+              Introduction to Cloud Computing
+            </a>
+            · Coursera (2023)
+          </li>
+          <li>
+            <a
+              href="https://www.linkedin.com/in/esma-ari/details/certifications/"
+              target="_blank"
+              rel="noopener"
+              class="fw-semibold hover-highlight"
+            >
+              Introduction to Web Development (HTML, CSS, JS)
+            </a>
+            · Coursera (2023)
+          </li>
+          <li>
+            <a
+              href="https://www.linkedin.com/in/esma-ari/details/certifications/"
+              target="_blank"
+              rel="noopener"
+              class="fw-semibold hover-highlight"
+            >
+              Google UX Design Professional Certificate
+            </a>
+            · Coursera (2022)
+          </li>
+          <li>
+            <a
+              href="https://www.linkedin.com/in/esma-ari/details/certifications/"
+              target="_blank"
+              rel="noopener"
+              class="fw-semibold hover-highlight"
+            >
+              Scrum Foundations
+            </a>
+            · BadgeCert (2023)
+          </li>
+          <li>
+            <a
+              href="https://www.linkedin.com/in/esma-ari/details/certifications/"
+              target="_blank"
+              rel="noopener"
+              class="fw-semibold hover-highlight"
+            >
+              Dynamische Webseiten mit PHP und MySQL
+            </a>
+            · Alfatraining Bildungszentrum (2018)
+          </li>
+          <li>
+            <a
+              href="https://www.linkedin.com/in/esma-ari/details/certifications/"
+              target="_blank"
+              rel="noopener"
+              class="fw-semibold hover-highlight"
+            >
+              Webprogrammierung mit JavaScript und AJAX
+            </a>
+            · Alfatraining Bildungszentrum (2018)
+          </li>
+        </ul>
+      </section>
 
-              <ul class="mb-3 ps-3">
-                <li>
-                  <strong>Certifications:</strong>
-                  <ul class="mt-2">
-                    <li>
-                      <a href="https://www.linkedin.com/in/esma-ari/details/certifications/"
-                        target="_blank" rel="noopener"
-                        class="fw-semibold text-decoration-none hover-highlight">
-                        Learn Next.js
-                      </a> — Scrimba (2025)
-                    </li>
-                    <li>
-                      <a href="https://www.linkedin.com/in/esma-ari/details/certifications/"
-                        target="_blank" rel="noopener"
-                        class="fw-semibold text-decoration-none hover-highlight">
-                        Learn React
-                      </a> — Scrimba (2025)
-                    </li>
-                    <li>
-                      <a href="https://www.linkedin.com/in/esma-ari/details/certifications/"
-                        target="_blank" rel="noopener"
-                        class="fw-semibold text-decoration-none hover-highlight">
-                        Shopify Development
-                      </a> — Udemy (2023)
-                    </li>
-                    <li>
-                      <a href="https://www.linkedin.com/in/esma-ari/details/certifications/"
-                        target="_blank" rel="noopener"
-                        class="fw-semibold text-decoration-none hover-highlight">
-                        Getting Started with Git & GitHub
-                      </a> — Coursera (2023)
-                    </li>
-                    <li>
-                      <a href="https://www.linkedin.com/in/esma-ari/details/certifications/"
-                        target="_blank" rel="noopener"
-                        class="fw-semibold text-decoration-none hover-highlight">
-                        Introduction to Cloud Computing
-                      </a> — Coursera (2023)
-                    </li>
-                    <li>
-                      <a href="https://www.linkedin.com/in/esma-ari/details/certifications/"
-                        target="_blank" rel="noopener"
-                        class="fw-semibold text-decoration-none hover-highlight">
-                        Introduction to Web Development (HTML, CSS, JS)
-                      </a> — Coursera (2023)
-                    </li>
-                    <li>
-                      <a href="https://www.linkedin.com/in/esma-ari/details/certifications/"
-                        target="_blank" rel="noopener"
-                        class="fw-semibold text-decoration-none hover-highlight">
-                        Google UX Design Professional Certificate
-                      </a> — Coursera (2022)
-                    </li>
-                    <li>
-                      <a href="https://www.linkedin.com/in/esma-ari/details/certifications/"
-                        target="_blank" rel="noopener"
-                        class="fw-semibold text-decoration-none hover-highlight">
-                        Scrum Foundations
-                      </a> — BadgeCert (2023)
-                    </li>
-                    <li>
-                      <a href="https://www.linkedin.com/in/esma-ari/details/certifications/"
-                        target="_blank" rel="noopener"
-                        class="fw-semibold text-decoration-none hover-highlight">
-                        Dynamische Webseiten mit PHP und MySQL
-                      </a> — Alfatraining Bildungszentrum (2018)
-                    </li>
-                    <li>
-                      <a href="https://www.linkedin.com/in/esma-ari/details/certifications/"
-                        target="_blank" rel="noopener"
-                        class="fw-semibold text-decoration-none hover-highlight">
-                        Webprogrammierung mit JavaScript und AJAX
-                      </a> — Alfatraining Bildungszentrum (2018)
-                    </li>
-                  </ul>
-                </li>
+      <section class="about-section">
+        <h2 class="about-section-title">Languages</h2>
+        <p class="about-text mb-0">
+          German (Fluent) · English (Fluent) · Turkish (Native) · Thai (Beginner)
+        </p>
+      </section>
 
-                <li class="mt-3">
-                  <strong>Languages:</strong> German (Fluent), English (Fluent), Turkish (Native), Thai (Beginner)
-                </li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Row 3 -->
-      <div class="col-12">
-        <div class="row gy-4">
-          <!-- Hobbies -->
-          <div class="col-lg-6 col-md-6">
-            <div class="p-4 rounded block-bg h-100 highlight-border">
-              <h3 class="fw-bold mb-3">
-                <span class="px-2 rounded text-black" style="background-color: var(--highlight-1)">Hobbies</span>
-              </h3>
-              <ul class="ps-3 mb-0">
-                <li>Filmmaking & cinematic storytelling</li>
-                <li>Drawing and illustration</li>
-                <li>Blogging & digital content creation</li>
-                <li>Learning Thai language & culture</li>
-                <li>Cat person</li>
-              </ul>
-            </div>
-          </div>
-
-          <!-- Portrait -->
-          <div class="col-lg-2 col-md-6">
-            <div class="p-0 rounded block-bg h-100 overflow-hidden">
-              <img src="@/assets/esmaAbout3.jpg" alt="Esma Ari — casual portrait" class="img-cover" />
-            </div>
-          </div>
-
-          <!-- Tools + Principles -->
-          <div class="col-lg-4 col-md-6">
-            <div class="p-4 rounded block-bg h-100 d-flex flex-column">
-              <h6 class="label mb-2">Tools I Love:</h6>
-              <ul class="ps-3 mb-4">
-                <li>Vue.js & Tailwind</li>
-                <li>Figma</li>
-              </ul>
-              <h6 class="label mb-2">My Creative Principles:</h6>
-              <ul class="ps-3 mb-0">
-                <li>Storytelling through design</li>
-                <li>Human-centered thinking</li>
-                <li>Attention to visual rhythm</li>
-              </ul>
-              <h6 class="label mt-4 mb-2">Strengths at Work::</h6>
-              <ul class="ps-3 mb-0">
-                <li>Fast learner</li> 
-                <li>Detail-oriented</li>
-                <li>Cross-functional collaboration</li>
-              </ul>
-            </div>
+      <section class="about-section about-gallery-section">
+        <h2 class="about-section-title">Mini Gallery</h2>
+        <div class="row g-3">
+          <div class="col-6 col-md-4" v-for="(item, index) in aboutGalleryImages" :key="`about-gallery-${index}`">
+            <button type="button" class="gallery-link gallery-button d-block" @click="openGallery(item)">
+              <img :src="item.src" :alt="item.label" class="gallery-thumb" />
+            </button>
           </div>
         </div>
-      </div>
+      </section>
 
+      <div v-if="activeGalleryImage" class="gallery-modal" role="dialog" aria-modal="true" @click.self="closeGallery">
+        <button type="button" class="gallery-close" @click="closeGallery">Close</button>
+        <img :src="activeGalleryImage.src" :alt="activeGalleryImage.label" class="gallery-modal-image" />
+      </div>
     </div>
   </section>
 </template>
 
 <script setup lang="ts">
+  import { ref } from 'vue'
   import { useHead, useSeoMeta } from '@unhead/vue'
 
   const base = 'https://esmaari.dev'
   const og = `${base}/og-preview.png`
 
-  // Canonical + Title
+  const aboutGalleryImages = [
+    { src: new URL('@/assets/esmaAbout1.JPG', import.meta.url).href, label: 'Portrait with camera' },
+    { src: new URL('@/assets/esmaAbout2.jpg', import.meta.url).href, label: 'Work setup with cat' },
+    { src: new URL('@/assets/esmaAbout3.jpg', import.meta.url).href, label: 'Casual portrait' }
+  ]
+
+  const activeGalleryImage = ref<{ src: string; label: string } | null>(null)
+
+  const openGallery = (item: { src: string; label: string }) => {
+    activeGalleryImage.value = item
+  }
+
+  const closeGallery = () => {
+    activeGalleryImage.value = null
+  }
+
   useHead({
     title: 'About | Esma Ari Portfolio',
     link: [{ rel: 'canonical', href: base + '/about' }]
   })
 
-  // SEO + Social
   useSeoMeta({
     title: 'About | Esma Ari Portfolio',
-    description: 'Learn more about Esma Ari — Frontend Developer, Designer, and Creative based in Munich.',
+    description: 'Senior frontend engineer profile: systems thinking, architecture clarity, and product-focused implementation.',
     ogTitle: 'About Esma Ari',
-    ogDescription: 'Discover Esma’s background, skills, and creative journey as a frontend developer and designer.',
+    ogDescription: 'A structured overview of Esma Ari’s frontend engineering approach, experience, and product execution mindset.',
     ogType: 'website',
     ogUrl: base + '/about',
     ogImage: og,
     twitterCard: 'summary_large_image',
     twitterTitle: 'About | Esma Ari',
-    twitterDescription: 'Frontend Developer, Designer & Creative based in Munich.',
+    twitterDescription: 'Senior frontend engineer focused on scalable architecture and product-quality delivery.',
     twitterImage: og
   })
 </script>
 
-
-
 <style scoped>
-.block-bg {
-  background-color: var(--block-bg);
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.03);
-}
-.label {
-  font-size: 0.9rem;
-  color: var(--subtle-text);
-}
+  .about-hero-title {
+    max-width: 18ch;
+    font-size: clamp(2.1rem, 5vw, 4rem);
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    line-height: 1.04;
+  }
+
+  .about-hero-copy {
+    max-width: 62ch;
+    font-size: 1.08rem;
+    line-height: 1.8;
+  }
+
+  .about-portrait-wrap {
+    max-width: 360px;
+    margin-left: auto;
+  }
+
+  .about-portrait {
+    width: 100%;
+    aspect-ratio: 4 / 5;
+    object-fit: cover;
+    border-radius: 0.4rem;
+  }
+
+  .about-section {
+    margin-top: clamp(6.25rem, 8vw, 7.5rem);
+  }
+
+  .about-section-title {
+    display: inline-flex;
+    flex-direction: column;
+    gap: 0.9rem;
+    margin-bottom: 2rem;
+    font-size: clamp(1.65rem, 3.1vw, 2.3rem);
+    font-weight: 750;
+    letter-spacing: -0.025em;
+  }
+
+  .about-section-title::after {
+    content: "";
+    width: 64px;
+    height: 2px;
+    background: var(--accent);
+  }
+
+  .about-text {
+    max-width: 70ch;
+    margin-bottom: 1.15rem;
+    font-size: 1.05rem;
+    line-height: 1.85;
+    color: var(--text-muted);
+  }
+
+  .experience-list {
+    display: grid;
+    gap: 2.4rem;
+  }
+
+  .experience-item {
+    max-width: 76ch;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid rgba(167, 139, 250, 0.28);
+  }
+
+  .experience-item:last-child {
+    border-bottom: 0;
+    padding-bottom: 0;
+  }
+
+  .experience-date {
+    font-size: 0.84rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #64748b;
+  }
+
+  .experience-role {
+    font-size: 1.35rem;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+  }
+
+  .competency-title {
+    margin-bottom: 0.75rem;
+    font-size: 1.1rem;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+    color: var(--text);
+  }
+
+  .clean-list {
+    padding-left: 1.1rem;
+    max-width: 74ch;
+  }
+
+  .clean-list li {
+    margin-bottom: 0.85rem;
+    color: var(--text-muted);
+  }
+
+  .clean-list li:last-child {
+    margin-bottom: 0;
+  }
+
+  .about-gallery-section {
+    margin-top: clamp(5rem, 6vw, 6.5rem);
+  }
+
+  .gallery-link {
+    border: none;
+    background: transparent;
+    padding: 0;
+    width: 100%;
+    text-align: left;
+    cursor: pointer;
+    transition: transform 200ms ease;
+  }
+
+  .gallery-link:hover {
+    transform: translateY(-1px);
+  }
+
+  .gallery-thumb {
+    width: 100%;
+    aspect-ratio: 16 / 10;
+    object-fit: contain;
+    background: #ffffff;
+  }
+
+  .gallery-modal {
+    position: fixed;
+    inset: 0;
+    z-index: 1300;
+    background: rgba(15, 23, 42, 0.88);
+    padding: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .gallery-modal-image {
+    width: min(1100px, 92vw);
+    max-height: 84vh;
+    object-fit: contain;
+    background: #ffffff;
+  }
+
+  .gallery-close {
+    position: absolute;
+    top: 1.4rem;
+    right: 1.4rem;
+    border: 1px solid #ffffff;
+    background: transparent;
+    color: #ffffff;
+    padding: 0.45rem 0.9rem;
+    font-size: 0.82rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: border-color 200ms ease, color 200ms ease;
+  }
+
+  .gallery-close:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+  }
+
+  @media (max-width: 991px) {
+    .about-portrait-wrap {
+      margin-left: 0;
+      max-width: 320px;
+    }
+  }
 </style>

@@ -2,6 +2,7 @@ import sinevegaPreview from '@/assets/sinevega/sinevega-preview.png'
 import cosmicPreview from '@/assets/cosmictrack/cosmicPreview26.png'
 import cosmictrackJourneys from '@/assets/cosmictrack/cosmictrack-journeys.png'
 import cosmictrackAddStep from '@/assets/cosmictrack/cosmictrack-addstep.png'
+
 import svHome from '@/assets/sinevega/SV_Desktop - 1140px (Home).png'
 import svLogin from '@/assets/sinevega/SV_Desktop - 1140px (Login).png'
 import svMovieDetails from '@/assets/sinevega/SV_Desktop - 1140px (Movie Details).png'
@@ -13,10 +14,12 @@ import svSearchResult from '@/assets/sinevega/SV_Desktop - 1140px (SearchResult)
 import SevilayE26 from '@/assets/sevilaye/SevilayE26.png'
 import SevilayECardChoosingPage from '@/assets/sevilaye/SevilayECardChoosingPage.png'
 import SevilayEDesignMockups from '@/assets/sevilaye/SevilayEDeviceMockups.png'
+
 import uadImg from '@/assets/uad/Uad.png'
 import kboCardDesign from '@/assets/kbo/kboCardDesign.png'
 import kboHomePage from '@/assets/kbo/kboHomePage.png'
 import kboMenuPage from '@/assets/kbo/kboMenuPage.png'
+
 import tetrisImg from '@/assets/tetris/tetris.png'
 import reactTodoImg from '@/assets/react-todo/reacttodoapp.png'
 import reactWeatherApp from '@/assets/react-weather/reactweatherapp.png'
@@ -24,240 +27,540 @@ import reactcreatememe from '@/assets/react-meme/reactcreatememe.png'
 import reacttraveljournal from '@/assets/react-travel-journal/reacttraveljournal.png'
 import reactapptentiesgame from '@/assets/react-tenzies-game/reactapptentiesgame.png'
 import takeaguess from '@/assets/react-take-a-guess/takeaguess.png'
+
 import kanbanBoard from '@/assets/kanban-issue-tracker/kanbanIssueTracker.png'
 import kanbanLogin from '@/assets/kanban-issue-tracker/kanbanIssueTrackerLogin.png'
 import kanbanEditDialog from '@/assets/kanban-issue-tracker/kanbanIssueTrackerEditIssue.png'
+
 import vanlifePreview from '@/assets/vanlife-react/reactappvanlife2.png'
 import vanlifeListing from '@/assets/vanlife-react/reactappvanlife1.png'
 
 export const projects = [
-    {
-        slug: 'cosmictrack',
-        title: 'CosmicTrack',
-        description: 'A tarot-based journaling app built with Vue 3 and Supabase, now upgraded for a 2026 release.',
-        longDescription: `CosmicTrack is an early-stage spiritual journaling app designed for personal growth and self-reflection. 
-        It includes tarot card pulls, step-by-step note-taking, and symbolic categorization. The first version was built in just 15 
-        days with a focus on core functionality. In January 2026, I shipped a second version with significant improvements and a 
-        redesigned interface, and it is now preparing for official public release. I’m also working on AI-powered tarot card 
-        interpretations for instant readings. This project is not fully public yet — both the GitHub repository and full showcase 
-        are currently private.`,
-        image: cosmicPreview,
-        gallery: [
-            { name: 'Home Screen', path: cosmictrackJourneys },
-            { name: 'Add Step Screen', path: cosmictrackAddStep }
-        ],
-        technologies: ['Vue 3', 'Vite', 'Supabase', 'Tailwind CSS'],
-        route: '/projects/cosmictrack',
-        liveUrl: 'https://cosmictrack.netlify.app/'
-    },
-    {
-        slug: 'sinevega',
-        title: 'SineVega',
-        description: 'A movie search and favorites app built with Vue 3 and TMDb API.',
-        longDescription: `This project was built with Vue 3 and uses the TMDb API in real time. 
-        You can search for movies and create your own favorites list.`,
-        image: sinevegaPreview,
-        gallery: [
-            { name: 'Home', path: svHome },
-            { name: 'Login', path: svLogin },
-            { name: 'Movie Details', path: svMovieDetails },
-            { name: 'Person Details', path: svPersonDetails },
-            { name: 'Profile', path: svProfile },
-            { name: 'Register', path: svRegister },
-            { name: 'Search Result', path: svSearchResult }
-        ],
-        technologies: ['Vue 3', 'TMDb API', 'Pinia', 'Bootstrap'],
-        route: '/projects/sinevega',
-        liveUrl: 'https://sinevega-fe-production.up.railway.app/',
-        github: 'https://github.com/esmaari/sinevega'
-    },
-    {
-        slug: 'tetris',
-        title: 'Tetris Game',
-        description: 'A classic Tetris game built with HTML, CSS and JavaScript.',
-        longDescription: `A fun browser-based Tetris game created using only vanilla JavaScript and HTML canvas. (Best viewed on desktop.)`,
-        image: tetrisImg,
-        technologies: ['HTML5', 'CSS3', 'JavaScript'],
-        route: '/projects/tetris',
-        liveUrl: 'https://esmaari.github.io/tetris-game/',
-        github: 'https://github.com/esmaari/tetris-game'
-    },
-    {
-        slug: 'kbo',
-        title: 'Kozmik Bilinç Okulu',
-        description: 'A WordPress-based site for an online spiritual school, with digital product sales.',
-        longDescription: `The site is designed for an online school offering digital products via WooCommerce.`,
-        image: kboHomePage,
-        gallery: [
-            { name: 'Menu Page', path: kboMenuPage },
-            { name: 'Card Design', path: kboCardDesign }
-        ],
-        technologies: ['WordPress', 'WooCommerce', 'Elementor'],
-        route: '/projects/kbo',
-        liveUrl: 'https://kozmikbilincokulu.com/'
-    },
-    {
-        slug: 'uad',
-        title: 'Uranyen Astroloji Derneği',
-        description: 'A WordPress site with a custom membership system for an astrology association.',
-        longDescription: `Built on WordPress with a customized membership system for user registration, login, and gated content.`,
-        image: uadImg,
-        technologies: ['WordPress', 'Membership Plugin', 'Elementor'],
-        route: '/projects/uad',
-        liveUrl: 'https://uranyenastrolojidernegi.com/'
-    },
-    {
-        slug: 'se',
-        title: 'Sevilay Eriçdem Website',
-        description: 'Corporate showcase website built for Sevilay Eriçdem on Next.js 16.',
-        longDescription: `A corporate showcase site for Sevilay Eriçdem built with Next.js 16. It includes a masculine/feminine card draw interface, articles, about, and contact pages.`,
-        image: SevilayE26,
-        gallery: [
-            { name: 'Card Choosing Page', path: SevilayECardChoosingPage },
-            { name: 'Design Mockups', path: SevilayEDesignMockups }
-        ],
-        technologies: ['Next.js 16', 'React', 'Figma'],
-        route: '/projects/se',
-        liveUrl: 'https://www.sevilayericdem.com/',
-        github: 'https://github.com/esmaari/sevilayeV_1.0'
-    },
-    {
-        slug: 'react-todo',
-        title: 'React ToDo App',
-        description: 'A simple to-do list app built with React and localStorage support.',
-        longDescription: `A clean and functional to-do list application created with React. 
-        Features persistent storage with localStorage, task completion toggles, and delete functionality.`,
-        image: reactTodoImg,        
-        technologies: ['React', 'JavaScript', 'localStorage', 'Vite'],
-        route: '/projects/react-todo',
-        liveUrl: 'https://esmasreactlabtodoapp.netlify.app/',
-        github: 'https://github.com/esmaari/reactlab_todo_app' 
-    },
-    {
-        slug: 'react-weather',
-        title: 'React Weather App',
-        description: 'A simple weather app using React and Open-Meteo API.',
-        longDescription: `A responsive and lightweight weather application built with React. 
-        Users can search for cities, view current weather conditions, and switch between Celsius and Fahrenheit units. 
-        The app uses the Open-Meteo API and includes basic UI features with Tailwind CSS.`,
-        image: reactWeatherApp, 
-        technologies: ['React', 'JavaScript', 'Open-Meteo API', 'Tailwind CSS'],
-        route: '/projects/react-weather',
-        liveUrl: 'https://esmasreactlabweatherapp.netlify.app/',
-        github: 'https://github.com/esmaari/reactlab_weather_app' 
-    },
-    {
-        slug: 'react-meme',
-        title: 'React Meme Generator',
-        description: 'A fun meme generator app built with React, allowing users to add custom text to random images.',
-        longDescription: `A small project built with React that fetches random meme images from an API 
-        and lets users add custom top and bottom text. It’s designed to practice state management, 
-        form handling, and image rendering in React.`,
-        image: reactcreatememe,
-        technologies: ['React', 'JavaScript', 'Vite', 'API'],
-        route: '/projects/react-meme',
-        liveUrl: 'https://esmasreactlabcreatememe.netlify.app/',
-        github: 'https://github.com/esmaari/reactlab_create_meme'
-    },
-    {
-        slug: 'react-travel-journal',
-        title: 'React Travel Journal',
-        description: 'A minimalist travel journal app built with React and custom components.',
-        longDescription: `This project was created to explore React components, props, and reusable layouts. 
-        It displays a series of travel cards with images, locations, and short notes — designed to feel like 
-        a digital postcard gallery.`,
-        image: reacttraveljournal,
-        technologies: ['React', 'JavaScript', 'Vite', 'CSS Modules'],
-        route: '/projects/react-travel-journal',
-        liveUrl: 'https://esmasreactlabtraveljournal.netlify.app/',
-        github: 'https://github.com/esmaari/reactlab_travel_journal'
-  },
+
+  /* ================= COSMICTRACK ================= */
+
   {
-        slug: 'react-tenzies-game',
-        title: 'React Tenzies Game',
-        description: 'A fun dice game built with React and Vite, featuring roll and hold mechanics.',
-        longDescription: `This project was created to practice React state management and conditional rendering. 
-        The goal is to roll the dice until all values match — players can hold dice between rolls, and a confetti 
-        animation celebrates the win. It demonstrates component reusability, event handling, and state updates 
-        with hooks.`,
-        image: reactapptentiesgame,
-        technologies: ['React', 'JavaScript', 'Vite', 'CSS'],
-        route: '/projects/react-tenzies-game',
-        liveUrl: 'https://esmasreactlabtenziesgame.netlify.app/',
-        github: 'https://github.com/esmaari/tenziesgame'
+    slug: 'cosmictrack',
+    title: 'Cosmic Track',
+    impact: 'Tarot-based journaling platform built with Vue 3 and Supabase.',
+    overview: `A spiritual journaling app designed for structured reflection and personal growth.`,
+    technical: `Vue 3, Supabase backend, categorized entries, scalable state management.`,
+    architectureDecisions: [
+      {
+        title: 'Vue 3 + Composition API',
+        decision: 'Organized core flows with composables and explicit component boundaries.',
+        why: 'The journaling product has multiple dependent interactions that need predictable state handling.',
+        impact: 'Improved maintainability and faster feature iteration without coupling UI logic.'
+      },
+      {
+        title: 'Supabase + RLS',
+        decision: 'Used Supabase as backend and applied row-level access boundaries for user-owned entries.',
+        why: 'Personal journaling data requires strict ownership and clean auth-aware data access.',
+        impact: 'Safer data operations and a production-ready auth/data foundation.'
+      },
+      {
+        title: 'Relational Journey Model',
+        decision: 'Modeled journeys and categorized steps as structured entities.',
+        why: 'A clear relationship model was needed to scale flows beyond simple note-taking.',
+        impact: 'Enabled extensible feature growth and clearer reporting logic in future releases.'
+      }
+    ],
+    heroImage: cosmicPreview,
+    features: [
+      {
+        title: 'Journey Management',
+        description: 'Structured journaling flow with categorized steps.',
+        image: cosmictrackJourneys
+      },
+      {
+        title: 'Step Creation Interface',
+        description: 'Composable UI system for adding dynamic entries.',
+        image: cosmictrackAddStep
+      }
+    ],
+    technologies: ['Vue 3', 'Vite', 'Supabase', 'Tailwind CSS'],
+    route: '/projects/cosmictrack',
+    liveUrl: 'https://cosmictrack.netlify.app/'
+  },
+
+  /* ================= SINEVEGA ================= */
+
+  {
+    slug: 'sinevega',
+    title: 'SineVega',
+    impact: 'Movie discovery platform with real-time TMDb API integration.',
+    overview: `Search, explore and save movies using Vue 3 and Pinia.`,
+    technical: `Real-time API integration with modular component architecture.`,
+    architectureDecisions: [
+      {
+        title: 'Component-Driven Vue Architecture',
+        decision: 'Split browse, detail, and account interactions into reusable UI modules.',
+        why: 'Movie discovery includes repeated patterns that must stay consistent across screens.',
+        impact: 'Reduced duplication and improved long-term maintainability.'
+      },
+      {
+        title: 'TMDb API Service Layer',
+        decision: 'Centralized API requests and response handling through dedicated service logic.',
+        why: 'Search and detail endpoints require stable request handling and error resilience.',
+        impact: 'Cleaner UI components and more reliable runtime behavior.'
+      },
+      {
+        title: 'Pinia State Strategy',
+        decision: 'Managed shared state (session/favorites) with Pinia stores.',
+        why: 'User-specific actions needed predictable cross-view synchronization.',
+        impact: 'Consistent UX and straightforward state updates across the app.'
+      }
+    ],
+    design: {
+      description: 'UI structure and layout planning prepared in Figma before implementation.',
+      images: [svHome, svMovieDetails, svPersonDetails, svProfile, svRegister]
     },
-    {
-        slug: 'react-take-a-guess',
-        title: 'Take a Guess — Clapperboard Hangman',
-        description: 'A film-themed hangman game built with React and Vite, featuring animated clapperboards and 9 takes to guess the word.',
-        longDescription: `This project was built to practice React state management, conditional rendering, and component composition. 
-        The game challenges players to guess a random word within 9 attempts — each wrong guess closes a clapperboard, 
-        mimicking a real film take. It demonstrates useState logic, derived state, and clean UI updates with clsx.`,
-        image: takeaguess, 
-        technologies: ['React', 'JavaScript', 'Vite', 'clsx', 'CSS'],
-        route: '/projects/react-take-a-guess',
-        liveUrl: 'https://esmasreactlabtakeaguessgame.netlify.app/', 
-        github: 'https://github.com/esmaari/take-a-guess'
-    },
-    {
+    heroImage: sinevegaPreview,
+    features: [
+      {
+        title: 'Search & Results',
+        description: 'Dynamic API-driven search with paginated responses.',
+        image: svSearchResult
+      },
+      {
+        title: 'Authentication & Favorites',
+        description: 'User sessions with personalized movie lists.',
+        image: svLogin
+      }
+    ],
+    technologies: ['Vue 3', 'TMDb API', 'Pinia', 'Bootstrap'],
+    route: '/projects/sinevega',
+    liveUrl: 'https://sinevega-fe-production.up.railway.app/',
+    github: 'https://github.com/esmaari/sinevega'
+  },
+
+  /* ================= KANBAN ================= */
+
+  {
     slug: 'kanban-issue-tracker',
     title: 'Kanban Issue Tracker',
-    description: 'A feature-sliced Kanban board built with Vue 3, TypeScript, Pinia, and Vite.',
-    longDescription: `Kanban Issue Tracker is a production-grade frontend architecture project that showcases real-world 
-    concepts such as authentication, state management, routing, CRUD workflows, and multi-layer testing. It includes a 
-    fully abstracted API layer with automatic mock-backend mode, enabling the entire app to run seamlessly on Netlify 
-    without a server.
-
-    The app provides a complete authentication flow with protected routes, token persistence, auto-logout on expiration, 
-    and a mock login system (username: "demo", password: "1234") for demonstration purposes. Issues can be created, edited, 
-    deleted, and filtered by status, priority, and search query — all built using the FAST UI methodology and 
-    feature-based slice architecture.
-
-    UI design focuses on accessibility, reusable Base UI components, and clean UX patterns such as loading, empty, and 
-    error states. Testing includes Vitest for unit testing and Cypress for end-to-end flows. This project is fully public, 
-    including both the GitHub repository and the live Netlify deployment.`,
-    image: kanbanBoard, // you will add this yourself
-    gallery: [
-        { name: 'Login View', path: kanbanLogin },   
-        { name: 'Edit Dialog Screen', path: kanbanEditDialog }
+    impact: 'Production-grade Vue 3 architecture with authentication and testing.',
+    overview: `Feature-sliced Kanban board with real-world architecture decisions.`,
+    technical: `Vue 3 + TypeScript, auth guards, CRUD workflows, Vitest & Cypress.`,
+    architectureDecisions: [
+      {
+        title: 'Feature-Sliced Frontend Structure',
+        decision: 'Grouped code by feature boundaries and reusable domain primitives.',
+        why: 'Issue tracking workflows grow quickly and require clear ownership boundaries.',
+        impact: 'Scalable codebase with lower onboarding and maintenance cost.'
+      },
+      {
+        title: 'Auth Guards + Access Flow',
+        decision: 'Implemented route guards and token-aware request behavior.',
+        why: 'Protected product areas require deterministic access control.',
+        impact: 'Safer navigation behavior and reliable protected workflows.'
+      },
+      {
+        title: 'Type-Safe CRUD Contracts',
+        decision: 'Applied TypeScript-first data contracts across issue operations.',
+        why: 'CRUD-heavy products are sensitive to schema drift and runtime mismatch.',
+        impact: 'Higher reliability and faster refactoring confidence.'
+      }
+    ],
+    heroImage: kanbanBoard,
+    features: [
+      {
+        title: 'Authentication Flow',
+        description: 'Protected routes with token persistence.',
+        image: kanbanLogin
+      },
+      {
+        title: 'Issue Editing',
+        description: 'Dialog-based CRUD workflow.',
+        image: kanbanEditDialog
+      }
     ],
     technologies: ['Vue 3', 'TypeScript', 'Pinia', 'Vite', 'Cypress', 'Vitest'],
     route: '/projects/kanban-issue-tracker',
     liveUrl: 'https://kanban-issue-tracker.netlify.app/#/login',
     github: 'https://github.com/esmaari/-kanban-issue-tracker'
-},
+  },
 
+  /* ================= VANLIFE ================= */
 
-{
+  {
     slug: 'vanlife-react',
     title: 'VanLife – React App',
-    description: 'A fully rebuilt VanLife application using React Router 6, TypeScript, and Supabase.',
-    longDescription: `VanLife is a modern React application rebuilt from the classic Scrimba project but enhanced with 
-    real backend capabilities using Supabase. The app features dynamic van listings, route-based filtering, protected 
-    routes for host-only sections, real-time data loading from Supabase, and a fully implemented login flow using 
-    localStorage-based auth guards.
-
-    Supabase replaces the original MirageJS mock server, providing real API requests, Row Level Security policies, 
-    and database-driven content. All vans are fetched from a Supabase table with dynamic filtering (simple, luxury, rugged) 
-    and individual detail pages. Host-only routes are protected using a custom <AuthRequired /> component that redirects 
-    guests to the login page while preserving their intended route (e.g., redirecting back to /host/vans after login).
-
-    The project is deployed on Netlify with environment variables for Supabase keys, a SPA-friendly redirect configuration, 
-    and a clean build pipeline using Vite. This version demonstrates end-to-end production flow: database schema design, 
-    security policies, environment setup, dynamic routing, state handling, and optimized frontend architecture — all wrapped 
-    in a polished UI following the original VanLife visual style.
-    
-    This project is fully public, including both the GitHub repository and the live Netlify deployment.`,
-    
-    image: vanlifePreview,   
-    gallery: [
-        { name: 'Vans Listing', path: vanlifeListing }
+    impact: 'React + Supabase app with protected routing.',
+    overview: `Rebuilt VanLife project with real backend integration.`,
+    technical: `React Router 6, TypeScript, Supabase, route guards.`,
+    architectureDecisions: [
+      {
+        title: 'Route-First App Composition',
+        decision: 'Built host/public experiences around clear route boundaries and nested layouts.',
+        why: 'Different user roles require explicit navigation and access behavior.',
+        impact: 'Clearer product flows and simpler extension of protected areas.'
+      },
+      {
+        title: 'Supabase Data Integration',
+        decision: 'Replaced mock backend with Supabase-driven real data operations.',
+        why: 'Production-like behavior was needed for realistic product delivery.',
+        impact: 'End-to-end app realism with stronger deployment confidence.'
+      },
+      {
+        title: 'TypeScript + UI Contract Stability',
+        decision: 'Used typed models across listings, details, and auth-related flows.',
+        why: 'Shared data across routes required stable, explicit contracts.',
+        impact: 'Reduced runtime ambiguity and safer iteration over product features.'
+      }
     ],
-    technologies: ['React', 'TypeScript', 'React Router 6', 'Supabase', 'Vite', 'Netlify'],
+    heroImage: vanlifePreview,
+    features: [
+      {
+        title: 'Dynamic Van Listings',
+        description: 'Real-time Supabase data with filtering.',
+        image: vanlifeListing
+      }
+    ],
+    technologies: ['React', 'TypeScript', 'React Router 6', 'Supabase', 'Vite'],
     route: '/projects/vanlife-react',
     liveUrl: 'https://esmasreactlabvanlife.netlify.app/',
     github: 'https://github.com/esmaari/vanlife'
-}
+  },
 
+  /* ================= WORDPRESS CLIENT WORK ================= */
+
+  {
+    slug: 'kbo',
+    title: 'Kozmik Bilinç Okulu',
+    impact: 'WooCommerce-based digital product site.',
+    overview: `WordPress site for an online spiritual school.`,
+    architectureDecisions: [
+      {
+        title: 'WordPress Content Architecture',
+        decision: 'Structured pages and product content around reusable CMS templates.',
+        why: 'Frequent content and product updates required low-friction editing.',
+        impact: 'Faster publishing workflow and consistent site structure.'
+      },
+      {
+        title: 'WooCommerce Product Flow',
+        decision: 'Integrated WooCommerce for digital product lifecycle management.',
+        why: 'Checkout and catalog behavior needed a proven e-commerce base.',
+        impact: 'Reliable conversion path with manageable operations.'
+      },
+      {
+        title: 'Scalable IA for Learning Content',
+        decision: 'Organized navigation and category structure around user learning journeys.',
+        why: 'Users needed quicker access to multiple content/product layers.',
+        impact: 'Improved discoverability and reduced navigation friction.'
+      }
+    ],
+    heroImage: kboHomePage,
+    features: [
+      {
+        title: 'Menu Layout',
+        description: 'Structured navigation for digital content.',
+        image: kboMenuPage
+      },
+      {
+        title: 'Card Design',
+        description: 'Visual tarot product presentation.',
+        image: kboCardDesign
+      }
+    ],
+    technologies: ['WordPress', 'WooCommerce', 'Elementor'],
+    route: '/projects/kbo',
+    liveUrl: 'https://kozmikbilincokulu.com/'
+  },
+
+  {
+    slug: 'uad',
+    title: 'Uranyen Astroloji Derneği',
+    impact: 'Membership-based WordPress platform.',
+    overview: `Custom login and gated content system.`,
+    architectureDecisions: [
+      {
+        title: 'Membership-Gated Information Model',
+        decision: 'Implemented gated access across premium content sections.',
+        why: 'The platform required clear separation between public and member-only content.',
+        impact: 'Controlled access model aligned with business and user expectations.'
+      },
+      {
+        title: 'Login-Centric User Journey',
+        decision: 'Designed authentication-first navigation for member interactions.',
+        why: 'Key user value exists behind account boundaries.',
+        impact: 'Clearer onboarding path and stronger member retention flow.'
+      },
+      {
+        title: 'Plugin-Driven Extensibility',
+        decision: 'Used stable WordPress plugin boundaries for account and content workflows.',
+        why: 'Future capability additions needed predictable extension points.',
+        impact: 'Lower maintenance overhead and easier iterative improvements.'
+      }
+    ],
+    heroImage: uadImg,
+    technologies: ['WordPress', 'Membership Plugin', 'Elementor'],
+    route: '/projects/uad',
+    liveUrl: 'https://uranyenastrolojidernegi.com/'
+  },
+
+  {
+    slug: 'se',
+    title: 'Sevilay Eriçdem Website',
+    impact: 'Next.js corporate showcase site.',
+    overview: `Corporate site with tarot-based interface.`,
+    technical: `Next.js 16 + Figma-driven UI.`,
+    architectureDecisions: [
+      {
+        title: 'Next.js App Structure',
+        decision: 'Built the site with route-based composition and modular UI sections.',
+        why: 'Corporate storytelling and interactive sections needed strong content/page control.',
+        impact: 'Flexible content expansion with consistent rendering behavior.'
+      },
+      {
+        title: 'Design-to-Code Pipeline',
+        decision: 'Mapped Figma planning into reusable implementation blocks.',
+        why: 'Visual consistency and delivery speed required a clear translation workflow.',
+        impact: 'Lower UI drift and faster production of polished pages.'
+      },
+      {
+        title: 'Interaction-Focused Component Model',
+        decision: 'Structured interactive card experiences as independent, reusable units.',
+        why: 'Feature-specific UI interactions needed maintainable logic boundaries.',
+        impact: 'Improved maintainability for iterative UX updates.'
+      }
+    ],
+    heroImage: SevilayE26,
+    features: [
+      {
+        title: 'Card Choosing Interface',
+        description: 'Interactive card experience.',
+        image: SevilayECardChoosingPage
+      },
+      {
+        title: 'Design Mockups',
+        description: 'Responsive planning in Figma.',
+        image: SevilayEDesignMockups
+      }
+    ],
+    technologies: ['Next.js 16', 'React', 'Figma'],
+    route: '/projects/se',
+    liveUrl: 'https://www.sevilayericdem.com/',
+    github: 'https://github.com/esmaari/sevilayeV_1.0'
+  },
+
+  /* ================= SMALLER REACT PROJECTS ================= */
+
+  {
+    slug: 'react-todo',
+    title: 'React ToDo App',
+    impact: 'Task management with localStorage.',
+    architectureDecisions: [
+      {
+        title: 'State-Driven Task Workflow',
+        decision: 'Managed task operations through explicit local state transitions.',
+        why: 'Even simple CRUD flows require predictable UI behavior.',
+        impact: 'Clear interaction model and easier future enhancement.'
+      },
+      {
+        title: 'Persistent Client Storage',
+        decision: 'Used localStorage for task persistence between sessions.',
+        why: 'Basic continuity was required without backend dependency.',
+        impact: 'Practical product behavior with minimal infrastructure.'
+      },
+      {
+        title: 'Reusable List Rendering',
+        decision: 'Separated list rendering and action controls into maintainable UI units.',
+        why: 'Clean component boundaries improve readability over time.',
+        impact: 'Lower complexity and faster refactoring cycles.'
+      }
+    ],
+    heroImage: reactTodoImg,
+    technologies: ['React', 'Vite'],
+    route: '/projects/react-todo',
+    liveUrl: 'https://esmasreactlabtodoapp.netlify.app/',
+    github: 'https://github.com/esmaari/reactlab_todo_app'
+  },
+
+  {
+    slug: 'react-weather',
+    title: 'React Weather App',
+    impact: 'Weather app using Open-Meteo API.',
+    architectureDecisions: [
+      {
+        title: 'API-First Data Flow',
+        decision: 'Designed fetch and render sequence around external weather endpoints.',
+        why: 'Network-driven apps need stable request state handling.',
+        impact: 'More predictable UX for loading and result states.'
+      },
+      {
+        title: 'Input-to-Result Pipeline',
+        decision: 'Structured city search into a clear query-to-data transformation flow.',
+        why: 'User input must map cleanly to API contracts.',
+        impact: 'Reduced input ambiguity and improved reliability.'
+      },
+      {
+        title: 'UI Simplicity by Design',
+        decision: 'Kept component scope narrow for clarity and maintainability.',
+        why: 'Focused apps benefit from minimal but robust UI structure.',
+        impact: 'Easier upgrades and lower visual/logic noise.'
+      }
+    ],
+    heroImage: reactWeatherApp,
+    technologies: ['React', 'Tailwind CSS'],
+    route: '/projects/react-weather',
+    liveUrl: 'https://esmasreactlabweatherapp.netlify.app/',
+    github: 'https://github.com/esmaari/reactlab_weather_app'
+  },
+
+  {
+    slug: 'react-meme',
+    title: 'React Meme Generator',
+    impact: 'API-based meme generator.',
+    architectureDecisions: [
+      {
+        title: 'Interactive Form State',
+        decision: 'Managed text input and selected asset state in a single predictable flow.',
+        why: 'Live preview interactions require tight state synchronization.',
+        impact: 'Responsive editing experience with low complexity.'
+      },
+      {
+        title: 'API Asset Loading',
+        decision: 'Separated random image fetching from rendering logic.',
+        why: 'External assets can fail or vary unpredictably.',
+        impact: 'More stable rendering and cleaner UI control.'
+      },
+      {
+        title: 'Composable Output Layer',
+        decision: 'Built output as reusable composition of image + overlay text.',
+        why: 'Output logic must stay clear for future feature extension.',
+        impact: 'Maintainable code path for additional editing features.'
+      }
+    ],
+    heroImage: reactcreatememe,
+    technologies: ['React', 'API'],
+    route: '/projects/react-meme',
+    liveUrl: 'https://esmasreactlabcreatememe.netlify.app/',
+    github: 'https://github.com/esmaari/reactlab_create_meme'
+  },
+
+  {
+    slug: 'react-travel-journal',
+    title: 'React Travel Journal',
+    impact: 'Reusable component-based postcard layout.',
+    architectureDecisions: [
+      {
+        title: 'Data-to-Component Mapping',
+        decision: 'Rendered journal entries from structured item data.',
+        why: 'Content collections should scale without template duplication.',
+        impact: 'Simple extensibility for additional entries.'
+      },
+      {
+        title: 'Reusable Card Composition',
+        decision: 'Designed travel cards as repeatable presentation components.',
+        why: 'Consistency across entries is central to readability.',
+        impact: 'Cleaner UI system and easier visual refinement.'
+      },
+      {
+        title: 'Lightweight Styling Model',
+        decision: 'Used scoped styling patterns aligned to component boundaries.',
+        why: 'Small projects still benefit from strong style ownership.',
+        impact: 'Reduced side effects and easier maintenance.'
+      }
+    ],
+    heroImage: reacttraveljournal,
+    technologies: ['React', 'CSS Modules'],
+    route: '/projects/react-travel-journal',
+    liveUrl: 'https://esmasreactlabtraveljournal.netlify.app/',
+    github: 'https://github.com/esmaari/reactlab_travel_journal'
+  },
+
+  {
+    slug: 'react-tenzies-game',
+    title: 'React Tenzies Game',
+    impact: 'Dice game with state management.',
+    architectureDecisions: [
+      {
+        title: 'State Transition Game Loop',
+        decision: 'Modeled roll/hold/win as explicit state transitions.',
+        why: 'Game mechanics depend on deterministic update order.',
+        impact: 'Reliable gameplay logic and easier debugging.'
+      },
+      {
+        title: 'Composable Dice Components',
+        decision: 'Implemented dice as reusable interactive UI units.',
+        why: 'Repeated interaction elements should share one logic model.',
+        impact: 'Cleaner implementation and faster iteration.'
+      },
+      {
+        title: 'Derived Win Conditions',
+        decision: 'Computed completion state from current dice data rather than manual flags.',
+        why: 'Derived state reduces mismatch risk in interactive apps.',
+        impact: 'More stable behavior and simpler code paths.'
+      }
+    ],
+    heroImage: reactapptentiesgame,
+    technologies: ['React', 'Vite'],
+    route: '/projects/react-tenzies-game',
+    liveUrl: 'https://esmasreactlabtenziesgame.netlify.app/',
+    github: 'https://github.com/esmaari/tenziesgame'
+  },
+
+  {
+    slug: 'react-take-a-guess',
+    title: 'Take a Guess — Hangman',
+    impact: 'Film-themed word guessing game.',
+    architectureDecisions: [
+      {
+        title: 'Progressive Failure Model',
+        decision: 'Represented wrong attempts as staged visual/gameplay transitions.',
+        why: 'Clear progression improves player feedback and engagement.',
+        impact: 'More readable game state and stronger interaction rhythm.'
+      },
+      {
+        title: 'Input + Validation Pipeline',
+        decision: 'Separated guess handling from result evaluation logic.',
+        why: 'Game input needs robust validation and deterministic updates.',
+        impact: 'Reduced bug surface in repeated interaction cycles.'
+      },
+      {
+        title: 'Theme-Driven UI Components',
+        decision: 'Mapped film-themed visuals onto reusable gameplay primitives.',
+        why: 'Thematic UI should not compromise maintainable logic.',
+        impact: 'Consistent style with stable code organization.'
+      }
+    ],
+    heroImage: takeaguess,
+    technologies: ['React', 'clsx'],
+    route: '/projects/react-take-a-guess',
+    liveUrl: 'https://esmasreactlabtakeaguessgame.netlify.app/',
+    github: 'https://github.com/esmaari/take-a-guess'
+  },
+
+  {
+    slug: 'tetris',
+    title: 'Tetris Game',
+    impact: 'Vanilla JS canvas game.',
+    architectureDecisions: [
+      {
+        title: 'Canvas Render Loop',
+        decision: 'Implemented gameplay via a controlled frame/update loop.',
+        why: 'Real-time mechanics require deterministic rendering cadence.',
+        impact: 'Stable gameplay pacing and reliable visual updates.'
+      },
+      {
+        title: 'Grid-Based Piece Model',
+        decision: 'Modeled tetromino behavior with matrix/grid constraints.',
+        why: 'Collision and placement logic depends on explicit spatial rules.',
+        impact: 'Predictable game behavior and easier mechanic tuning.'
+      },
+      {
+        title: 'Input Separation',
+        decision: 'Handled keyboard input independently from render logic.',
+        why: 'Decoupling improves responsiveness and maintainability.',
+        impact: 'Cleaner control flow and lower complexity in updates.'
+      }
+    ],
+    heroImage: tetrisImg,
+    technologies: ['HTML5', 'JavaScript'],
+    route: '/projects/tetris',
+    liveUrl: 'https://esmaari.github.io/tetris-game/',
+    github: 'https://github.com/esmaari/tetris-game'
+  }
 
 ]
