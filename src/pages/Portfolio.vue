@@ -3,43 +3,75 @@
     <div class="page-shell portfolio-shell">
       <header class="portfolio-header mb-5">
         <p class="hero-label mb-2">Portfolio</p>
-        <h1 class="portfolio-title fw-bold mb-3">Featured Projects</h1>
+        <h1 class="portfolio-title fw-bold mb-3">Selected Work</h1>
         <p class="portfolio-intro mb-0">
-          Selected work focused on product delivery, scalable frontend architecture, and maintainable UI systems.
+          Senior frontend collaborations where clarity, architecture, and delivery integrity mattered.
         </p>
       </header>
 
-      <div class="row gy-5">
-        <div v-for="project in featuredProjects" :key="project.slug" class="col-lg-6">
-          <article class="project-item h-100 d-flex flex-column">
-            <img :src="project.heroImage" class="project-image mb-4" :alt="project.title" />
-
-            <h2 class="project-title h3 fw-bold mb-2">{{ project.title }}</h2>
-            <p class="impact-line mb-3">{{ project.impact }}</p>
-
-            <div class="d-flex flex-wrap gap-2 mb-4">
-              <span
-                v-for="tech in orderedTechnologies(project.technologies || [])"
-                :key="`${project.slug}-${tech}`"
-                :class="['tech-tag', techClass(tech)]"
+      <div v-if="featuredProject" class="featured-wrapper">
+        <article class="featured-project">
+          <img :src="featuredProject.heroImage" :alt="featuredProject.title" class="featured-image" />
+          <div class="featured-content">
+            <h2 class="project-title h3 fw-bold mb-3">{{ featuredProject.title }}</h2>
+            <p class="project-description mb-3">{{ featuredProject.description }}</p>
+            <p class="tech-line mb-4">{{ formatTechnologies(featuredProject.technologies || []) }}</p>
+            <div class="project-link-group">
+              <a
+                :href="featuredProject.liveUrl"
+                class="link-button link-button--primary"
+                target="_blank"
+                rel="noreferrer"
               >
-                {{ tech }}
-              </span>
+                Live Site
+              </a>
+              <router-link
+                v-if="featuredProject.route"
+                :to="featuredProject.route"
+                class="link-button link-button--ghost"
+              >
+                Case Study
+              </router-link>
             </div>
-
-            <router-link :to="project.route" class="custom-btn custom-btn-sm case-button mt-auto">View Case Study</router-link>
-          </article>
-        </div>
+          </div>
+        </article>
       </div>
 
-      <details v-if="otherExperiments.length" class="other-experiments mt-5">
-        <summary>More Projects</summary>
-        <ul class="experiment-list mb-0">
-          <li v-for="project in otherExperiments" :key="project.slug" class="py-2">
-            <router-link :to="project.route" class="experiment-link">{{ project.title }}</router-link>
-          </li>
-        </ul>
-      </details>
+      <div class="project-grid">
+        <article
+          v-for="project in remainingProjects"
+          :key="project.slug"
+          class="project-card"
+        >
+          <img :src="project.heroImage" :alt="project.title" class="project-card__image" />
+          <div class="project-card__body">
+            <div class="project-card__content">
+              <h3 class="project-card__title fw-bold mb-2">{{ project.title }}</h3>
+              <p class="project-description mb-3">{{ project.description }}</p>
+              <p class="tech-line mb-3">{{ formatTechnologies(project.technologies || []) }}</p>
+            </div>
+            <div class="project-card__links">
+              <div class="project-link-group">
+                <a
+                  :href="project.liveUrl"
+                  class="link-button link-button--primary"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  Live Site
+                </a>
+                <router-link
+                  v-if="project.route"
+                  :to="project.route"
+                  class="link-button link-button--ghost"
+                >
+                  Case Study
+                </router-link>
+              </div>
+            </div>
+          </div>
+        </article>
+      </div>
     </div>
   </section>
 </template>
@@ -71,26 +103,25 @@ useSeoMeta({
   twitterImage: og
 })
 
-const featuredSlugs = [
-  'cosmictrack',
-  'sinevega',
-  'react-take-a-guess',
-  'uad',
-  'se',
-  'kbo'
-]
+const curatedSlugs = ['cosmictrack', 'sinevega', 'se', 'kbo', 'uad']
 
-const featuredProjects = computed(() => {
-  return featuredSlugs
+const featuredDescriptions: Record<string, string> = {
+  cosmictrack:
+    'CosmicTrack is a tarot-based journaling platform with structured reflections, Supabase-backed persistence, and composables that tame growing feature complexity. The journey model keeps multi-step flows predictable while making it easy to expand future rituals without rewiring the UI.'
+}
+
+const curatedProjects = computed(() =>
+  curatedSlugs
     .map(slug => projects.find(p => p.slug === slug))
     .filter((project): project is (typeof projects)[number] => Boolean(project))
-    .slice(0, 6)
-})
+    .map(project => ({
+      ...project,
+      description: featuredDescriptions[project.slug] || project.overview || project.impact || ''
+    }))
+)
 
-const otherExperiments = computed(() => {
-  const featuredSet = new Set(featuredProjects.value.map(p => p.slug))
-  return projects.filter(project => !featuredSet.has(project.slug))
-})
+const featuredProject = computed(() => curatedProjects.value[0])
+const remainingProjects = computed(() => curatedProjects.value.slice(1))
 
 const orderedTechnologies = (techs: string[]) => {
   const list = [...(techs || [])]
@@ -118,10 +149,9 @@ const orderedTechnologies = (techs: string[]) => {
   return [...front, ...rest]
 }
 
-const techClass = (tech: string) => {
-  if (/^vue(?:\s|$)/i.test(tech)) return 'tech-tag--vue'
-  if (/^react(?:\s|$)/i.test(tech)) return 'tech-tag--react'
-  return ''
+const formatTechnologies = (techs: string[]) => {
+  const ordered = orderedTechnologies(techs)
+  return ordered.length ? ordered.join(' · ') : ''
 }
 </script>
 
@@ -143,140 +173,155 @@ const techClass = (tech: string) => {
 
 .portfolio-title {
   color: var(--saas-heading);
-  font-size: clamp(2.1rem, 4.8vw, 4rem);
+  font-size: clamp(2.1rem, 4.4vw, 3.8rem);
   letter-spacing: -0.035em;
 }
 
 .portfolio-intro,
-.impact-line {
-  max-width: 700px;
+.impact-line,
+.project-description {
+  max-width: 720px;
   color: var(--saas-body);
+  line-height: 1.5;
 }
 
-.project-item {
-  transition: transform var(--saas-transition);
+.featured-wrapper {
+  margin-bottom: 3rem;
 }
 
-.project-item:hover {
-  transform: translateY(-2px);
-}
-
-.project-title {
-  color: var(--saas-heading);
-  position: relative;
-  width: fit-content;
-}
-
-.project-title::after {
-  content: '';
-  position: absolute;
-  left: 0;
-  bottom: -4px;
-  width: 100%;
-  height: 1px;
-  background: var(--saas-accent);
-  transform: scaleX(0);
-  transform-origin: left;
-  transition: transform var(--saas-transition);
-}
-
-.project-item:hover .project-title::after {
-  transform: scaleX(1);
-}
-
-.project-image {
-  width: 100%;
-  aspect-ratio: 16 / 10;
-  object-fit: contain;
+.featured-project {
+  border-radius: 20px;
   background: #ffffff;
-  border-radius: 8px;
-  box-shadow: 0 4px 14px rgba(15, 23, 42, 0.06);
+  border: 1px solid rgba(163, 147, 255, 0.45);
+  overflow: hidden;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 0;
+  box-shadow: 0 18px 45px rgba(15, 23, 42, 0.15);
+}
+
+.featured-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  max-height: 360px;
+}
+
+.featured-content {
+  padding: 2.4rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+}
+
+.project-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+
+.project-card {
+  border-radius: 16px;
+  background: #ffffff;
+  border: 1px solid rgba(99, 102, 241, 0.18);
+  box-shadow: 0 8px 30px rgba(15, 23, 42, 0.08);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
   transition: transform var(--saas-transition);
+  min-height: 460px;
 }
 
-.project-item:hover .project-image {
-  transform: scale(1.01);
+.project-card:hover {
+  transform: translateY(-4px);
 }
 
-.tech-tag {
-  border: 1px solid rgba(167, 139, 250, 0.45);
-  border-radius: 999px;
-  padding: 0.25rem 0.65rem;
-  font-size: 0.78rem;
+.project-card__image {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+}
+
+.project-card__body {
+  padding: 1.8rem;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.project-card__content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.project-card__title {
   color: var(--saas-heading);
-  background: rgba(167, 139, 250, 0.08);
 }
 
-.tech-tag--vue {
-  border-color: rgba(66, 184, 131, 0.95);
-  background: rgba(66, 184, 131, 0.24);
-  color: #0f5132;
-  font-weight: 700;
+.tech-line {
+  color: rgba(15, 23, 42, 0.7);
+  font-size: 0.92rem;
+  letter-spacing: 0.02em;
 }
 
-.tech-tag--react {
-  border-color: rgba(97, 218, 251, 1);
-  background: rgba(97, 218, 251, 0.28);
-  color: #0b3d4a;
-  font-weight: 700;
+.project-card__links {
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
 }
 
-.case-button.custom-btn {
-  width: fit-content;
+.project-link-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.link-button {
+  padding: 0.65rem 1.25rem;
+  border-radius: 6px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  border: 1px solid transparent;
+  transition: background var(--saas-transition), color var(--saas-transition),
+    border-color var(--saas-transition), transform var(--saas-transition);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  min-height: 44px;
+  line-height: 1;
+}
+
+.link-button--primary {
   background: var(--saas-primary);
-  border-color: var(--saas-primary);
   color: #ffffff;
-  transition: background-color var(--saas-transition), border-color var(--saas-transition), transform var(--saas-transition);
+  border-color: var(--saas-primary);
 }
 
-.case-button.custom-btn:hover {
+.link-button--primary:hover {
   background: var(--saas-hover);
   border-color: var(--saas-hover);
-  transform: translateY(-1px);
 }
 
-.other-experiments {
-  padding-top: 1.5rem;
+.link-button--ghost {
+  background: transparent;
+  color: var(--saas-heading);
+  border-color: rgba(15, 23, 42, 0.2);
 }
 
-.other-experiments summary {
+.link-button--ghost:hover {
   color: var(--saas-primary);
-  cursor: pointer;
-  font-weight: 600;
-  width: fit-content;
+  border-color: var(--saas-primary);
 }
 
-.experiment-list {
-  list-style: none;
-  padding-left: 0;
-  margin-top: 1rem;
-  max-width: 700px;
-}
+@media (max-width: 768px) {
+  .featured-content {
+    padding: 1.5rem;
+  }
 
-.experiment-link {
-  color: var(--saas-primary);
-  position: relative;
-  transition: color var(--saas-transition);
-}
-
-.experiment-link::after {
-  content: '';
-  position: absolute;
-  left: 0;
-  bottom: -2px;
-  width: 100%;
-  height: 1px;
-  background: var(--saas-hover);
-  transform: scaleX(0);
-  transform-origin: left;
-  transition: transform var(--saas-transition);
-}
-
-.experiment-link:hover {
-  color: var(--saas-hover);
-}
-
-.experiment-link:hover::after {
-  transform: scaleX(1);
+  .project-card__image {
+    height: 200px;
+  }
 }
 </style>
