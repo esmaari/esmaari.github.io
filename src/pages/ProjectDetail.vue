@@ -11,6 +11,13 @@
         :meta-info="metaInfo"
       />
 
+      <section class="content-block contact-block text-center">
+        <p class="contact-copy mb-3">
+          Need a calm, modern case study page? I can scope the first step with you in under 15 minutes.
+        </p>
+        <router-link to="/contact" class="hero-action">Start a conversation</router-link>
+      </section>
+
       <section class="content-block">
         <h2 class="section-title accent-title mb-4">Context & Objective</h2>
         <div class="row gy-4">
@@ -221,12 +228,17 @@ const contextObjective = computed(() => {
 })
 
 const productStrategy = computed(() => {
-  const featureCount = (project.value?.features || []).length
-  const strategyLine = featureCount
-    ? `The product strategy focused on building a journey model with categorized steps so each user flow could remain modular, consistent, and easy to scale as feature count increased (${featureCount} core flows).`
-    : 'The product strategy focused on modular workflows and categorized interaction patterns to keep growth manageable and implementation predictable.'
+  if (!project.value) return ''
+  if (project.value.strategy) return project.value.strategy
 
-  return `${strategyLine} This reduced ambiguity in navigation, improved maintainability, and created a clearer foundation for future extensions.`
+  const base = 'The strategy leaned on calm, bite-size sections so prospects could scan the story without feeling overwhelmed.'
+  const featureCount = (project.value?.features || []).length
+
+  if (featureCount) {
+    return `${base} It also highlighted ${featureCount} concrete flows so each story feels tangible and easy to grasp.`
+  }
+
+  return base
 })
 
 const architectureCards = computed(() => {
@@ -235,33 +247,33 @@ const architectureCards = computed(() => {
   }
 
   const frontendTitle = hasTech('vue')
-    ? 'Vue 3 + Composition API'
+    ? 'Thoughtful Component Layers'
     : hasTech('react')
-      ? 'React + Component Architecture'
-      : 'Modular Frontend Architecture'
+      ? 'Clean Component Economy'
+      : 'Modular Frontend Experience'
 
   const backendTitle = hasTech('supabase')
-    ? 'Supabase + RLS'
-    : 'API Layer + Access Boundaries'
+    ? 'Trustworthy Data Boundaries'
+    : 'Predictable Access Flow'
 
   return [
     {
       title: frontendTitle,
-      decision: 'Adopt a component-first architecture with explicit state and composable logic boundaries.',
-      why: 'To keep the UI predictable as product complexity grows across routes and feature modules.',
-      impact: 'Faster iteration speed, cleaner code ownership, and lower regression risk.'
+      decision: 'Leaned on reusable blocks and purposeful spacing to keep every interaction crystal clear.',
+      why: 'Clients need to feel confident at first glance.',
+      impact: 'More readable content and predictable behavior across the entire site.'
     },
     {
       title: backendTitle,
-      decision: 'Separate data access responsibilities and enforce consistent permission-aware request flows.',
-      why: 'To make API behavior reliable across authenticated and public interactions.',
-      impact: 'Safer data handling and clearer integration contracts between frontend and backend.'
+      decision: 'Kept data and authentication flows consistent so form submissions and gated content never jitter.',
+      why: 'Trust breaks when a visitor lands on a stale page mid-flow.',
+      impact: 'Visitors stay in motion and trust builds with every click.'
     },
     {
-      title: 'Relational Data Model',
-      decision: 'Model entities around reusable relationships rather than isolated feature-specific structures.',
-      why: 'To support extensibility without reworking core data assumptions each release.',
-      impact: 'Improved scalability for future product capabilities and reporting requirements.'
+      title: 'Future-Friendly Structure',
+      decision: 'Organized the experience around repeatable patterns rather than one-off pages.',
+      why: 'New case studies should drop in without a major rewrite.',
+      impact: 'Saves time on future storytelling updates.'
     }
   ]
 })
@@ -327,32 +339,32 @@ const miniGalleryImages = computed(() => {
 
 const technicalChallenges = computed(() => {
   return [
-    'Maintaining consistent state behavior across multiple product flows without introducing coupling.',
-    'Designing data interactions that remain resilient under asynchronous updates and partial failure states.',
-    'Keeping UI architecture scalable while preserving development velocity and readability.'
+    'Keeping each section short, focused, and easy to scan for busy decision-makers.',
+    'Serving rich imagery while keeping performance snappy on every screen size.',
+    'Structuring new content so additional case stories slot in without rewriting the layout.'
   ]
 })
 
 const results = computed(() => {
   return {
     technical: [
-      'Established a reusable and scalable frontend foundation.',
-      'Improved maintainability through modular architecture decisions.',
-      'Reduced complexity in future feature integration.'
+      'Delivered consistent layouts that feel like a modern SaaS page.',
+      'Kept the stack ready for quick updates and reliable shipping.',
+      'Favored spacing and hierarchy so stories stay readable across breakpoints.'
     ],
     product: [
-      'Delivered clearer user journeys with stronger interaction consistency.',
-      'Increased confidence for iterative product enhancements.',
-      'Created a more reliable base for long-term product growth.'
+      'Helped visitors grasp the value quickly and stay inspired to act.',
+      'Structured narratives that end with a clear next step.',
+      'Made it easy to point clients toward a conversation without overwhelming them.'
     ]
   }
 })
 
 const improvements = computed(() => {
   return [
-    'Introduce deeper observability for runtime performance and user behavior analytics.',
-    'Expand automated coverage for critical user journeys and edge-case interactions.',
-    'Add advanced role-based capabilities to support more granular product governance.'
+    'Add simple lead tracking to see which stories resonate most with visitors.',
+    'Introduce quick demos or motion snippets to surface energy faster.',
+    'Refresh the case studies as new flagship projects ship so the gallery feels current.'
   ]
 })
 
@@ -415,6 +427,26 @@ watchEffect(() => {
 
 .content-block {
   margin-top: 7rem;
+}
+
+.hero-action {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 122px;
+  padding: 0.62rem 1.1rem;
+  border: 1px solid var(--saas-primary);
+  background: var(--saas-primary);
+  color: #ffffff;
+  font-weight: 600;
+  transition: border-color var(--saas-transition), background-color var(--saas-transition), color var(--saas-transition), transform var(--saas-transition);
+}
+
+.hero-action:hover {
+  border-color: var(--saas-hover);
+  background: var(--saas-hover);
+  color: #ffffff;
+  transform: translateY(-1px);
 }
 
 .case-title {
@@ -505,6 +537,19 @@ watchEffect(() => {
 .challenge-list li,
 .improve-list li {
   margin-bottom: 0.45rem;
+}
+
+.contact-block {
+  margin-top: 3rem;
+  padding: 2rem 0;
+  margin-bottom: 2rem;
+}
+
+.contact-copy {
+  margin: 0 auto;
+  max-width: 520px;
+  font-size: 1.08rem;
+  color: var(--saas-body);
 }
 
 .stack-title {

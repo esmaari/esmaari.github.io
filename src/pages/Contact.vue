@@ -41,6 +41,10 @@
                 <Briefcase :size="18" />
                 <span>Upwork</span>
               </a>
+              <a href="https://www.freelancer.com/u/esmaari" target="_blank" rel="noopener" class="contact-link">
+                <Briefcase :size="18" />
+                <span>Freelancer</span>
+              </a>
               <a href="https://www.malt.de/profile/esmaari" target="_blank" rel="noopener" class="contact-link">
                 <Briefcase :size="18" />
                 <span>Malt</span>

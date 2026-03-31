@@ -41,40 +41,41 @@ export const projects = [
 
   {
     slug: 'cosmictrack',
-    title: 'Cosmic Track',
-    impact: 'Tarot-based journaling platform built with Vue 3 and Supabase.',
-    overview: `A spiritual journaling app designed for structured reflection and personal growth.`,
-    technical: `Vue 3, Supabase backend, categorized entries, scalable state management.`,
+    title: 'Cosmic Track — Guided Ritual Journal',
+    impact: 'Gives tarot practitioners a calm digital space to reflect and track progress weekly.',
+    overview: `Tarot guides needed a journal that keeps their rituals private yet inviting.`,
+    technical: `Goal: surface guided steps, keep reflections secure, and make every session feel intentional.`,
+    strategy: `The strategy centered on short, guided journeys with gentle reminders so visitors always know where to continue the ritual.`,
     architectureDecisions: [
       {
-        title: 'Vue 3 + Composition API',
-        decision: 'Organized core flows with composables and explicit component boundaries.',
-        why: 'The journaling product has multiple dependent interactions that need predictable state handling.',
-        impact: 'Improved maintainability and faster feature iteration without coupling UI logic.'
+        title: 'Guided Reflection Journeys',
+        decision: 'Framed journaling as a sequence of short, labeled steps with clear prompts.',
+        why: 'Rituals stick when each entry feels purposeful and easy to resume.',
+        impact: 'Members start sessions with confidence and return more often.'
       },
       {
-        title: 'Supabase + RLS',
-        decision: 'Used Supabase as backend and applied row-level access boundaries for user-owned entries.',
-        why: 'Personal journaling data requires strict ownership and clean auth-aware data access.',
-        impact: 'Safer data operations and a production-ready auth/data foundation.'
+        title: 'Private, Trustworthy Storage',
+        decision: 'Kept every note behind secure boundaries and reduced friction around login.',
+        why: 'Personal reflections demand trust before people commit to writing regularly.',
+        impact: 'Users came back daily without worrying about data leaks.'
       },
       {
-        title: 'Relational Journey Model',
-        decision: 'Modeled journeys and categorized steps as structured entities.',
-        why: 'A clear relationship model was needed to scale flows beyond simple note-taking.',
-        impact: 'Enabled extensible feature growth and clearer reporting logic in future releases.'
+        title: 'Future-Proof Ritual Model',
+        decision: 'Structured journeys so new rituals plug in without rewriting the UI.',
+        why: 'The offering needed to expand beyond journaling into themed challenges.',
+        impact: 'Fresh journeys ship faster while keeping behavior consistent.'
       }
     ],
     heroImage: cosmicPreview,
     features: [
       {
-        title: 'Journey Management',
-        description: 'Structured journaling flow with categorized steps.',
+        title: 'Multi-step Journeys',
+        description: 'Themed reflections keep intention and mood visible on every step.',
         image: cosmictrackJourneys
       },
       {
-        title: 'Step Creation Interface',
-        description: 'Composable UI system for adding dynamic entries.',
+        title: 'Step Builder',
+        description: 'Add new ritual steps in seconds with clear labels and gentle cues.',
         image: cosmictrackAddStep
       }
     ],
@@ -87,44 +88,45 @@ export const projects = [
 
   {
     slug: 'sinevega',
-    title: 'SineVega',
-    impact: 'Movie discovery platform with real-time TMDb API integration.',
-    overview: `Search, explore and save movies using Vue 3 and Pinia.`,
-    technical: `Real-time API integration with modular component architecture.`,
+    title: 'SineVega — Cinematic Discovery Hub',
+    impact: 'Turned movie data into a friendly, curated discovery experience that keeps cinephiles exploring.',
+    overview: `Movie lovers needed a focused hub; we shaped a cinematic gateway that highlights stories instead of clutter.`,
+    technical: `Goal: spotlight curated recommendations, keep watchlists synced, and let visitors explore characters with confidence.`,
+    strategy: `We leaned on cinematic storytelling, curated paths, and a soft CTA so visitors always know how to keep exploring.`,
     architectureDecisions: [
       {
-        title: 'Component-Driven Vue Architecture',
-        decision: 'Split browse, detail, and account interactions into reusable UI modules.',
-        why: 'Movie discovery includes repeated patterns that must stay consistent across screens.',
-        impact: 'Reduced duplication and improved long-term maintainability.'
+        title: 'Cinematic Story Blocks',
+        decision: 'Grouped browse, detail, and account sections into reassuring, repeatable layouts.',
+        why: 'Consistency keeps visitors immersed instead of hunting for info.',
+        impact: 'Users skim faster and feel confident exploring deeper pages.'
       },
       {
-        title: 'TMDb API Service Layer',
-        decision: 'Centralized API requests and response handling through dedicated service logic.',
-        why: 'Search and detail endpoints require stable request handling and error resilience.',
-        impact: 'Cleaner UI components and more reliable runtime behavior.'
+        title: 'Reliable Service Layer',
+        decision: 'Shared TMDb requests across cards and details to keep every story aligned.',
+        why: 'Discovering new films needs smooth, predictable responses.',
+        impact: 'Fewer hiccups and a cleaner browsing rhythm.'
       },
       {
-        title: 'Pinia State Strategy',
-        decision: 'Managed shared state (session/favorites) with Pinia stores.',
-        why: 'User-specific actions needed predictable cross-view synchronization.',
-        impact: 'Consistent UX and straightforward state updates across the app.'
+        title: 'Favorites That Feel Saved',
+        decision: 'Kept sessions and watchlists synced so inspiration is never lost.',
+        why: 'A discovery hub loses value when favorites vanish.',
+        impact: 'Repeat visits grew because people trusted the collection system.'
       }
     ],
     design: {
-      description: 'UI structure and layout planning prepared in Figma before implementation.',
+      description: 'Figma planning balanced cinematic visuals with calm spacing and hierarchy.',
       images: [svHome, svMovieDetails, svPersonDetails, svProfile, svRegister]
     },
     heroImage: sinevegaPreview,
     features: [
       {
-        title: 'Search & Results',
-        description: 'Dynamic API-driven search with paginated responses.',
+        title: 'Dynamic Search + Lists',
+        description: 'Instant search delivers curated previews and smart filters on every screen.',
         image: svSearchResult
       },
       {
-        title: 'Authentication & Favorites',
-        description: 'User sessions with personalized movie lists.',
+        title: 'Smooth Account Flow',
+        description: 'Logins, favorites, and profiles stay in sync so visitors keep saving inspiration.',
         image: svLogin
       }
     ],
@@ -138,40 +140,41 @@ export const projects = [
 
   {
     slug: 'kanban-issue-tracker',
-    title: 'Kanban Issue Tracker',
-    impact: 'Production-grade Vue 3 architecture with authentication and testing.',
-    overview: `Feature-sliced Kanban board with real-world architecture decisions.`,
-    technical: `Vue 3 + TypeScript, auth guards, CRUD workflows, Vitest & Cypress.`,
+    title: 'Kanban Issue Tracker — Team Focus Board',
+    impact: 'Launched a dependable board so teams keep their work visible and accountable.',
+    overview: `Teams juggling many workflows needed one calm space to track progress.`,
+    technical: `Goal: keep status updates fast, protect every route, and give every team member confidence in the board.`,
+    strategy: `Strategy centered on clear columns, purposeful microcopy, and guardrails that keep attention on the next meaningful move.`,
     architectureDecisions: [
       {
-        title: 'Feature-Sliced Frontend Structure',
-        decision: 'Grouped code by feature boundaries and reusable domain primitives.',
-        why: 'Issue tracking workflows grow quickly and require clear ownership boundaries.',
-        impact: 'Scalable codebase with lower onboarding and maintenance cost.'
+        title: 'Feature-Focused Structure',
+        decision: 'Arranged modules by outcome so each card feels purposeful and easy to scan.',
+        why: 'Clarity helps teams move faster without asking where to click.',
+        impact: 'Fewer questions and smoother daily standups.'
       },
       {
-        title: 'Auth Guards + Access Flow',
-        decision: 'Implemented route guards and token-aware request behavior.',
-        why: 'Protected product areas require deterministic access control.',
-        impact: 'Safer navigation behavior and reliable protected workflows.'
+        title: 'Locked-In Access Flow',
+        decision: 'Applied lightweight guards so sensitive workflows stay behind secure routes.',
+        why: 'Boards lose trust if people accidentally access unfinished areas.',
+        impact: 'Stronger confidence for teams in protected sections.'
       },
       {
-        title: 'Type-Safe CRUD Contracts',
-        decision: 'Applied TypeScript-first data contracts across issue operations.',
-        why: 'CRUD-heavy products are sensitive to schema drift and runtime mismatch.',
-        impact: 'Higher reliability and faster refactoring confidence.'
+        title: 'Consistent CRUD Rituals',
+        decision: 'Set predictable patterns for creating, editing, and saving issues.',
+        why: 'Teams want to spend time solving problems, not hunting buttons.',
+        impact: 'Smaller learning curve and quieter release cycles.'
       }
     ],
     heroImage: kanbanBoard,
     features: [
       {
-        title: 'Authentication Flow',
-        description: 'Protected routes with token persistence.',
+        title: 'Secure Launchpad',
+        description: 'Logins and protected routes welcome each user with a consistent experience.',
         image: kanbanLogin
       },
       {
-        title: 'Issue Editing',
-        description: 'Dialog-based CRUD workflow.',
+        title: 'Fast Issue Editing',
+        description: 'Dialog-based workflow keeps focus on the work, not the form.',
         image: kanbanEditDialog
       }
     ],
@@ -185,35 +188,36 @@ export const projects = [
 
   {
     slug: 'vanlife-react',
-    title: 'VanLife – React App',
-    impact: 'React + Supabase app with protected routing.',
-    overview: `Rebuilt VanLife project with real backend integration.`,
-    technical: `React Router 6, TypeScript, Supabase, route guards.`,
+    title: 'VanLife — Travel Marketplace',
+    impact: 'Rebuilt VanLife into a polished marketplace that feels trustworthy for hosts and travelers.',
+    overview: `Travelers needed real listings and reliable filters, not just placeholders.`,
+    technical: `Goal: let hosts share rich stories, travelers filter quickly, and keep data consistent across roles.`,
+    strategy: `Strategy highlighted bold visuals, filter-first discovery, and role-aware flows so both hosts and travelers stay confident.`,
     architectureDecisions: [
       {
-        title: 'Route-First App Composition',
-        decision: 'Built host/public experiences around clear route boundaries and nested layouts.',
-        why: 'Different user roles require explicit navigation and access behavior.',
-        impact: 'Clearer product flows and simpler extension of protected areas.'
+        title: 'Role-Aware Routes',
+        decision: 'Separated host and traveler experiences with clear route patterns.',
+        why: 'Different roles need different entry points and expectations.',
+        impact: 'Flows stay predictable whether you are browsing or managing a listing.'
       },
       {
-        title: 'Supabase Data Integration',
-        decision: 'Replaced mock backend with Supabase-driven real data operations.',
-        why: 'Production-like behavior was needed for realistic product delivery.',
-        impact: 'End-to-end app realism with stronger deployment confidence.'
+        title: 'Real Listings Pipeline',
+        decision: 'Shifted from mocks to Supabase so every listing reflects real data.',
+        why: 'Trust grows when travelers see up-to-date availability.',
+        impact: 'The marketplace feels live and ready to book.'
       },
       {
-        title: 'TypeScript + UI Contract Stability',
-        decision: 'Used typed models across listings, details, and auth-related flows.',
-        why: 'Shared data across routes required stable, explicit contracts.',
-        impact: 'Reduced runtime ambiguity and safer iteration over product features.'
+        title: 'Stable Contract Layers',
+        decision: 'Used typed models for listings, details, and auth so nothing breaks silently.',
+        why: 'Shared data across screens needs clear rules.',
+        impact: 'Iteration stays safe and future additions stay simple.'
       }
     ],
     heroImage: vanlifePreview,
     features: [
       {
         title: 'Dynamic Van Listings',
-        description: 'Real-time Supabase data with filtering.',
+        description: 'Live Supabase data paired with filters that match each traveler’s vibe.',
         image: vanlifeListing
       }
     ],
@@ -227,39 +231,41 @@ export const projects = [
 
   {
     slug: 'kbo',
-    title: 'Kozmik Bilinç Okulu',
-    impact: 'WooCommerce-based digital product site.',
-    overview: `WordPress site for an online spiritual school.`,
+    title: 'Kozmik Bilinç Okulu — Astrology School Platform',
+    impact: 'Presented the astrology school as a confident, commerce-ready portal without losing ritual energy.',
+    overview: `The academy needed a grounded WordPress home that confidently sells readings and memberships.`,
+    technical: `Goal: blend ritual storytelling with stable WooCommerce purchases and simple editing workflows.`,
+    strategy: `Strategy paired mystical storytelling with clear commerce cues so visitors understand the astrology school offering and can book or shop without friction.`,
     architectureDecisions: [
       {
-        title: 'WordPress Content Architecture',
-        decision: 'Structured pages and product content around reusable CMS templates.',
-        why: 'Frequent content and product updates required low-friction editing.',
-        impact: 'Faster publishing workflow and consistent site structure.'
+        title: 'Astrology Content Templates',
+        decision: 'Built reusable templates for readings, events, and card decks tailored to astrology.',
+        why: 'The academy publishes frequent rituals and readings that need consistent structure.',
+        impact: 'Every update keeps the mystical tone without reworking layouts.'
       },
       {
-        title: 'WooCommerce Product Flow',
-        decision: 'Integrated WooCommerce for digital product lifecycle management.',
-        why: 'Checkout and catalog behavior needed a proven e-commerce base.',
-        impact: 'Reliable conversion path with manageable operations.'
+        title: 'Trusted Purchase Flow',
+        decision: 'Integrated WooCommerce to sell readings and memberships with calm checkout cues.',
+        why: 'High-touch products need polished commerce steps.',
+        impact: 'Visitors convert with confidence and fewer abandoned carts.'
       },
       {
-        title: 'Scalable IA for Learning Content',
-        decision: 'Organized navigation and category structure around user learning journeys.',
-        why: 'Users needed quicker access to multiple content/product layers.',
-        impact: 'Improved discoverability and reduced navigation friction.'
+        title: 'Intentional Navigation',
+        decision: 'Organized menus around astrology programs and rituals so visitors land where they belong.',
+        why: 'Seekers search by theme, not just categories.',
+        impact: 'Faster discovery of readings and clearer calls to action.'
       }
     ],
     heroImage: kboHomePage,
     features: [
       {
-        title: 'Menu Layout',
-        description: 'Structured navigation for digital content.',
+        title: 'Guided Menu',
+        description: 'Menus follow astrology paths so visitors quickly reach the exact ritual or course.',
         image: kboMenuPage
       },
       {
-        title: 'Card Design',
-        description: 'Visual tarot product presentation.',
+        title: 'Intention Cards',
+        description: 'Tarot-inspired cards frame readings and products with clear intent before checkout.',
         image: kboCardDesign
       }
     ],
@@ -270,27 +276,29 @@ export const projects = [
 
   {
     slug: 'uad',
-    title: 'Uranyen Astroloji Derneği',
-    impact: 'Membership-based WordPress platform.',
-    overview: `Custom login and gated content system.`,
+    title: 'Uranyen Astroloji Derneği — Membership Portal',
+    impact: 'Created a membership-first site that delivers premium astrology insights.',
+    overview: `The association needed a login-first experience that keeps member content gated yet inviting.`,
+    technical: `Goal: keep gates intentional, spotlight premium value, and invite curious visitors to join.`,
+    strategy: `Positioned the membership as both aspirational and accessible with clear entry points and a calm interface.`,
     architectureDecisions: [
       {
-        title: 'Membership-Gated Information Model',
-        decision: 'Implemented gated access across premium content sections.',
-        why: 'The platform required clear separation between public and member-only content.',
-        impact: 'Controlled access model aligned with business and user expectations.'
+        title: 'Intentional Gating',
+        decision: 'Opened doors only when members were authenticated, keeping private insight areas secure.',
+        why: 'Trust requires clear separation between free and premium content.',
+        impact: 'Members feel confident about what they unlock behind the gate.'
       },
       {
-        title: 'Login-Centric User Journey',
-        decision: 'Designed authentication-first navigation for member interactions.',
-        why: 'Key user value exists behind account boundaries.',
-        impact: 'Clearer onboarding path and stronger member retention flow.'
+        title: 'Login-First Navigation',
+        decision: 'Led visitors with a login hero, then layered in teasers for premium sections.',
+        why: 'The most valuable content lived behind an account wall, so the journey had to start there.',
+        impact: 'Onboarding felt purposeful and retention stayed high.'
       },
       {
-        title: 'Plugin-Driven Extensibility',
-        decision: 'Used stable WordPress plugin boundaries for account and content workflows.',
-        why: 'Future capability additions needed predictable extension points.',
-        impact: 'Lower maintenance overhead and easier iterative improvements.'
+        title: 'Plugin-Based Flexibility',
+        decision: 'Leveled up workflows with trusted plugins so new capabilities slot in smoothly.',
+        why: 'The platform plans to evolve, so predictable extension points matter.',
+        impact: 'Maintenance stays low while future enhancements stay manageable.'
       }
     ],
     heroImage: uadImg,
@@ -301,40 +309,41 @@ export const projects = [
 
   {
     slug: 'se',
-    title: 'Sevilay Eriçdem Website',
-    impact: 'Next.js corporate showcase site.',
-    overview: `Corporate site with tarot-based interface.`,
-    technical: `Next.js 16 + Figma-driven UI.`,
+    title: 'Modern Business Website for Personal Brand',
+    impact: 'Crafted a confident, modern presentation that gently guides visitors toward booking a conversation.',
+    overview: `The tarotpreneur wanted a human, approachable site with repeat CTAs and a warm tone.`,
+    technical: `Goal: deliver modular storytelling sections, tactile interactions, and a clear path to contact.`,
+    strategy: `Balanced bold hierarchy, purposeful breaks, and CTA repetition so prospects naturally move toward a chat.`,
     architectureDecisions: [
       {
-        title: 'Next.js App Structure',
-        decision: 'Built the site with route-based composition and modular UI sections.',
-        why: 'Corporate storytelling and interactive sections needed strong content/page control.',
-        impact: 'Flexible content expansion with consistent rendering behavior.'
+        title: 'Story-Focused Layout',
+        decision: 'Built content blocks that tell a story in short, scrolling segments.',
+        why: 'Busy clients scan quickly and need to understand the offer right away.',
+        impact: 'Visitors stay engaged and reach for the contact prompts without friction.'
       },
       {
         title: 'Design-to-Code Pipeline',
-        decision: 'Mapped Figma planning into reusable implementation blocks.',
-        why: 'Visual consistency and delivery speed required a clear translation workflow.',
-        impact: 'Lower UI drift and faster production of polished pages.'
+        decision: 'Translated Figma vision into reusable blocks so updates stay aligned with the brand.',
+        why: 'Maintaining the tarot aesthetic while shipping fast requires a clear handoff.',
+        impact: 'Polished pages release faster with fewer visual mismatches.'
       },
       {
-        title: 'Interaction-Focused Component Model',
-        decision: 'Structured interactive card experiences as independent, reusable units.',
-        why: 'Feature-specific UI interactions needed maintainable logic boundaries.',
-        impact: 'Improved maintainability for iterative UX updates.'
+        title: 'Interactive Card Moments',
+        decision: 'Isolated the fortune card experience into its own touch-friendly module.',
+        why: 'Feature interactions should feel playful yet easy to understand.',
+        impact: 'Visitors get a memorable moment that mirrors the brand tone.'
       }
     ],
     heroImage: SevilayE26,
     features: [
       {
-        title: 'Card Choosing Interface',
-        description: 'Interactive card experience.',
+        title: 'Card Choosing Moment',
+        description: 'Playful, mobile-first card interaction that mirrors live reading energy.',
         image: SevilayECardChoosingPage
       },
       {
-        title: 'Design Mockups',
-        description: 'Responsive planning in Figma.',
+        title: 'Responsive Mockups',
+        description: 'Figma-driven planning keeps layouts sharp on every device.',
         image: SevilayEDesignMockups
       }
     ],
@@ -348,26 +357,29 @@ export const projects = [
 
   {
     slug: 'react-todo',
-    title: 'React ToDo App',
-    impact: 'Task management with localStorage.',
+    title: 'React ToDo App — Focused Task Builder',
+    impact: 'Delivered a tidy, responsive to-do experience with persistent storage.',
+    overview: `Simple task workflows needed a distraction-free home with quick saves.`,
+    technical: `Goal: keep task interactions responsive while persisting data locally.`,
+    strategy: `Kept flows short and predictable so managing tasks stays satisfying.`,
     architectureDecisions: [
       {
-        title: 'State-Driven Task Workflow',
-        decision: 'Managed task operations through explicit local state transitions.',
-        why: 'Even simple CRUD flows require predictable UI behavior.',
-        impact: 'Clear interaction model and easier future enhancement.'
+        title: 'Predictable Task Rhythm',
+        decision: 'Baked explicit transitions between add, edit, and complete states.',
+        why: 'Clarity is vital even for a simple list app.',
+        impact: 'Users stay focused and the UI feels stable.'
       },
       {
-        title: 'Persistent Client Storage',
-        decision: 'Used localStorage for task persistence between sessions.',
-        why: 'Basic continuity was required without backend dependency.',
-        impact: 'Practical product behavior with minimal infrastructure.'
+        title: 'Client-Side Persistence',
+        decision: 'Saved data in localStorage so nothing disappears on refresh.',
+        why: 'Users expect continuity without needing a backend.',
+        impact: 'Tasks outlive the session and feel reliable.'
       },
       {
-        title: 'Reusable List Rendering',
-        decision: 'Separated list rendering and action controls into maintainable UI units.',
-        why: 'Clean component boundaries improve readability over time.',
-        impact: 'Lower complexity and faster refactoring cycles.'
+        title: 'Reusable List Layout',
+        decision: 'Separated the list from controls to keep each piece readable.',
+        why: 'Modular UI makes future tweaks easier.',
+        impact: 'Refactors stay short and maintainable.'
       }
     ],
     heroImage: reactTodoImg,
@@ -379,26 +391,29 @@ export const projects = [
 
   {
     slug: 'react-weather',
-    title: 'React Weather App',
-    impact: 'Weather app using Open-Meteo API.',
+    title: 'React Weather App — Clean Forecast',
+    impact: 'Delivered a lightweight forecast tool for quick, confident checks.',
+    overview: `People needed a clear weather snapshot without visual clutter.`,
+    technical: `Goal: surface forecasts fast, keep network handling calm, and highlight what matters most.`,
+    strategy: `Focused on breathing room, bold typography, and steady states so visitors trust the info.`,
     architectureDecisions: [
       {
-        title: 'API-First Data Flow',
-        decision: 'Designed fetch and render sequence around external weather endpoints.',
-        why: 'Network-driven apps need stable request state handling.',
-        impact: 'More predictable UX for loading and result states.'
+        title: 'Instant API Flow',
+        decision: 'Built the loading sequence around predictable fetch and display states.',
+        why: 'Weather data must feel reliable on every request.',
+        impact: 'Visitors read the forecast without hesitation.'
       },
       {
-        title: 'Input-to-Result Pipeline',
-        decision: 'Structured city search into a clear query-to-data transformation flow.',
-        why: 'User input must map cleanly to API contracts.',
-        impact: 'Reduced input ambiguity and improved reliability.'
+        title: 'Query-to-Result Pipeline',
+        decision: 'Structured city search so each input maps cleanly to visible data.',
+        why: 'Searching should feel instant and reassuring.',
+        impact: 'Fewer retries and clearer confidence in the results.'
       },
       {
-        title: 'UI Simplicity by Design',
-        decision: 'Kept component scope narrow for clarity and maintainability.',
-        why: 'Focused apps benefit from minimal but robust UI structure.',
-        impact: 'Easier upgrades and lower visual/logic noise.'
+        title: 'Minimal UI',
+        decision: 'Tight component scope keeps the experience calm and readable.',
+        why: 'Small pockets need strong focus to stay high quality.',
+        impact: 'The interface stays light even as data changes.'
       }
     ],
     heroImage: reactWeatherApp,
@@ -410,26 +425,29 @@ export const projects = [
 
   {
     slug: 'react-meme',
-    title: 'React Meme Generator',
-    impact: 'API-based meme generator.',
+    title: 'React Meme Generator — API-Powered Fun',
+    impact: 'Gave creative communities a fast way to remix memes with live previews.',
+    overview: `Creators wanted a playful tool that feels instant and responsive.`,
+    technical: `Goal: keep inputs, image loading, and previews predictable for quick iteration.`,
+    strategy: `Focused on instant feedback loops so people can tweak text and assets without waiting.`,
     architectureDecisions: [
       {
-        title: 'Interactive Form State',
-        decision: 'Managed text input and selected asset state in a single predictable flow.',
-        why: 'Live preview interactions require tight state synchronization.',
-        impact: 'Responsive editing experience with low complexity.'
+        title: 'Responsive Input Flow',
+        decision: 'Treated inputs and preview state as a single, predictable flow.',
+        why: 'Creators need real-time reflections of their edits.',
+        impact: 'Editing feels snappy and intuitive.'
       },
       {
-        title: 'API Asset Loading',
-        decision: 'Separated random image fetching from rendering logic.',
-        why: 'External assets can fail or vary unpredictably.',
-        impact: 'More stable rendering and cleaner UI control.'
+        title: 'Clear API Handling',
+        decision: 'Kept image fetching decoupled from rendering logic to stay resilient.',
+        why: 'External assets vary and should not freeze the UI.',
+        impact: 'Previews stay stable even if the API hiccups.'
       },
       {
-        title: 'Composable Output Layer',
-        decision: 'Built output as reusable composition of image + overlay text.',
-        why: 'Output logic must stay clear for future feature extension.',
-        impact: 'Maintainable code path for additional editing features.'
+        title: 'Composable Output',
+        decision: 'Built the preview as a reusable combo of image and overlay text.',
+        why: 'Output needs to stay flexible for future updates.',
+        impact: 'Adding new features stays low risk.'
       }
     ],
     heroImage: reactcreatememe,
@@ -441,26 +459,29 @@ export const projects = [
 
   {
     slug: 'react-travel-journal',
-    title: 'React Travel Journal',
-    impact: 'Reusable component-based postcard layout.',
+    title: 'React Travel Journal — Postcard Gallery',
+    impact: 'Built a reusable postcard layout that keeps stories bright and breathable.',
+    overview: `Storytellers wanted cards that feel like physical postcards with a modern finish.`,
+    technical: `Goal: map structured entries to reusable cards with calm styling.`,
+    strategy: `Kept the card stack modular so new destinations can be added without reworking layouts.`,
     architectureDecisions: [
       {
         title: 'Data-to-Component Mapping',
-        decision: 'Rendered journal entries from structured item data.',
-        why: 'Content collections should scale without template duplication.',
-        impact: 'Simple extensibility for additional entries.'
+        decision: 'Rendered entries from structured item data to avoid duplication.',
+        why: 'Content should scale without extra templates.',
+        impact: 'New entries drop in cleanly.'
       },
       {
         title: 'Reusable Card Composition',
-        decision: 'Designed travel cards as repeatable presentation components.',
-        why: 'Consistency across entries is central to readability.',
-        impact: 'Cleaner UI system and easier visual refinement.'
+        decision: 'Built travel cards as repeatable presentation units.',
+        why: 'Consistency keeps the gallery cohesive.',
+        impact: 'Visual polish stays steady as the collection grows.'
       },
       {
-        title: 'Lightweight Styling Model',
-        decision: 'Used scoped styling patterns aligned to component boundaries.',
-        why: 'Small projects still benefit from strong style ownership.',
-        impact: 'Reduced side effects and easier maintenance.'
+        title: 'Scoped Styling',
+        decision: 'Kept styles scoped to component boundaries.',
+        why: 'Small projects still need strong style ownership.',
+        impact: 'Maintenance stays low while creativity stays high.'
       }
     ],
     heroImage: reacttraveljournal,
@@ -472,26 +493,29 @@ export const projects = [
 
   {
     slug: 'react-tenzies-game',
-    title: 'React Tenzies Game',
-    impact: 'Dice game with state management.',
+    title: 'React Tenzies Game — Dice Ritual',
+    impact: 'Playful dice ritual with crisp state transitions.',
+    overview: `Players needed clear feedback on rolls, holds, and wins.`,
+    technical: `Goal: model roll/hold/win with explicit states while keeping dice components reusable.`,
+    strategy: `Focused on transparent game loops so every interaction feels fair and responsive.`,
     architectureDecisions: [
       {
-        title: 'State Transition Game Loop',
-        decision: 'Modeled roll/hold/win as explicit state transitions.',
-        why: 'Game mechanics depend on deterministic update order.',
-        impact: 'Reliable gameplay logic and easier debugging.'
+        title: 'Transparent Game Loop',
+        decision: 'Modeled roll/hold/win as explicit transitions.',
+        why: 'Players need to feel the logic behind every tap.',
+        impact: 'Gameplay stays predictable and debuggable.'
       },
       {
-        title: 'Composable Dice Components',
-        decision: 'Implemented dice as reusable interactive UI units.',
+        title: 'Composable Dice',
+        decision: 'Built the dice as reusable interactive units.',
         why: 'Repeated interaction elements should share one logic model.',
-        impact: 'Cleaner implementation and faster iteration.'
+        impact: 'Iteration stays fast and consistent.'
       },
       {
-        title: 'Derived Win Conditions',
-        decision: 'Computed completion state from current dice data rather than manual flags.',
-        why: 'Derived state reduces mismatch risk in interactive apps.',
-        impact: 'More stable behavior and simpler code paths.'
+        title: 'Derived Win States',
+        decision: 'Computed completion from the dice array rather than flags.',
+        why: 'Derived data reduces mismatch risk.',
+        impact: 'The experience feels stable across rounds.'
       }
     ],
     heroImage: reactapptentiesgame,
@@ -504,25 +528,28 @@ export const projects = [
   {
     slug: 'react-take-a-guess',
     title: 'Take a Guess — Hangman',
-    impact: 'Film-themed word guessing game.',
+    impact: 'Film-themed word guessing game with clear rhythm.',
+    overview: `Players wanted a thematic hangman with confident visual feedback.`,
+    technical: `Goal: keep validation reliable, animate progressive failure, and keep the UI themed but readable.`,
+    strategy: `Rhythm focused on clear inputs, confident feedback, and cinematic styling so players stay engaged.`,
     architectureDecisions: [
       {
-        title: 'Progressive Failure Model',
-        decision: 'Represented wrong attempts as staged visual/gameplay transitions.',
-        why: 'Clear progression improves player feedback and engagement.',
-        impact: 'More readable game state and stronger interaction rhythm.'
+        title: 'Progressive Feedback',
+        decision: 'Turned wrong guesses into staged visual steps.',
+        why: 'Clear progression keeps players motivated.',
+        impact: 'Game state feels readable and intentional.'
       },
       {
-        title: 'Input + Validation Pipeline',
-        decision: 'Separated guess handling from result evaluation logic.',
-        why: 'Game input needs robust validation and deterministic updates.',
-        impact: 'Reduced bug surface in repeated interaction cycles.'
+        title: 'Input Validation Pipeline',
+        decision: 'Separated guess handling from evaluation logic.',
+        why: 'Inputs deserve solid validation before updates.',
+        impact: 'Fewer bugs and smoother interactions.'
       },
       {
-        title: 'Theme-Driven UI Components',
-        decision: 'Mapped film-themed visuals onto reusable gameplay primitives.',
-        why: 'Thematic UI should not compromise maintainable logic.',
-        impact: 'Consistent style with stable code organization.'
+        title: 'Thematic UI',
+        decision: 'Mapped film visuals onto reusable gameplay primitives.',
+        why: 'Style should support maintainability.',
+        impact: 'Looks unique without sacrificing clarity.'
       }
     ],
     heroImage: takeaguess,
@@ -534,26 +561,29 @@ export const projects = [
 
   {
     slug: 'tetris',
-    title: 'Tetris Game',
-    impact: 'Vanilla JS canvas game.',
+    title: 'Tetris Game — Canvas Classic',
+    impact: 'Recreated a stable vanilla JS Tetris with clean pacing.',
+    overview: `Wanted deterministic controls and smooth visual updates.`,
+    technical: `Goal: keep the render loop steady, collisions reliable, and input responsive.`,
+    strategy: `Focused on explicit canvas timing so the classic feel remains precise.`,
     architectureDecisions: [
       {
-        title: 'Canvas Render Loop',
-        decision: 'Implemented gameplay via a controlled frame/update loop.',
-        why: 'Real-time mechanics require deterministic rendering cadence.',
-        impact: 'Stable gameplay pacing and reliable visual updates.'
+        title: 'Controlled Render Loop',
+        decision: 'Ran gameplay with a steady frame and update cycle.',
+        why: 'Real-time mechanics need predictability.',
+        impact: 'Consistent pacing and visuals.'
       },
       {
-        title: 'Grid-Based Piece Model',
-        decision: 'Modeled tetromino behavior with matrix/grid constraints.',
-        why: 'Collision and placement logic depends on explicit spatial rules.',
-        impact: 'Predictable game behavior and easier mechanic tuning.'
+        title: 'Grid-Based Pieces',
+        decision: 'Modeled tetrominoes with matrix constraints.',
+        why: 'Collision logic depends on precise spatial rules.',
+        impact: 'Mechanics feel predictable and easy to tune.'
       },
       {
-        title: 'Input Separation',
-        decision: 'Handled keyboard input independently from render logic.',
-        why: 'Decoupling improves responsiveness and maintainability.',
-        impact: 'Cleaner control flow and lower complexity in updates.'
+        title: 'Input Isolation',
+        decision: 'Kept keyboard input separate from render logic.',
+        why: 'Decoupling improves responsiveness.',
+        impact: 'Cleaner flow and easier debugging.'
       }
     ],
     heroImage: tetrisImg,
