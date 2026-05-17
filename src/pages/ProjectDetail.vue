@@ -37,6 +37,47 @@
         <p class="section-copy strategy-copy mb-0">{{ productStrategy }}</p>
       </section>
 
+      <section class="content-block" v-if="priorIteration">
+        <h2 class="section-title accent-title mb-4">Vue First, React Second</h2>
+        <p class="section-copy mb-4">{{ priorIteration.summary }}</p>
+
+        <div class="row gy-4">
+          <div class="col-lg-6">
+            <h3 class="sub-title mb-2">Why Vue first</h3>
+            <p class="section-copy mb-0">{{ priorIteration.whyVueFirst }}</p>
+          </div>
+          <div class="col-lg-6">
+            <h3 class="sub-title mb-2">Why React next</h3>
+            <p class="section-copy mb-0">{{ priorIteration.whyReactSecond }}</p>
+          </div>
+        </div>
+
+        <ul class="challenge-list mt-4 mb-4">
+          <li v-for="(item, index) in priorIteration.highlights" :key="`prior-${index}`">{{ item }}</li>
+        </ul>
+
+        <div class="d-flex flex-wrap gap-3">
+          <a
+            v-if="priorIteration.liveUrl"
+            :href="priorIteration.liveUrl"
+            target="_blank"
+            rel="noopener"
+            class="hero-action hero-action--outline"
+          >
+            {{ priorIteration.framework }} live
+          </a>
+          <a
+            v-if="priorIteration.github"
+            :href="priorIteration.github"
+            target="_blank"
+            rel="noopener"
+            class="hero-action hero-action--outline"
+          >
+            {{ priorIteration.framework }} repo
+          </a>
+        </div>
+      </section>
+
       <section class="content-block">
         <h2 class="section-title accent-title mb-4">Architecture Decisions</h2>
         <div class="row gy-4">
@@ -137,6 +178,7 @@ const base = 'https://esmaari.dev'
 const route = useRoute()
 
 const project = computed(() => projects.find(p => p.slug === route.params.slug))
+const priorIteration = computed(() => project.value?.priorIteration)
 const activeGalleryImage = ref<{ src: string; label: string } | null>(null)
 
 const openGallery = (item: { src: string; label: string }) => {
@@ -202,6 +244,10 @@ const positioningStatement = computed(() => {
 })
 
 const metaInfo = computed(() => {
+  if (project.value?.metaInfo) {
+    return project.value.metaInfo
+  }
+
   const stack = (project.value?.technologies || []).slice(0, 3).join(' · ') || 'Modern Frontend Stack'
 
   const projectType = hasTech('wordpress')
@@ -305,7 +351,7 @@ const normalizedFeatures = computed(() => {
     .map(feature => ({
       title: feature.title,
       description: feature.description,
-      bullets: buildFeatureBullets(feature.title),
+      bullets: feature.bullets?.length ? feature.bullets : buildFeatureBullets(feature.title),
       image: feature.image
     }))
 })
@@ -338,6 +384,10 @@ const miniGalleryImages = computed(() => {
 })
 
 const technicalChallenges = computed(() => {
+  if (project.value?.technicalChallenges?.length) {
+    return project.value.technicalChallenges
+  }
+
   return [
     'Keeping each section short, focused, and easy to scan for busy decision-makers.',
     'Serving rich imagery while keeping performance snappy on every screen size.',
@@ -346,6 +396,10 @@ const technicalChallenges = computed(() => {
 })
 
 const results = computed(() => {
+  if (project.value?.results) {
+    return project.value.results
+  }
+
   return {
     technical: [
       'Delivered consistent layouts that feel like a modern SaaS page.',
@@ -361,6 +415,10 @@ const results = computed(() => {
 })
 
 const improvements = computed(() => {
+  if (project.value?.improvements?.length) {
+    return project.value.improvements
+  }
+
   return [
     'Add simple lead tracking to see which stories resonate most with visitors.',
     'Introduce quick demos or motion snippets to surface energy faster.',
@@ -447,6 +505,16 @@ watchEffect(() => {
   background: var(--saas-hover);
   color: #ffffff;
   transform: translateY(-1px);
+}
+
+.hero-action--outline {
+  background: transparent;
+  color: var(--saas-primary);
+}
+
+.hero-action--outline:hover {
+  background: var(--saas-primary);
+  color: #ffffff;
 }
 
 .case-title {

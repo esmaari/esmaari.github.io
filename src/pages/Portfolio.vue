@@ -107,7 +107,7 @@ const curatedSlugs = ['cosmictrack', 'sinevega', 'se', 'kbo', 'uad']
 
 const featuredDescriptions: Record<string, string> = {
   cosmictrack:
-    'CosmicTrack is a tarot-based journaling platform with structured reflections, Supabase-backed persistence, and composables that tame growing feature complexity. The journey model keeps multi-step flows predictable while making it easy to expand future rituals without rewiring the UI.'
+    'CosmicTrack is a tarot journey journal I built twice on purpose: a Vue 3 prototype proved the ritual UX, then a Next.js + React rebuild hardened auth, API routes, and AI security. Same Supabase domain — deliberate platform choices, not framework hopping.'
 }
 
 const curatedProjects = computed(() =>

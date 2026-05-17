@@ -1,3 +1,4 @@
+import type { Project } from '@/types/project'
 import sinevegaPreview from '@/assets/sinevega/sinevega-preview.png'
 import cosmicPreview from '@/assets/cosmictrack/cosmicPreview26.png'
 import cosmictrackJourneys from '@/assets/cosmictrack/cosmictrack-journeys.png'
@@ -35,53 +36,139 @@ import kanbanEditDialog from '@/assets/kanban-issue-tracker/kanbanIssueTrackerEd
 import vanlifePreview from '@/assets/vanlife-react/reactappvanlife2.png'
 import vanlifeListing from '@/assets/vanlife-react/reactappvanlife1.png'
 
-export const projects = [
+export const projects: Project[] = [
 
   /* ================= COSMICTRACK ================= */
 
   {
     slug: 'cosmictrack',
-    title: 'Cosmic Track — Guided Ritual Journal',
-    impact: 'Gives tarot practitioners a calm digital space to reflect and track progress weekly.',
-    overview: `Tarot guides needed a journal that keeps their rituals private yet inviting.`,
-    technical: `Goal: surface guided steps, keep reflections secure, and make every session feel intentional.`,
-    strategy: `The strategy centered on short, guided journeys with gentle reminders so visitors always know where to continue the ritual.`,
+    title: 'CosmicTrack — Tarot Journey Journal',
+    impact:
+      'A full-stack tarot journaling product rebuilt in React and Next.js — same ritual domain as my Vue prototype, with deliberate upgrades to auth, API boundaries, and AI security.',
+    overview:
+      'Practitioners needed a private place to log tarot spreads as structured journeys: each step captures a question, three cards (upright or reversed), static meanings, optional notes, and an AI reflection — without the UI feeling like a generic notes app.',
+    technical:
+      'Ship the React flagship on Next.js 16 with cookie-based Supabase auth, validated forms, Route Handlers that verify the user on every mutation, and a JWT-protected AI edge function — while keeping the Vue build as a documented first iteration.',
+    strategy:
+      'Lead with the React product recruiters can click today, then show the Vue version as proof I can move across frameworks without losing domain clarity. The narrative is intentional evolution: learn the ritual model once, harden the platform second.',
+    metaInfo: {
+      role: 'Solo full-stack frontend engineer',
+      timeline: 'Vue prototype → React rebuild (iterative, same product domain)',
+      stack: 'Next.js · React 19 · Supabase · TypeScript',
+      focus: 'Secure full-stack boundaries, ritual UX, framework fluency',
+      projectType: 'SaaS / Product Web App (dual implementation)'
+    },
     architectureDecisions: [
       {
-        title: 'Guided Reflection Journeys',
-        decision: 'Framed journaling as a sequence of short, labeled steps with clear prompts.',
-        why: 'Rituals stick when each entry feels purposeful and easy to resume.',
-        impact: 'Members start sessions with confidence and return more often.'
+        title: 'Server-Verified API Layer',
+        decision:
+          'Moved mutations behind Next.js Route Handlers (`/api/journeys`, `/api/steps`, `/api/categories`, `/api/favorites`) that call `getUser()` before touching Postgres.',
+        why:
+          'In the Vue SPA I called Supabase directly from the browser — fast to ship, but every rule lived in client trust. For a portfolio flagship I wanted explicit server gates.',
+        impact:
+          'Unauthorized writes fail predictably; the data layer reads like a small BFF instead of scattered client calls.'
       },
       {
-        title: 'Private, Trustworthy Storage',
-        decision: 'Kept every note behind secure boundaries and reduced friction around login.',
-        why: 'Personal reflections demand trust before people commit to writing regularly.',
-        impact: 'Users came back daily without worrying about data leaks.'
+        title: 'Cookie Auth with @supabase/ssr',
+        decision:
+          'Split browser and server Supabase clients and kept sessions in HTTP-only cookies instead of only local storage.',
+        why:
+          'Job-target stacks lean on Next.js App Router patterns; cookie sessions align with SSR layouts and middleware-friendly guards.',
+        impact:
+          'Protected routes and API handlers share one auth source of truth — less drift between “logged in UI” and “allowed mutation”.'
       },
       {
-        title: 'Future-Proof Ritual Model',
-        decision: 'Structured journeys so new rituals plug in without rewriting the UI.',
-        why: 'The offering needed to expand beyond journaling into themed challenges.',
-        impact: 'Fresh journeys ship faster while keeping behavior consistent.'
+        title: 'Hardened AI Boundary',
+        decision:
+          'React client invokes the `ai` edge function with the user JWT; the function calls `getUser()` before OpenAI. Vue called the same endpoint with only the anon key.',
+        why:
+          'AI spend and abuse risk were the clearest gap in v1 — I wanted logged-in-only interpretation, secrets only in Supabase, never in the repo.',
+        impact:
+          'Ask AI stays a product feature, not an open relay — a concrete security story for interviews.'
       }
     ],
     heroImage: cosmicPreview,
     features: [
       {
-        title: 'Multi-step Journeys',
-        description: 'Themed reflections keep intention and mood visible on every step.',
-        image: cosmictrackJourneys
+        title: 'Tarot Step Flow',
+        description:
+          'Each step is a mini ritual: title the intention, pick three cards from a shuffled grid, confirm, reveal upright/reversed faces, pull static meanings from local `tarotCards` data, then optionally ask AI for a short interpretation.',
+        bullets: [
+          'CardPicker: select three backs → confirm → reveal; supports add and edit-note modes.',
+          'Picked cards persist as `{ id, isReversed }` jsonb on `steps.cards` — same domain model I proved in Vue.',
+          'TanStack Query mutations keep save feedback explicit while forms stay validated with Zod + react-hook-form.'
+        ],
+        image: cosmictrackAddStep
       },
       {
-        title: 'Step Builder',
-        description: 'Add new ritual steps in seconds with clear labels and gentle cues.',
-        image: cosmictrackAddStep
+        title: 'Journeys, Categories & Favorites',
+        description:
+          'Users organize spreads into journeys with icons and descriptions, tag them with color categories, star favorites, and search/filter on My Journeys — the list view has to stay calm even as libraries grow.',
+        bullets: [
+          'Category chips use design tokens (`bg-cat-*`) carried over from the Vue styleguide discipline.',
+          'Junction table for journey–category links; favorites toggle without reloading the whole page.',
+          'Feature-sliced folders (`features/`, `entities/`, `shared/`) so journey, step, and category logic do not tangle.'
+        ],
+        image: cosmictrackJourneys
       }
     ],
-    technologies: ['Vue 3', 'Vite', 'Supabase', 'Tailwind CSS'],
+    priorIteration: {
+      framework: 'Vue 3',
+      summary:
+        'I built the first CosmicTrack as a Vue 3 + Pinia SPA on Vite — Composition API, atomic components (`BaseButton`, `BaseModal`), Headless UI, and the same Supabase backend. It taught me the tarot domain; React is where I hardened the platform.',
+      whyVueFirst:
+        'Vue’s template + reactivity model was the fastest path to a working SPA while I was learning Supabase, Pinia, and client routing. Pinia stores (`auth`, `journey`, `category`, `notification`) gave clear boundaries for a solo build.',
+      whyReactSecond:
+        'Deliberate reasons, not a rewrite for its own sake: align with React/Next hiring loops, add Route Handlers + cookie auth, adopt shadcn/ui + Zod for form-heavy step modals, and close the AI security gap (JWT-verified edge function vs anon-only calls).',
+      highlights: [
+        'Auth guard via `router.beforeEach` + `meta.requiresAuth`',
+        'CardPicker.vue — 26-column grid, three-card selection flow',
+        'StepUpsertModal with integrated `askAI` and toast notifications',
+        'Netlify SPA deploy with `BASE_URL` + `_redirects` routing fix'
+      ],
+      liveUrl: 'https://cosmictrack-vue.netlify.app/',
+      github: 'https://github.com/esmaari/cosmictrack-vue'
+    },
+    technicalChallenges: [
+      'Re-implementing the tarot picker and step modal in React without losing the ritual pacing users expect from the Vue build.',
+      'Keeping feature-sliced modules honest as API routes, entities, and UI grew — avoiding a “pages folder dump”.',
+      'Migrating AI from anon-key `fetch` to JWT `functions.invoke` while preserving Turkish/English prompt rules and plain-text responses.',
+      'Deploying Next.js 16 on Netlify with `@netlify/plugin-nextjs` and Node 22 while env secrets stay out of git.'
+    ],
+    results: {
+      technical: [
+        'Two production-grade frontends for one domain — Vue SPA and Next.js App Router — sharing Supabase Auth, Postgres, and tarot data.',
+        'Centralized mutation API with user checks on journeys, steps, categories, and favorites.',
+        'Validated step forms (react-hook-form + Zod) and shadcn/ui dialogs replacing ad-hoc modal state.',
+        'AI edge function rejects unauthenticated calls; OpenAI key lives only in Supabase secrets.'
+      ],
+      product: [
+        'Practitioners can run full journeys: register, create journeys, log three-card steps, categorize, favorite, and search.',
+        'Static card meanings stay offline-fast; AI interpretation is optional and clearly loading/error states.',
+        'Styleguide page documents tokens and components — design discipline carried from Vue to React.',
+        'Case study tells a hiring story: framework fluency plus conscious tradeoffs, not framework tourism.'
+      ]
+    },
+    improvements: [
+      'Rate-limit AI per user in the edge function and surface usage in settings.',
+      'Add E2E coverage for the card picker → save step path (Playwright).',
+      'Extract shared tarot types into a small package if both repos stay active.',
+      'Refresh portfolio screenshots once the React deploy fully replaces the Vue Netlify skin.'
+    ],
+    technologies: [
+      'React 19',
+      'Next.js 16',
+      'TypeScript',
+      'Supabase SSR',
+      'TanStack Query',
+      'Zod',
+      'shadcn/ui',
+      'Tailwind CSS v4',
+      'Vue 3 (prior iteration)'
+    ],
     route: '/projects/cosmictrack',
-    liveUrl: 'https://cosmictrack.netlify.app/'
+    liveUrl: 'https://cosmictrac-react.netlify.app/',
+    github: 'https://github.com/esmaari/cosmictrack-react'
   },
 
   /* ================= SINEVEGA ================= */
