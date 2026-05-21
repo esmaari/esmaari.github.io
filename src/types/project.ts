@@ -76,6 +76,7 @@ export type Project = {
   technicalChallenges?: string[]
   results?: ProjectResults
   improvements?: string[]
+  nextSteps?: string[]
   technologies: string[]
   route: string
   liveUrl?: string

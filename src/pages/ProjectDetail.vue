@@ -178,7 +178,17 @@
         <ResultsGrid :technical-outcomes="results.technical" :product-outcomes="results.product" />
       </section>
 
-      <section class="content-block">
+      <section class="content-block" v-if="nextSteps.length">
+        <h2 class="section-title accent-title mb-4">Next Steps</h2>
+        <p class="section-copy next-steps-intro mb-4">
+          Planned work after final QA — extending the web product, not restarting from scratch.
+        </p>
+        <ul class="next-steps-list mb-0">
+          <li v-for="(item, index) in nextSteps" :key="`next-${index}`">{{ item }}</li>
+        </ul>
+      </section>
+
+      <section class="content-block" v-if="improvements.length">
         <h2 class="section-title accent-title mb-4">What I'd Improve</h2>
         <ul class="improve-list mb-0">
           <li v-for="(item, index) in improvements" :key="`improve-${index}`">{{ item }}</li>
@@ -487,6 +497,8 @@ const results = computed(() => {
   }
 })
 
+const nextSteps = computed(() => project.value?.nextSteps || [])
+
 const improvements = computed(() => {
   if (project.value?.improvements?.length) {
     return project.value.improvements
@@ -676,8 +688,23 @@ watchEffect(() => {
 }
 
 .challenge-list li,
-.improve-list li {
+.improve-list li,
+.next-steps-list li {
   margin-bottom: 0.45rem;
+}
+
+.next-steps-intro {
+  max-width: 720px;
+}
+
+.next-steps-list {
+  padding-left: 1.1rem;
+}
+
+.next-steps-list li {
+  color: var(--saas-body);
+  font-size: 1.06rem;
+  line-height: 1.85;
 }
 
 .contact-block {

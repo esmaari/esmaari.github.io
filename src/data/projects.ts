@@ -228,8 +228,12 @@ export const projects: Project[] = [
     },
     improvements: [
       'Finish end-to-end production testing across locales and tier-limit edge cases.',
-      'Add Playwright coverage for locale routing and card picker → save step.',
       'Surface AI usage and tier limits more visibly in settings.'
+    ],
+    nextSteps: [
+      'Introduce Vitest (+ Testing Library) for unit and component tests — step forms, Route Handlers, and CardPicker logic first.',
+      'Build a React Native app so CosmicTrack works on mobile, reusing the Supabase auth and data model from the web product.',
+      'Ship a proper Profile & Settings area: delete account, update display name, and avatar upload — flows that are not in the app yet.'
     ],
     technologies: [
       'React 19',
