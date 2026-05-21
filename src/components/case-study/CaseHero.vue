@@ -18,7 +18,8 @@
 
         <div class="d-flex flex-wrap gap-3">
           <a v-if="liveUrl" :href="liveUrl" target="_blank" rel="noopener" class="hero-action">Live Site</a>
-          <a v-if="github" :href="github" target="_blank" rel="noopener" class="hero-action">GitHub</a>
+          <a v-if="styleguideUrl" :href="styleguideUrl" target="_blank" rel="noopener" class="hero-action hero-action--outline">Styleguide</a>
+          <a v-if="github" :href="github" target="_blank" rel="noopener" class="hero-action hero-action--outline">GitHub</a>
         </div>
       </div>
 
@@ -40,6 +41,7 @@ const props = defineProps<{
   positioning: string
   technologies: string[]
   liveUrl?: string
+  styleguideUrl?: string
   github?: string
   heroImage?: string
   metaInfo: {
@@ -119,6 +121,16 @@ const techClass = (tech: string) => {
   background: var(--saas-hover);
   color: #ffffff;
   transform: translateY(-1px);
+}
+
+.hero-action--outline {
+  background: transparent;
+  color: var(--saas-primary);
+}
+
+.hero-action--outline:hover {
+  background: var(--saas-primary);
+  color: #ffffff;
 }
 
 .tech-tag {

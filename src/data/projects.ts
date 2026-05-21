@@ -1,8 +1,12 @@
 import type { Project } from '@/types/project'
 import sinevegaPreview from '@/assets/sinevega/sinevega-preview.png'
-import cosmicPreview from '@/assets/cosmictrack/cosmicPreview26.png'
-import cosmictrackJourneys from '@/assets/cosmictrack/cosmictrack-journeys.png'
-import cosmictrackAddStep from '@/assets/cosmictrack/cosmictrack-addstep.png'
+import cosmicReactHome from '@/assets/cosmictrack/CT_react_home.png'
+import cosmicReactCardPicker from '@/assets/cosmictrack/CT_react_cardpicker.png.png'
+import cosmicReactJourneys from '@/assets/cosmictrack/CT_react_journeyspage.png.png'
+import cosmicReactCategories from '@/assets/cosmictrack/CT_react_categores.png'
+import cosmicVuePreview from '@/assets/cosmictrack/cosmicPreviewVUE.png'
+import cosmicVueJourneys from '@/assets/cosmictrack/cosmictrack-journeysVUE.png'
+import cosmicVueAddStep from '@/assets/cosmictrack/cosmictrack-addstepVUE.png'
 
 import svHome from '@/assets/sinevega/SV_Desktop - 1140px (Home).png'
 import svLogin from '@/assets/sinevega/SV_Desktop - 1140px (Login).png'
@@ -42,22 +46,23 @@ export const projects: Project[] = [
 
   {
     slug: 'cosmictrack',
-    title: 'CosmicTrack — Tarot Journey Journal',
+    title: 'CosmicTrack Pro — Tarot Journey Journal',
     impact:
-      'A full-stack tarot journaling product rebuilt in React and Next.js — same ritual domain as my Vue prototype, with deliberate upgrades to auth, API boundaries, and AI security.',
+      'Rebuilt CosmicTrack from Vue 3 to Next.js 15+ (React 19): same ritual product, new mental model — multilingual SaaS (EN/TR), server-verified APIs, TanStack Query server state, and a documented component styleguide.',
     overview:
-      'Practitioners needed a private place to log tarot spreads as structured journeys: each step captures a question, three cards (upright or reversed), static meanings, optional notes, and an AI reflection — without the UI feeling like a generic notes app.',
+      'Practitioners needed a private place to log tarot spreads as structured journeys. The Vue app proved the domain in Turkish only; CosmicTrack Pro resets the architecture for global use — locale-prefixed routing, namespace-based i18n, and public Tarot Hub pages alongside the authenticated journal.',
     technical:
-      'Ship the React flagship on Next.js 16 with cookie-based Supabase auth, validated forms, Route Handlers that verify the user on every mutation, and a JWT-protected AI edge function — while keeping the Vue build as a documented first iteration.',
+      'Ship CosmicTrack Pro on Next.js with `app/[locale]/…`, next-intl, cookie-based Supabase auth, Route Handlers with `getUser()`, TanStack Query mutations (optimistic UI), react-hook-form + Zod with locale-aware errors, JWT-protected AI edge functions, and tier-based usage limits.',
     strategy:
-      'Lead with the React product recruiters can click today, then show the Vue version as proof I can move across frameworks without losing domain clarity. The narrative is intentional evolution: learn the ritual model once, harden the platform second.',
+      'Treat the rewrite as an architectural reset, not a port: document honest Vue → React friction (reactivity, Pinia vs Query, routing, i18n, forms), keep the archived Vue build visible, and position the React app as the feature-complete, multilingual flagship heading into final QA.',
     metaInfo: {
       role: 'Solo full-stack frontend engineer',
-      timeline: 'Vue prototype → React rebuild (iterative, same product domain)',
-      stack: 'Next.js · React 19 · Supabase · TypeScript',
-      focus: 'Secure full-stack boundaries, ritual UX, framework fluency',
-      projectType: 'SaaS / Product Web App (dual implementation)'
+      timeline: 'Vue 3 (TR-only MVP) → Next.js 15+ rebuild (EN/TR SaaS)',
+      stack: 'Next.js · React 19 · next-intl · Supabase',
+      focus: 'Multilingual SaaS, server state, framework fluency',
+      projectType: 'Multilingual SaaS / Product Web App'
     },
+    styleguideUrl: 'https://cosmictrac-react.netlify.app/en/styleguide',
     architectureDecisions: [
       {
         title: 'Server-Verified API Layer',
@@ -80,14 +85,69 @@ export const projects: Project[] = [
       {
         title: 'Hardened AI Boundary',
         decision:
-          'React client invokes the `ai` edge function with the user JWT; the function calls `getUser()` before OpenAI. Vue called the same endpoint with only the anon key.',
+          'React client invokes the `ai` edge function with the user JWT; the function calls `getUser()` before OpenAI. Vue called the same endpoint with only the anon key. Tier-based limits gate usage per plan.',
         why:
           'AI spend and abuse risk were the clearest gap in v1 — I wanted logged-in-only interpretation, secrets only in Supabase, never in the repo.',
         impact:
-          'Ask AI stays a product feature, not an open relay — a concrete security story for interviews.'
+          'Ask AI stays a product feature, not an open relay — safe serverless endpoints with enforceable limits.'
+      },
+      {
+        title: 'TanStack Query Over Pinia for Server State',
+        decision:
+          'Stopped mirroring API data in a global client store; mutations use `onMutate` / `onError` for optimistic UI with automatic cache rollback.',
+        why:
+          'In Vue I manually committed to Pinia first, called the API, then wrote rollback try/catch on failure — workable, but heavy boilerplate.',
+        impact:
+          'Server state has a single source of truth; optimistic favorites and saves feel snappy without hand-rolled store surgery.'
+      },
+      {
+        title: 'next-intl + `app/[locale]` Routing',
+        decision:
+          'Architected EN/TR from day one: locale prefixes (`/en`, `/tr`), namespace JSON files, `getTranslations` on the server, hooks on the client.',
+        why:
+          'The Vue build was strictly Turkish. Going global meant separating public static surfaces (Tarot Hub, card encyclopedia) from dynamic app state.',
+        impact:
+          'Locale, layouts, and auth-protected areas live in one App Router tree instead of a detached Vue route table.'
       }
     ],
-    heroImage: cosmicPreview,
+    frameworkTransition: {
+      intro:
+        'Rebuilding CosmicTrack from Vue 3 to Next.js 15+ (React 19) was an architectural reset — same product idea, a completely different mental model. Below is an honest map of what changed and where friction showed up.',
+      frictionPoints: [
+        {
+          title: 'Reactivity: Vue’s magic vs. React’s explicit state',
+          body:
+            'I was used to `ref` / `reactive` and proxy-based dependency tracking. `useState`, `useMemo`, and stale closures felt like manual labor at first — I still catch myself missing Vue’s effortless reactivity, even as I appreciate React’s predictability.'
+        },
+        {
+          title: 'Data paradigm: Pinia vs. TanStack Query',
+          body:
+            'The biggest eye-opener. Pinia meant optimistic UI = commit to the store, fire the API, hand-roll rollback in catch blocks. React Query mutations with `onMutate` snapshots and `onError` rollbacks removed most of that client-side ceremony and reframed how I treat server state.'
+        },
+        {
+          title: 'File-based routing & locale context',
+          body:
+            'Vue Router’s detached route table gave way to `app/[locale]/…` — routing, layouts, and SSR in one tree. Prefixing `/en` and `/tr` and grouping auth-protected segments became more intuitive than bolting guards onto a flat config.'
+        },
+        {
+          title: 'i18n standardization with next-intl',
+          body:
+            'Moving from a single-language codebase to namespace-based JSON, server `getTranslations`, and client hooks forced a clean split between marketing/static Tarot content and authenticated journey UI.'
+        },
+        {
+          title: 'Forms: react-hook-form + Zod vs. v-model + Vuelidate',
+          body:
+            'Schema validation bound to locales via `useMemo` — so Zod error messages stay EN/TR in step modals — replaced the old v-model flow. More setup upfront, far clearer contracts at submit time.'
+        }
+      ],
+      verdict:
+        'I am still torn on which ecosystem I prefer. Next.js asks for more boilerplate and explicit boundaries; in return I get strong typing, build-time route optimization, and SSR that scales for global deployment. For a quick MVP, the Vue SPA felt nimbler — for CosmicTrack Pro as multilingual SaaS, the React stack earns its complexity.',
+      status:
+        'CosmicTrack Pro is feature-complete: EN/TR, safe serverless AI via Supabase Edge Functions, tier-based limits, and a custom component styleguide. Final production testing is the remaining step.',
+      styleguideUrl: 'https://cosmictrac-react.netlify.app/en/styleguide',
+      styleguideLabel: 'View component styleguide'
+    },
+    heroImage: cosmicReactHome,
     features: [
       {
         title: 'Tarot Step Flow',
@@ -98,7 +158,7 @@ export const projects: Project[] = [
           'Picked cards persist as `{ id, isReversed }` jsonb on `steps.cards` — same domain model I proved in Vue.',
           'TanStack Query mutations keep save feedback explicit while forms stay validated with Zod + react-hook-form.'
         ],
-        image: cosmictrackAddStep
+        image: cosmicReactCardPicker
       },
       {
         title: 'Journeys, Categories & Favorites',
@@ -109,62 +169,80 @@ export const projects: Project[] = [
           'Junction table for journey–category links; favorites toggle without reloading the whole page.',
           'Feature-sliced folders (`features/`, `entities/`, `shared/`) so journey, step, and category logic do not tangle.'
         ],
-        image: cosmictrackJourneys
+        image: cosmicReactJourneys
+      },
+      {
+        title: 'Category Management',
+        description:
+          'Color-coded category chips attach to journeys for quick scanning; CRUD stays lightweight so organizers can reshape their library without leaving the flow.',
+        bullets: [
+          'Shared `bg-cat-*` tokens keep chips consistent across list and detail views.',
+          'Multi-select on journeys via junction table — same data model as the Vue build, cleaner UI in shadcn dialogs.',
+          'Tokens and components documented in the live styleguide — buttons, typography, and states stay aligned.'
+        ],
+        image: cosmicReactCategories
       }
     ],
     priorIteration: {
       framework: 'Vue 3',
       summary:
-        'I built the first CosmicTrack as a Vue 3 + Pinia SPA on Vite — Composition API, atomic components (`BaseButton`, `BaseModal`), Headless UI, and the same Supabase backend. It taught me the tarot domain; React is where I hardened the platform.',
+        'The first CosmicTrack was a Vue 3 + Pinia SPA on Vite — Turkish-only, atomic components, Headless UI, direct Supabase from the browser. It taught me the tarot domain; I no longer develop this branch, but it stays live as the archived MVP.',
       whyVueFirst:
-        'Vue’s template + reactivity model was the fastest path to a working SPA while I was learning Supabase, Pinia, and client routing. Pinia stores (`auth`, `journey`, `category`, `notification`) gave clear boundaries for a solo build.',
+        'Vue’s template + reactivity was the fastest path to a working SPA while learning Supabase and Pinia. Global state in `auth`, `journey`, `category`, and `notification` stores kept a solo codebase legible.',
       whyReactSecond:
-        'Deliberate reasons, not a rewrite for its own sake: align with React/Next hiring loops, add Route Handlers + cookie auth, adopt shadcn/ui + Zod for form-heavy step modals, and close the AI security gap (JWT-verified edge function vs anon-only calls).',
+        'Not a cosmetic port: multilingual SaaS from scratch (`next-intl`), Next Route Handlers, TanStack Query, locale-aware Zod forms, JWT-verified AI, tier limits, and a reusable styleguide for tokens and typography.',
       highlights: [
-        'Auth guard via `router.beforeEach` + `meta.requiresAuth`',
+        'Single-language (Turkish) — no locale routing',
+        'Pinia for all server-shaped state + manual optimistic rollbacks',
         'CardPicker.vue — 26-column grid, three-card selection flow',
-        'StepUpsertModal with integrated `askAI` and toast notifications',
-        'Netlify SPA deploy with `BASE_URL` + `_redirects` routing fix'
+        'Anon-key AI calls (known limitation documented in the React rebuild)'
+      ],
+      images: [
+        { src: cosmicVuePreview, label: 'Home (Vue)' },
+        { src: cosmicVueJourneys, label: 'My Journeys (Vue)' },
+        { src: cosmicVueAddStep, label: 'Add step / CardPicker (Vue)' }
       ],
       liveUrl: 'https://cosmictrack-vue.netlify.app/',
       github: 'https://github.com/esmaari/cosmictrack-vue'
     },
     technicalChallenges: [
-      'Re-implementing the tarot picker and step modal in React without losing the ritual pacing users expect from the Vue build.',
-      'Keeping feature-sliced modules honest as API routes, entities, and UI grew — avoiding a “pages folder dump”.',
-      'Migrating AI from anon-key `fetch` to JWT `functions.invoke` while preserving Turkish/English prompt rules and plain-text responses.',
-      'Deploying Next.js 16 on Netlify with `@netlify/plugin-nextjs` and Node 22 while env secrets stay out of git.'
+      'Re-learning state boundaries after Vue’s automatic reactivity — explicit `useState` / `useMemo` without fighting stale closures.',
+      'Replacing Pinia optimistic flows with TanStack Query `onMutate` / `onError` rollback patterns.',
+      'Standing up `app/[locale]` + next-intl while keeping public Tarot pages and authenticated app surfaces coherent.',
+      'Binding Zod schemas to active locale so validation copy stays EN/TR in the same form components.',
+      'Deploying Next.js on Netlify with serverless AI, tier limits, and secrets only in Supabase — never in the repo.'
     ],
     results: {
       technical: [
-        'Two production-grade frontends for one domain — Vue SPA and Next.js App Router — sharing Supabase Auth, Postgres, and tarot data.',
-        'Centralized mutation API with user checks on journeys, steps, categories, and favorites.',
-        'Validated step forms (react-hook-form + Zod) and shadcn/ui dialogs replacing ad-hoc modal state.',
-        'AI edge function rejects unauthenticated calls; OpenAI key lives only in Supabase secrets.'
+        'Vue (archived) + Next.js 15+ (active) — same domain, different architecture: TR-only SPA vs. EN/TR SaaS.',
+        'TanStack Query owns server state; Route Handlers enforce `getUser()` on mutations.',
+        'next-intl namespaces power marketing pages and in-app copy from one routing tree.',
+        'Custom styleguide aligns tokens, button states, and typography across shadcn-based UI.'
       ],
       product: [
-        'Practitioners can run full journeys: register, create journeys, log three-card steps, categorize, favorite, and search.',
-        'Static card meanings stay offline-fast; AI interpretation is optional and clearly loading/error states.',
-        'Styleguide page documents tokens and components — design discipline carried from Vue to React.',
-        'Case study tells a hiring story: framework fluency plus conscious tradeoffs, not framework tourism.'
+        'Full journey flows in EN and TR: register, journeys, three-card steps, categories, favorites, search.',
+        'Tarot Hub / card encyclopedia-style public pages plus authenticated journal — split by design.',
+        'AI interpretation via JWT-verified edge functions with tier-based usage limits.',
+        'Feature-complete build entering final production QA.'
       ]
     },
     improvements: [
-      'Rate-limit AI per user in the edge function and surface usage in settings.',
-      'Add E2E coverage for the card picker → save step path (Playwright).',
-      'Extract shared tarot types into a small package if both repos stay active.',
-      'Refresh portfolio screenshots once the React deploy fully replaces the Vue Netlify skin.'
+      'Finish end-to-end production testing across locales and tier-limit edge cases.',
+      'Add Playwright coverage for locale routing and card picker → save step.',
+      'Surface AI usage and tier limits more visibly in settings.'
     ],
     technologies: [
       'React 19',
-      'Next.js 16',
+      'Next.js 15+',
       'TypeScript',
+      'next-intl',
       'Supabase SSR',
       'TanStack Query',
       'Zod',
+      'react-hook-form',
       'shadcn/ui',
       'Tailwind CSS v4',
-      'Vue 3 (prior iteration)'
+      'Vue 3 (archived)'
     ],
     route: '/projects/cosmictrack',
     liveUrl: 'https://cosmictrac-react.netlify.app/',

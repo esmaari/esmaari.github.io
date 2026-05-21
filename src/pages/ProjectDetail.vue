@@ -7,6 +7,7 @@
         :technologies="orderedTechnologies"
         :live-url="project.liveUrl"
         :github="project.github"
+        :styleguide-url="project.styleguideUrl"
         :hero-image="project.heroImage"
         :meta-info="metaInfo"
       />
@@ -76,12 +77,65 @@
             {{ priorIteration.framework }} repo
           </a>
         </div>
+
+        <div v-if="priorIterationImages.length" class="version-gallery mt-5">
+          <h3 class="sub-title mb-3">{{ priorIteration.framework }} screenshots <span class="version-tag version-tag--vue">archived build</span></h3>
+          <div class="row g-3">
+            <div
+              v-for="(item, index) in priorIterationImages"
+              :key="`vue-shot-${index}`"
+              class="col-md-4"
+            >
+              <button type="button" class="gallery-link gallery-button d-block w-100" @click="openGallery(item)">
+                <img :src="item.src" :alt="item.label" class="gallery-thumb" />
+                <span class="screenshot-label">{{ item.label }}</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="content-block" v-if="frameworkTransition">
+        <h2 class="section-title accent-title mb-4">Vue → React: Architectural Reset</h2>
+        <p class="section-copy mb-5">{{ frameworkTransition.intro }}</p>
+
+        <div class="transition-points">
+          <article
+            v-for="(point, index) in frameworkTransition.frictionPoints"
+            :key="`transition-${index}`"
+            class="transition-point"
+          >
+            <h3 class="sub-title mb-2">{{ index + 1 }}. {{ point.title }}</h3>
+            <p class="section-copy mb-0">{{ point.body }}</p>
+          </article>
+        </div>
+
+        <div class="transition-verdict mt-5">
+          <h3 class="sub-title mb-2">Honest verdict</h3>
+          <p class="section-copy mb-4">{{ frameworkTransition.verdict }}</p>
+          <p class="section-copy status-copy mb-4">
+            <strong>Current status:</strong> {{ frameworkTransition.status }}
+          </p>
+          <a
+            v-if="frameworkTransition.styleguideUrl"
+            :href="frameworkTransition.styleguideUrl"
+            target="_blank"
+            rel="noopener"
+            class="hero-action"
+          >
+            {{ frameworkTransition.styleguideLabel || 'View styleguide' }}
+          </a>
+        </div>
       </section>
 
       <section class="content-block">
         <h2 class="section-title accent-title mb-4">Architecture Decisions</h2>
         <div class="row gy-4">
-          <div v-for="(item, index) in architectureCards" :key="`arch-${index}`" class="col-lg-4">
+          <div
+            v-for="(item, index) in architectureCards"
+            :key="`arch-${index}`"
+            :class="architectureColClass"
+          >
             <ArchitectureCard
               :title="item.title"
               :decision="item.decision"
@@ -93,7 +147,11 @@
       </section>
 
       <section class="content-block" v-if="normalizedFeatures.length">
-        <h2 class="section-title accent-title mb-5">Core Features</h2>
+        <h2 class="section-title accent-title mb-3">Core Features</h2>
+        <p v-if="priorIteration" class="section-copy features-intro mb-5">
+          Screenshots from the React / Next.js build — the version I ship and continue to develop.
+          <span class="version-tag version-tag--react ms-1">current</span>
+        </p>
 
         <FeatureBlock
           v-for="(feature, index) in normalizedFeatures"
@@ -179,6 +237,15 @@ const route = useRoute()
 
 const project = computed(() => projects.find(p => p.slug === route.params.slug))
 const priorIteration = computed(() => project.value?.priorIteration)
+const frameworkTransition = computed(() => project.value?.frameworkTransition)
+const priorIterationImages = computed(() => priorIteration.value?.images || [])
+
+const architectureColClass = computed(() => {
+  const count = architectureCards.value.length
+  if (count <= 3) return 'col-lg-4'
+  if (count === 4) return 'col-lg-6'
+  return 'col-lg-4'
+})
 const activeGalleryImage = ref<{ src: string; label: string } | null>(null)
 
 const openGallery = (item: { src: string; label: string }) => {
@@ -289,7 +356,7 @@ const productStrategy = computed(() => {
 
 const architectureCards = computed(() => {
   if (project.value?.architectureDecisions?.length) {
-    return project.value.architectureDecisions.slice(0, 3)
+    return project.value.architectureDecisions
   }
 
   const frontendTitle = hasTech('vue')
@@ -372,6 +439,12 @@ const miniGalleryImages = computed(() => {
   ;(project.value?.design?.images || []).forEach((image, index) => {
     if (image) {
       combined.push({ src: image, label: `Design ${index + 1}` })
+    }
+  })
+
+  ;(project.value?.priorIteration?.images || []).forEach((item) => {
+    if (item?.src) {
+      combined.push({ src: item.src, label: item.label })
     }
   })
 
@@ -689,6 +762,72 @@ watchEffect(() => {
 .gallery-close:hover {
   border-color: var(--saas-accent);
   color: var(--saas-accent);
+}
+
+.features-intro {
+  max-width: 720px;
+}
+
+.version-tag {
+  display: inline-block;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 0.2rem 0.55rem;
+  border-radius: 999px;
+  vertical-align: middle;
+}
+
+.version-tag--react {
+  border: 1px solid rgba(97, 218, 251, 0.9);
+  background: rgba(97, 218, 251, 0.2);
+  color: #0b3d4a;
+}
+
+.version-tag--vue {
+  border: 1px solid rgba(66, 184, 131, 0.9);
+  background: rgba(66, 184, 131, 0.18);
+  color: #0f5132;
+}
+
+.screenshot-label {
+  display: block;
+  margin-top: 0.5rem;
+  font-size: 0.82rem;
+  color: var(--saas-body);
+  text-align: center;
+}
+
+.version-gallery .gallery-thumb {
+  border: 1px solid rgba(66, 184, 131, 0.35);
+}
+
+.transition-points {
+  display: flex;
+  flex-direction: column;
+  gap: 2.25rem;
+}
+
+.transition-point {
+  padding-bottom: 2.25rem;
+  border-bottom: 1px solid rgba(148, 163, 184, 0.35);
+}
+
+.transition-point:last-child {
+  padding-bottom: 0;
+  border-bottom: none;
+}
+
+.transition-verdict {
+  padding: 1.75rem 1.5rem;
+  background: rgba(167, 139, 250, 0.08);
+  border: 1px solid rgba(167, 139, 250, 0.28);
+  border-radius: 4px;
+}
+
+.status-copy strong {
+  color: var(--saas-heading);
 }
 
 @media (max-width: 991px) {

@@ -12,14 +12,34 @@ export type ProjectFeature = {
   bullets?: string[]
 }
 
+export type ProjectScreenshot = {
+  src: string
+  label: string
+}
+
 export type PriorIteration = {
   framework: string
   summary: string
   whyVueFirst: string
   whyReactSecond: string
   highlights: string[]
+  images?: ProjectScreenshot[]
   liveUrl?: string
   github?: string
+}
+
+export type FrameworkFrictionPoint = {
+  title: string
+  body: string
+}
+
+export type FrameworkTransition = {
+  intro: string
+  frictionPoints: FrameworkFrictionPoint[]
+  verdict: string
+  status: string
+  styleguideUrl?: string
+  styleguideLabel?: string
 }
 
 export type ProjectMetaInfo = {
@@ -51,6 +71,8 @@ export type Project = {
     images: string[]
   }
   priorIteration?: PriorIteration
+  frameworkTransition?: FrameworkTransition
+  styleguideUrl?: string
   technicalChallenges?: string[]
   results?: ProjectResults
   improvements?: string[]
