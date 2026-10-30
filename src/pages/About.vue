@@ -130,8 +130,8 @@
           <li>Learning Thai language and culture</li>
         </ul>
         <p class="about-text mb-0">
-          The accounts live on the <router-link to="/creating" class="fw-semibold hover-highlight">Creating</router-link> page.
-          The profile links are not there yet.
+          The accounts, the channel, and a scene from a camera acting class are on the
+          <router-link to="/creating" class="fw-semibold hover-highlight">Creating</router-link> page.
         </p>
       </section>
 

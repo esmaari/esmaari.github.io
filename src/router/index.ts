@@ -6,7 +6,6 @@ import Services from '@/pages/Services.vue'
 import Contact from '@/pages/Contact.vue'
 import Creating from '@/pages/Creating.vue'
 import ProjectDetail from '@/pages/ProjectDetail.vue'
-import ThankYou from '@/pages/ThankYou.vue'
 
 
 const routes = [
@@ -16,7 +15,6 @@ const routes = [
     { path: '/creating', component: Creating },
     { path: '/services', component: Services },
     { path: '/contact', component: Contact },
-    { path: '/thank-you', component: ThankYou },
     { path: '/projects/:slug', component: ProjectDetail }
 ]
 

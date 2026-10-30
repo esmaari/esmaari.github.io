@@ -1,6 +1,10 @@
 <template>
   <section class="hero-section min-vh-100 d-flex align-items-center">
     <div class="page-shell hero-wrap position-relative">
+      <div class="hero-orb">
+        <img src="@/assets/esmaHome.JPG" alt="Esma Ari" class="img-cover" />
+      </div>
+
       <p class="hero-label mb-2">Home</p>
       <p class="label mb-3">Frontend engineer in Munich</p>
 
@@ -24,9 +28,6 @@
         Based in Munich. Open to frontend roles.
       </p>
 
-      <div class="hero-orb d-none d-lg-block" aria-hidden="true">
-        <img src="@/assets/esmaHome.JPG" alt="" class="img-cover" />
-      </div>
     </div>
   </section>
 </template>
@@ -81,19 +82,32 @@
   color: var(--text-muted);
 }
 
+.hero-orb {
+  width: 148px;
+  height: 148px;
+  margin-bottom: 1.6rem;
+  border-radius: 999px;
+  overflow: hidden;
+  border: 3px solid rgba(243, 198, 212, 0.9);
+  box-shadow: 0 18px 32px rgba(92, 61, 85, 0.14);
+}
+
+.hero-orb img {
+  width: 100%;
+  height: 100%;
+}
+
+@media (min-width: 992px) {
   .hero-orb {
     position: absolute;
     right: -30px;
     top: -20px;
     width: 270px;
     height: 270px;
-    border-radius: 999px;
-    overflow: hidden;
-    opacity: 0.94;
-    border: 3px solid rgba(243, 198, 212, 0.9);
+    margin-bottom: 0;
     box-shadow: 0 24px 40px rgba(92, 61, 85, 0.16);
-    transform: scale(1.05);
   }
+}
 
 @media (max-width: 991px) {
   .hero-section {
