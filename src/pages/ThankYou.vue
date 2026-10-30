@@ -5,8 +5,7 @@
         <p class="hero-label mb-3">Thank You</p>
         <h1 class="case-title fw-bold mb-3">Message received.</h1>
         <p class="section-copy mb-4">
-          I’ll reply in the next 24 business hours with a clear next step or project sketch. In the meantime,
-          feel free to explore the rest of the portfolio to see how I structure calm, modern experiences.
+          I will read it and reply. The portfolio is there if you want to look at CosmicTrack first.
         </p>
         <div class="thank-you-actions">
           <router-link to="/" class="custom-btn fw-bold">

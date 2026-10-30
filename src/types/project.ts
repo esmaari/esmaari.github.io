@@ -81,4 +81,5 @@ export type Project = {
   route: string
   liveUrl?: string
   github?: string
+  availabilityNote?: string
 }

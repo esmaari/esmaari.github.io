@@ -11,7 +11,7 @@
         <li><router-link to="/" exact @click="closeMenu">Home</router-link></li>
         <li><router-link to="/about" @click="closeMenu">About</router-link></li>
         <li><router-link to="/portfolio" @click="closeMenu">Portfolio</router-link></li>
-        <li><router-link to="/services" @click="closeMenu">Services</router-link></li>
+        <li><router-link to="/services" @click="closeMenu">How I work</router-link></li>
         <li><router-link to="/contact" @click="closeMenu">Contact</router-link></li>
       </ul>
     </div>

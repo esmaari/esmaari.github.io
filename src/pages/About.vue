@@ -5,17 +5,18 @@
         <p class="hero-label mb-2">About</p>
         <div class="row g-5 align-items-center">
           <div class="col-lg-8">
-            <h1 class="about-hero-title mb-4">I design frontend systems that stay predictable as products scale.</h1>
+            <h1 class="about-hero-title mb-4">I build product interfaces in Vue, and I have been learning React in public.</h1>
             <p class="about-hero-copy mb-0">
-              I build interfaces with clear architecture, disciplined state management, and maintainable component systems.
-              The focus is not only visual quality, but product reliability under real usage and growing complexity.
+              From 2018 to 2025 I worked as a frontend developer on Vue SPAs and e-commerce UI.
+              Since leaving Netformic I have studied React and Next.js and built CosmicTrack, a personal product.
+              I did not take client work in that time.
             </p>
           </div>
           <div class="col-lg-4">
             <figure class="about-portrait-wrap mb-0">
               <img
                 src="@/assets/esmaAbout1.JPG"
-                alt="Esma Ari, senior frontend engineer"
+                alt="Esma Ari, frontend engineer"
                 class="about-portrait"
               />
             </figure>
@@ -25,9 +26,8 @@
       <section class="about-section">
         <h2 class="about-section-title">Professional Summary</h2>
         <p class="about-text">
-          I am a frontend engineer with product design awareness, focused on turning complex requirements into stable interfaces.
-          My work sits at the intersection of architecture, implementation quality, and user clarity.
-          I care about systems that remain maintainable as teams, features, and product scope grow.
+          I am a frontend engineer. My employed work was Vue: SPA features, e-commerce interfaces, and design-to-code with the teams at Pharma4u and Netformic.
+          CosmicTrack is the project I can show from the time after that. It started as a Vue app and is now a Next.js app with English and Turkish.
         </p>
       </section>
 
@@ -35,11 +35,11 @@
         <h2 class="about-section-title">Experience</h2>
         <div class="experience-list">
           <article class="experience-item">
-            <p class="experience-date mb-1">May 2025 – Present</p>
-            <h3 class="experience-role mb-2">Freelance Frontend Engineer · Munich (Remote)</h3>
+            <p class="experience-date mb-1">Feb 2025 – Present</p>
+            <h3 class="experience-role mb-2">Independent study · Munich</h3>
             <p class="about-text mb-0">
-              Partner with product teams and founders to deliver production-grade frontend systems with clear architecture,
-              predictable delivery scope, and maintainable implementation standards.
+              Completed React and Next.js courses and built CosmicTrack, first as a Turkish Vue app and then as a multilingual Next.js app.
+              I looked for freelance work in this period and did not take a client project.
             </p>
           </article>
 
@@ -87,29 +87,26 @@
           <div class="col-lg-6">
             <h3 class="competency-title">Frontend Engineering</h3>
             <p class="about-text mb-0">
-              TypeScript, JavaScript, Vue 3 (Composition API), Pinia, Vue Router, React foundations, modular component architecture,
-              and long-term maintainability patterns.
+              TypeScript, JavaScript, Vue 3 (Composition API), Pinia, Vue Router, and React with Next.js on CosmicTrack:
+              App Router, TanStack Query, and next-intl.
             </p>
           </div>
           <div class="col-lg-6">
             <h3 class="competency-title">Product UI Systems</h3>
             <p class="about-text mb-0">
-              Design systems, responsive interface strategy, accessible interaction patterns, and clean design-to-code execution
-              across scalable product surfaces.
+              Responsive layout, Figma-to-code, and keeping a screen consistent with the rest of the product.
             </p>
           </div>
           <div class="col-lg-6">
             <h3 class="competency-title">Integration & Quality</h3>
             <p class="about-text mb-0">
-              REST API integration, auth flows, state lifecycle discipline, Cypress testing, and structured code reviews
-              with a focus on reliability in production.
+              REST APIs, auth flows, and Cypress on the Vue work at Pharma4u.
             </p>
           </div>
           <div class="col-lg-6">
             <h3 class="competency-title">Cross-Functional Execution</h3>
             <p class="about-text mb-0">
-              Direct collaboration with designers and stakeholders, scoped delivery planning, and engineering decisions aligned
-              with product priorities rather than feature churn.
+              Worked with designers on the e-commerce and SPA projects at Netformic and Pharma4u.
             </p>
           </div>
         </div>
@@ -118,8 +115,7 @@
       <section class="about-section">
         <h2 class="about-section-title">Approach & Creative Perspective</h2>
         <p class="about-text">
-          I approach frontend work as system design, not page assembly. My default process is to define boundaries early,
-          keep components composable, and treat UX consistency as an engineering responsibility.
+          I start from the screen a person actually uses, then keep the components and the state easy for the next change.
         </p>
         <p class="about-text mb-0">
           I value clarity over trend-driven complexity, stable architecture over short-term shortcuts, and thoughtful visual rhythm
@@ -184,39 +180,6 @@
               rel="noopener"
               class="fw-semibold hover-highlight"
             >
-              Getting Started with Git & GitHub
-            </a>
-            · Coursera (2023)
-          </li>
-          <li>
-            <a
-              href="https://www.linkedin.com/in/esma-ari/details/certifications/"
-              target="_blank"
-              rel="noopener"
-              class="fw-semibold hover-highlight"
-            >
-              Introduction to Cloud Computing
-            </a>
-            · Coursera (2023)
-          </li>
-          <li>
-            <a
-              href="https://www.linkedin.com/in/esma-ari/details/certifications/"
-              target="_blank"
-              rel="noopener"
-              class="fw-semibold hover-highlight"
-            >
-              Introduction to Web Development (HTML, CSS, JS)
-            </a>
-            · Coursera (2023)
-          </li>
-          <li>
-            <a
-              href="https://www.linkedin.com/in/esma-ari/details/certifications/"
-              target="_blank"
-              rel="noopener"
-              class="fw-semibold hover-highlight"
-            >
               Google UX Design Professional Certificate
             </a>
             · Coursera (2022)
@@ -231,28 +194,6 @@
               Scrum Foundations
             </a>
             · BadgeCert (2023)
-          </li>
-          <li>
-            <a
-              href="https://www.linkedin.com/in/esma-ari/details/certifications/"
-              target="_blank"
-              rel="noopener"
-              class="fw-semibold hover-highlight"
-            >
-              Dynamische Webseiten mit PHP und MySQL
-            </a>
-            · Alfatraining Bildungszentrum (2018)
-          </li>
-          <li>
-            <a
-              href="https://www.linkedin.com/in/esma-ari/details/certifications/"
-              target="_blank"
-              rel="noopener"
-              class="fw-semibold hover-highlight"
-            >
-              Webprogrammierung mit JavaScript und AJAX
-            </a>
-            · Alfatraining Bildungszentrum (2018)
           </li>
         </ul>
       </section>
@@ -313,7 +254,7 @@
 
   useSeoMeta({
     title: 'About | Esma Ari Portfolio',
-    description: 'Senior frontend engineer profile: systems thinking, architecture clarity, and product-focused implementation.',
+    description: 'Frontend engineer in Munich. Vue experience at Pharma4u and Netformic, and CosmicTrack as a personal React and Next.js project.',
     ogTitle: 'About Esma Ari',
     ogDescription: 'A structured overview of Esma Ari’s frontend engineering approach, experience, and product execution mindset.',
     ogType: 'website',
@@ -321,7 +262,7 @@
     ogImage: og,
     twitterCard: 'summary_large_image',
     twitterTitle: 'About | Esma Ari',
-    twitterDescription: 'Senior frontend engineer focused on scalable architecture and product-quality delivery.',
+    twitterDescription: 'Frontend engineer. Vue in production, CosmicTrack in React and Next.js.',
     twitterImage: og
   })
 </script>

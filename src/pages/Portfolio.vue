@@ -5,7 +5,8 @@
         <p class="hero-label mb-2">Portfolio</p>
         <h1 class="portfolio-title fw-bold mb-3">Selected Work</h1>
         <p class="portfolio-intro mb-0">
-          Senior frontend collaborations where clarity, architecture, and delivery integrity mattered.
+          CosmicTrack is the project I can walk through in detail. SineVega is the Vue app, with the code on GitHub.
+          Client websites sit below that.
         </p>
       </header>
 
@@ -16,14 +17,27 @@
             <h2 class="project-title h3 fw-bold mb-3">{{ featuredProject.title }}</h2>
             <p class="project-description mb-3">{{ featuredProject.description }}</p>
             <p class="tech-line mb-4">{{ formatTechnologies(featuredProject.technologies || []) }}</p>
+            <p v-if="featuredProject.availabilityNote" class="availability-note mb-3">
+              {{ featuredProject.availabilityNote }}
+            </p>
             <div class="project-link-group">
               <a
+                v-if="featuredProject.liveUrl"
                 :href="featuredProject.liveUrl"
                 class="link-button link-button--primary"
                 target="_blank"
                 rel="noreferrer"
               >
                 Live Site
+              </a>
+              <a
+                v-if="featuredProject.github"
+                :href="featuredProject.github"
+                class="link-button link-button--ghost"
+                target="_blank"
+                rel="noreferrer"
+              >
+                GitHub
               </a>
               <router-link
                 v-if="featuredProject.route"
@@ -51,14 +65,27 @@
               <p class="tech-line mb-3">{{ formatTechnologies(project.technologies || []) }}</p>
             </div>
             <div class="project-card__links">
+              <p v-if="project.availabilityNote" class="availability-note mb-3">
+                {{ project.availabilityNote }}
+              </p>
               <div class="project-link-group">
                 <a
+                  v-if="project.liveUrl"
                   :href="project.liveUrl"
                   class="link-button link-button--primary"
                   target="_blank"
                   rel="noreferrer"
                 >
                   Live Site
+                </a>
+                <a
+                  v-if="project.github"
+                  :href="project.github"
+                  class="link-button link-button--ghost"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  GitHub
                 </a>
                 <router-link
                   v-if="project.route"
@@ -72,6 +99,58 @@
           </div>
         </article>
       </div>
+
+      <section v-if="clientProjects.length" class="client-section">
+        <h2 class="client-title fw-bold mb-2">Client websites</h2>
+        <p class="portfolio-intro mb-4">
+          Earlier client work in WordPress and Next.js. These are published sites, not product case studies.
+        </p>
+        <div class="project-grid">
+          <article
+            v-for="project in clientProjects"
+            :key="project.slug"
+            class="project-card"
+          >
+            <img :src="project.heroImage" :alt="project.title" class="project-card__image" />
+            <div class="project-card__body">
+              <div class="project-card__content">
+                <h3 class="project-card__title fw-bold mb-2">{{ project.title }}</h3>
+                <p class="project-description mb-3">{{ project.description }}</p>
+                <p class="tech-line mb-3">{{ formatTechnologies(project.technologies || []) }}</p>
+              </div>
+              <div class="project-card__links">
+                <div class="project-link-group">
+                  <a
+                    v-if="project.liveUrl"
+                    :href="project.liveUrl"
+                    class="link-button link-button--primary"
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    Live Site
+                  </a>
+                  <a
+                    v-if="project.github"
+                    :href="project.github"
+                    class="link-button link-button--ghost"
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    GitHub
+                  </a>
+                  <router-link
+                    v-if="project.route"
+                    :to="project.route"
+                    class="link-button link-button--ghost"
+                  >
+                    Case Study
+                  </router-link>
+                </div>
+              </div>
+            </div>
+          </article>
+        </div>
+      </section>
     </div>
   </section>
 </template>
@@ -91,7 +170,7 @@ useHead({
 
 useSeoMeta({
   title: 'Portfolio | Esma Ari',
-  description: 'A showcase of frontend case studies and product-focused UI engineering work.',
+  description: 'Selected frontend work by Esma Ari: CosmicTrack, SineVega, and client websites.',
   ogTitle: 'Portfolio | Esma Ari',
   ogDescription: 'Explore frontend case studies by Esma Ari.',
   ogType: 'website',
@@ -103,25 +182,33 @@ useSeoMeta({
   twitterImage: og
 })
 
-const curatedSlugs = ['cosmictrack', 'sinevega', 'se', 'kbo', 'uad']
+const productSlugs = ['cosmictrack', 'sinevega']
+const clientSlugs = ['se', 'kbo', 'uad']
 
 const featuredDescriptions: Record<string, string> = {
   cosmictrack:
-    'CosmicTrack Pro: rebuilt from Vue 3 (Turkish MVP) to Next.js 15+ as multilingual EN/TR SaaS — TanStack Query, next-intl, secure AI, tier limits, and a documented component styleguide. Honest Vue → React transition story, not a framework port.'
+    'Personal product. Vue 3 first, in Turkish, then a Next.js rebuild with English and Turkish, server-checked APIs, and TanStack Query. Still in final QA.',
+  sinevega:
+    'Vue 3 movie app with TMDb, accounts, and favorites. The Railway API is offline. The repository still has the app and the service layer.',
+  se: 'Next.js marketing site from Figma, including a card-selection interaction.',
+  kbo: 'WordPress school site with WooCommerce for readings and memberships.',
+  uad: 'WordPress membership site. Public pages explain the association; member content stays behind login.'
 }
 
-const curatedProjects = computed(() =>
-  curatedSlugs
+const mapProjects = (slugs: string[]) =>
+  slugs
     .map(slug => projects.find(p => p.slug === slug))
     .filter((project): project is (typeof projects)[number] => Boolean(project))
     .map(project => ({
       ...project,
       description: featuredDescriptions[project.slug] || project.overview || project.impact || ''
     }))
-)
 
-const featuredProject = computed(() => curatedProjects.value[0])
-const remainingProjects = computed(() => curatedProjects.value.slice(1))
+const productProjects = computed(() => mapProjects(productSlugs))
+const clientProjects = computed(() => mapProjects(clientSlugs))
+
+const featuredProject = computed(() => productProjects.value[0])
+const remainingProjects = computed(() => productProjects.value.slice(1))
 
 const orderedTechnologies = (techs: string[]) => {
   const list = [...(techs || [])]
@@ -187,6 +274,21 @@ const formatTechnologies = (techs: string[]) => {
 
 .featured-wrapper {
   margin-bottom: 3rem;
+}
+
+.client-section {
+  margin-top: 4.5rem;
+}
+
+.client-title {
+  color: var(--saas-heading);
+  font-size: clamp(1.6rem, 3vw, 2.2rem);
+  letter-spacing: -0.03em;
+}
+
+.availability-note {
+  color: var(--saas-body);
+  font-size: 0.95rem;
 }
 
 .featured-project {

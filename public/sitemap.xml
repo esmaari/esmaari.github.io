@@ -1,24 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
-  <!-- Home page -->
   <url><loc>https://esmaari.dev/</loc></url>
-
-  <!-- Pages -->
+  <url><loc>https://esmaari.dev/about</loc></url>
   <url><loc>https://esmaari.dev/portfolio</loc></url>
   <url><loc>https://esmaari.dev/services</loc></url>
   <url><loc>https://esmaari.dev/contact</loc></url>
 
-  <!-- Project -->
   <url><loc>https://esmaari.dev/projects/cosmictrack</loc></url>
   <url><loc>https://esmaari.dev/projects/sinevega</loc></url>
-  <url><loc>https://esmaari.dev/projects/tetris</loc></url>
+  <url><loc>https://esmaari.dev/projects/se</loc></url>
   <url><loc>https://esmaari.dev/projects/kbo</loc></url>
   <url><loc>https://esmaari.dev/projects/uad</loc></url>
-  <url><loc>https://esmaari.dev/projects/se</loc></url>
-  <url><loc>https://esmaari.dev/projects/react-todo</loc></url>
-  <url><loc>https://esmaari.dev/projects/react-weather</loc></url>
-  <url><loc>https://esmaari.dev/projects/react-meme</loc></url>
-  <url><loc>https://esmaari.dev/projects/react-travel-journal</loc></url>
 
 </urlset>

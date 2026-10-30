@@ -3,20 +3,18 @@
     <div class="page-shell">
       <header class="contact-hero pe-xl-5">
         <p class="hero-label mb-2">Contact</p>
-        <h1 class="contact-title fw-bold mb-3">Let’s plan the next reliable frontend system.</h1>
+        <h1 class="contact-title fw-bold mb-3">Open to a frontend role.</h1>
         <p class="contact-lead">
-          Share the goals, constraints, and delivery timeline you have in mind so I can suggest a structured plan
-          for architecture, implementation, and collaboration.
+          Write if you are hiring for Vue or React work. I can walk through CosmicTrack, SineVega, or the client sites.
         </p>
         <div class="contact-lead-underline"></div>
       </header>
 
       <div class="contact-grid">
         <div class="contact-info">
-          <p class="contact-meta-label">Working scope</p>
+          <p class="contact-meta-label">Looking for</p>
           <p class="contact-meta">
-            Product-focused frontend systems, design-to-code flows, and hands-on collaboration with product, design,
-            and engineering stakeholders.
+            Frontend roles. Vue is the stack I used at work. React and Next.js are what I have been building since 2025.
           </p>
 
           <div class="contact-details">
@@ -26,28 +24,16 @@
             </div>
             <div>
               <p class="contact-meta-label mb-1">Location</p>
-              <p class="contact-meta">Munich · Remote · Global</p>
+              <p class="contact-meta">Munich</p>
             </div>
           </div>
 
           <div class="contact-alt">
-            <p class="contact-meta-label mb-2">Prefer another channel?</p>
+            <p class="contact-meta-label mb-2">Prefer LinkedIn?</p>
             <div class="contact-alt-links">
               <a href="https://www.linkedin.com/in/esma-ari/" target="_blank" rel="noopener" class="contact-link">
                 <Linkedin :size="18" />
                 <span>LinkedIn</span>
-              </a>
-              <a href="https://www.upwork.com/freelancers/~01c9ebe832d863bbaf?mp_source=share" target="_blank" rel="noopener" class="contact-link">
-                <Briefcase :size="18" />
-                <span>Upwork</span>
-              </a>
-              <a href="https://www.freelancer.com/u/esmaari" target="_blank" rel="noopener" class="contact-link">
-                <Briefcase :size="18" />
-                <span>Freelancer</span>
-              </a>
-              <a href="https://www.malt.de/profile/esmaari" target="_blank" rel="noopener" class="contact-link">
-                <Briefcase :size="18" />
-                <span>Malt</span>
               </a>
             </div>
           </div>
@@ -95,7 +81,7 @@
 
 <script setup lang="ts">
   import { useHead, useSeoMeta } from '@unhead/vue'
-  import { Briefcase, Linkedin } from 'lucide-vue-next'
+  import { Linkedin } from 'lucide-vue-next'
 
   const base = 'https://esmaari.dev'
   const og = `${base}/og-preview.png`
@@ -109,13 +95,13 @@
     title: 'Contact | Esma Ari Portfolio',
     description: 'Get in touch with Esma Ari — Frontend Developer & Designer based in Munich.',
     ogTitle: 'Contact | Esma Ari',
-    ogDescription: 'Reach out for freelance or remote collaboration opportunities.',
+    ogDescription: 'Contact Esma Ari about a frontend role.',
     ogType: 'website',
     ogUrl: base + '/contact',
     ogImage: og,
     twitterCard: 'summary_large_image',
     twitterTitle: 'Contact | Esma Ari',
-    twitterDescription: 'Freelance Frontend Developer & Designer — Contact Page',
+    twitterDescription: 'Frontend engineer in Munich. Open to roles.',
     twitterImage: og
   })
 </script>

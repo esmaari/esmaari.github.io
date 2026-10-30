@@ -7,6 +7,7 @@
         :technologies="orderedTechnologies"
         :live-url="project.liveUrl"
         :github="project.github"
+        :note="project.availabilityNote"
         :styleguide-url="project.styleguideUrl"
         :hero-image="project.heroImage"
         :meta-info="metaInfo"
@@ -14,9 +15,9 @@
 
       <section class="content-block contact-block text-center">
         <p class="contact-copy mb-3">
-          Need a calm, modern case study page? I can scope the first step with you in under 15 minutes.
+          I am open to frontend roles and can walk through this project.
         </p>
-        <router-link to="/contact" class="hero-action">Start a conversation</router-link>
+        <router-link to="/contact" class="hero-action">Contact</router-link>
       </section>
 
       <section class="content-block">
@@ -33,7 +34,7 @@
         </div>
       </section>
 
-      <section class="content-block">
+      <section class="content-block" v-if="project.strategy">
         <h2 class="section-title accent-title mb-4">Product Strategy</h2>
         <p class="section-copy strategy-copy mb-0">{{ productStrategy }}</p>
       </section>
@@ -96,7 +97,7 @@
       </section>
 
       <section class="content-block" v-if="frameworkTransition">
-        <h2 class="section-title accent-title mb-4">Vue → React: Architectural Reset</h2>
+        <h2 class="section-title accent-title mb-4">Vue → React</h2>
         <p class="section-copy mb-5">{{ frameworkTransition.intro }}</p>
 
         <div class="transition-points">
@@ -128,7 +129,7 @@
         </div>
       </section>
 
-      <section class="content-block">
+      <section class="content-block" v-if="architectureCards.length">
         <h2 class="section-title accent-title mb-4">Architecture Decisions</h2>
         <div class="row gy-4">
           <div
@@ -166,14 +167,14 @@
         />
       </section>
 
-      <section class="content-block">
+      <section class="content-block" v-if="technicalChallenges.length">
         <h2 class="section-title accent-title mb-4">Technical Challenges</h2>
         <ul class="challenge-list mb-0">
           <li v-for="(item, index) in technicalChallenges" :key="`challenge-${index}`">{{ item }}</li>
         </ul>
       </section>
 
-      <section class="content-block">
+      <section class="content-block" v-if="results">
         <h2 class="section-title accent-title mb-4">Results</h2>
         <ResultsGrid :technical-outcomes="results.technical" :product-outcomes="results.product" />
       </section>
@@ -317,7 +318,7 @@ const techClass = (tech: string) => {
 }
 
 const positioningStatement = computed(() => {
-  return project.value?.impact || 'Scalable frontend product delivery focused on maintainability, performance, and UX clarity.'
+  return project.value?.impact || ''
 })
 
 const metaInfo = computed(() => {
@@ -334,10 +335,10 @@ const metaInfo = computed(() => {
       : 'Frontend Product Case Study'
 
   return {
-    role: 'Frontend Engineer / UI Architect',
-    timeline: 'Iterative delivery across planning, build, and refinement',
+    role: 'Frontend Engineer',
+    timeline: 'Personal or client project',
     stack,
-    focus: 'Scalability, maintainability, and product clarity',
+    focus: 'Interface implementation',
     projectType
   }
 })
@@ -364,71 +365,17 @@ const productStrategy = computed(() => {
   return base
 })
 
-const architectureCards = computed(() => {
-  if (project.value?.architectureDecisions?.length) {
-    return project.value.architectureDecisions
-  }
-
-  const frontendTitle = hasTech('vue')
-    ? 'Thoughtful Component Layers'
-    : hasTech('react')
-      ? 'Clean Component Economy'
-      : 'Modular Frontend Experience'
-
-  const backendTitle = hasTech('supabase')
-    ? 'Trustworthy Data Boundaries'
-    : 'Predictable Access Flow'
-
-  return [
-    {
-      title: frontendTitle,
-      decision: 'Leaned on reusable blocks and purposeful spacing to keep every interaction crystal clear.',
-      why: 'Clients need to feel confident at first glance.',
-      impact: 'More readable content and predictable behavior across the entire site.'
-    },
-    {
-      title: backendTitle,
-      decision: 'Kept data and authentication flows consistent so form submissions and gated content never jitter.',
-      why: 'Trust breaks when a visitor lands on a stale page mid-flow.',
-      impact: 'Visitors stay in motion and trust builds with every click.'
-    },
-    {
-      title: 'Future-Friendly Structure',
-      decision: 'Organized the experience around repeatable patterns rather than one-off pages.',
-      why: 'New case studies should drop in without a major rewrite.',
-      impact: 'Saves time on future storytelling updates.'
-    }
-  ]
-})
-
-const buildFeatureBullets = (title: string) => {
-  return [
-    `${title}: structured for predictable state transitions and clear UX feedback.`,
-    'Built with reusable UI patterns to reduce duplication and simplify iteration.',
-    'Designed to support future extension without rewriting core flow logic.'
-  ]
-}
+const architectureCards = computed(() => project.value?.architectureDecisions || [])
 
 const normalizedFeatures = computed(() => {
   const source = (project.value?.features || []).slice(0, 4)
-
-  if (source.length === 0 && project.value?.heroImage) {
-    return [
-      {
-        title: 'Core Product Flow',
-        description: 'Primary workflow designed for clarity, speed, and maintainable interaction logic.',
-        bullets: buildFeatureBullets('Core Product Flow'),
-        image: project.value.heroImage
-      }
-    ]
-  }
 
   return source
     .filter(feature => feature?.image)
     .map(feature => ({
       title: feature.title,
       description: feature.description,
-      bullets: feature.bullets?.length ? feature.bullets : buildFeatureBullets(feature.title),
+      bullets: feature.bullets?.length ? feature.bullets : [],
       image: feature.image
     }))
 })
@@ -466,50 +413,13 @@ const miniGalleryImages = computed(() => {
   })
 })
 
-const technicalChallenges = computed(() => {
-  if (project.value?.technicalChallenges?.length) {
-    return project.value.technicalChallenges
-  }
+const technicalChallenges = computed(() => project.value?.technicalChallenges || [])
 
-  return [
-    'Keeping each section short, focused, and easy to scan for busy decision-makers.',
-    'Serving rich imagery while keeping performance snappy on every screen size.',
-    'Structuring new content so additional case stories slot in without rewriting the layout.'
-  ]
-})
-
-const results = computed(() => {
-  if (project.value?.results) {
-    return project.value.results
-  }
-
-  return {
-    technical: [
-      'Delivered consistent layouts that feel like a modern SaaS page.',
-      'Kept the stack ready for quick updates and reliable shipping.',
-      'Favored spacing and hierarchy so stories stay readable across breakpoints.'
-    ],
-    product: [
-      'Helped visitors grasp the value quickly and stay inspired to act.',
-      'Structured narratives that end with a clear next step.',
-      'Made it easy to point clients toward a conversation without overwhelming them.'
-    ]
-  }
-})
+const results = computed(() => project.value?.results || null)
 
 const nextSteps = computed(() => project.value?.nextSteps || [])
 
-const improvements = computed(() => {
-  if (project.value?.improvements?.length) {
-    return project.value.improvements
-  }
-
-  return [
-    'Add simple lead tracking to see which stories resonate most with visitors.',
-    'Introduce quick demos or motion snippets to surface energy faster.',
-    'Refresh the case studies as new flagship projects ship so the gallery feels current.'
-  ]
-})
+const improvements = computed(() => project.value?.improvements || [])
 
 watchEffect(() => {
   if (!project?.value) return

@@ -2,14 +2,14 @@
   <section class="hero-section min-vh-100 d-flex align-items-center">
     <div class="page-shell hero-wrap position-relative">
       <p class="hero-label mb-2">Home</p>
-      <p class="label mb-3">Senior Frontend Engineer</p>
+      <p class="label mb-3">Frontend Engineer</p>
 
       <h1 class="hero-title fw-bold mb-4">
-        I build serious, product-focused frontend experiences that scale.
+        I build product interfaces in Vue and React.
       </h1>
 
       <p class="hero-copy mb-5">
-        Freelance Frontend Developer specializing in Vue, TypeScript, and high-quality interface architecture.
+        Most of my professional work is Vue. Since 2025 I have been building CosmicTrack in React and Next.js.
       </p>
 
       <div class="d-flex flex-wrap gap-3 mb-5">
@@ -20,7 +20,7 @@
       <div class="section-divider"></div>
 
       <p class="hero-meta mt-4 mb-0">
-        Based in Munich, available for remote product teams and long-term frontend delivery.
+        Based in Munich. Open to frontend roles.
       </p>
 
       <div class="hero-orb d-none d-lg-block" aria-hidden="true">
@@ -43,15 +43,15 @@
 
   useSeoMeta({
     title: 'Home | Esma Ari Portfolio',
-    description: 'Frontend Developer & Designer specializing in Vue.js, TypeScript, and modern UI design.',
+    description: 'Frontend engineer in Munich. Vue in production, plus CosmicTrack, a personal React and Next.js product.',
     ogTitle: 'Esma Ari Portfolio',
-    ogDescription: 'Explore Esma Ari’s latest frontend projects, UI designs, and creative works.',
+    ogDescription: 'Frontend work by Esma Ari: Vue product experience and CosmicTrack.',
     ogType: 'website',
     ogUrl: base + '/',
     ogImage: og,
     twitterCard: 'summary_large_image',
     twitterTitle: 'Esma Ari | Frontend Developer & Designer',
-    twitterDescription: 'Frontend • Vue • TypeScript • UI/UX',
+    twitterDescription: 'Frontend engineer. Vue, React, and Next.js.',
     twitterImage: og
   })
 </script>

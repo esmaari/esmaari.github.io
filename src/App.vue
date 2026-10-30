@@ -12,7 +12,7 @@ import Navbar from './components/Navbar.vue'
 
     <footer class="site-footer">
       <div class="page-shell d-flex flex-column flex-md-row justify-content-between align-items-start align-items-md-center gap-2">
-        <p class="m-0">© {{ new Date().getFullYear() }} Esma Ari. Product-focused frontend engineering.</p>
+        <p class="m-0">© {{ new Date().getFullYear() }} Esma Ari. Frontend Engineer, Munich.</p>
         <div class="d-flex gap-3 footer-links">
           <a href="https://github.com/esmaari" target="_blank" rel="noopener">GitHub</a>
           <a href="https://www.linkedin.com/in/esma-ari/" target="_blank" rel="noopener">LinkedIn</a>

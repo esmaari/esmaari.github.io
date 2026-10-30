@@ -4,7 +4,7 @@
       <div class="col-lg-5" :class="reverse ? 'order-lg-2' : 'order-lg-1'">
         <h3 class="feature-title mb-2">{{ title }}</h3>
         <p class="feature-copy mb-3">{{ description }}</p>
-        <ul class="feature-points mb-0">
+        <ul v-if="bullets?.length" class="feature-points mb-0">
           <li v-for="(point, i) in bullets" :key="`${title}-${i}`">{{ point }}</li>
         </ul>
       </div>
@@ -20,7 +20,7 @@
 defineProps<{
   title: string
   description: string
-  bullets: string[]
+  bullets?: string[]
   image: string
   imageAlt: string
   reverse?: boolean

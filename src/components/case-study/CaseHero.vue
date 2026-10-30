@@ -21,6 +21,7 @@
           <a v-if="styleguideUrl" :href="styleguideUrl" target="_blank" rel="noopener" class="hero-action hero-action--outline">Styleguide</a>
           <a v-if="github" :href="github" target="_blank" rel="noopener" class="hero-action hero-action--outline">GitHub</a>
         </div>
+        <p v-if="note" class="availability-note mt-3 mb-0">{{ note }}</p>
       </div>
 
       <div class="col-lg-7">
@@ -43,6 +44,7 @@ const props = defineProps<{
   liveUrl?: string
   styleguideUrl?: string
   github?: string
+  note?: string
   heroImage?: string
   metaInfo: {
     role: string
@@ -101,6 +103,12 @@ const techClass = (tech: string) => {
   color: var(--saas-body);
   font-size: clamp(1.08rem, 2.1vw, 1.35rem);
   line-height: 1.7;
+}
+
+.availability-note {
+  max-width: 42ch;
+  color: var(--saas-body);
+  font-size: 0.95rem;
 }
 
 .hero-action {
