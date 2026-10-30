@@ -55,6 +55,11 @@ export type ProjectResults = {
   product: string[]
 }
 
+export type HardeningItem = {
+  title: string
+  detail: string
+}
+
 export type Project = {
   slug: string
   title: string
@@ -64,6 +69,9 @@ export type Project = {
   strategy?: string
   metaInfo?: ProjectMetaInfo
   architectureDecisions?: ArchitectureDecision[]
+  architectureFlow?: string[]
+  architectureFlowNote?: string
+  hardening?: HardeningItem[]
   heroImage: string
   features?: ProjectFeature[]
   design?: {
@@ -77,6 +85,7 @@ export type Project = {
   results?: ProjectResults
   improvements?: string[]
   nextSteps?: string[]
+  nextStepsIntro?: string
   technologies: string[]
   route: string
   liveUrl?: string

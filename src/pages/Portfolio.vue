@@ -5,7 +5,7 @@
         <p class="hero-label mb-2">Portfolio</p>
         <h1 class="portfolio-title fw-bold mb-3">Selected Work</h1>
         <p class="portfolio-intro mb-0">
-          CosmicTrack is the project I can walk through in detail. SineVega is the Vue app, with the code on GitHub.
+          CosmicTrack is the project I can walk through in detail. SineVega is a Vue movie browser, live on Netlify.
           Client websites sit below that.
         </p>
       </header>
@@ -187,9 +187,9 @@ const clientSlugs = ['se', 'kbo', 'uad']
 
 const featuredDescriptions: Record<string, string> = {
   cosmictrack:
-    'Personal product. Vue 3 first, in Turkish, then a Next.js rebuild with English and Turkish, server-checked APIs, and TanStack Query. Still in final QA.',
+    'Personal tarot journal on Next.js 16. Ask AI is hardened in the repo — server-owned prompts, locked quotas, CI fixtures — and off on the friend-beta deploy.',
   sinevega:
-    'Vue 3 movie app with TMDb, accounts, and favorites. The Railway API is offline. The repository still has the app and the service layer.',
+    'Vue pages, a Netlify function in front of TMDB, and Pinia favorites that clear on refresh. I used Railway for accounts, then shut it down.',
   se: 'Next.js marketing site from Figma, including a card-selection interaction.',
   kbo: 'WordPress school site with WooCommerce for readings and memberships.',
   uad: 'WordPress membership site. Public pages explain the association; member content stays behind login.'

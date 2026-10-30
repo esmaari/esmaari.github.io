@@ -39,6 +39,24 @@
         <p class="section-copy strategy-copy mb-0">{{ productStrategy }}</p>
       </section>
 
+      <section class="content-block" v-if="project.architectureFlow?.length">
+        <h2 class="section-title accent-title mb-4">Request path</h2>
+        <ol class="architecture-flow">
+          <li v-for="(step, index) in project.architectureFlow" :key="`flow-${index}`">{{ step }}</li>
+        </ol>
+        <p v-if="project.architectureFlowNote" class="section-copy mt-4 mb-0">{{ project.architectureFlowNote }}</p>
+      </section>
+
+      <section class="content-block" v-if="project.hardening?.length">
+        <h2 class="section-title accent-title mb-4">Hardening, shipped</h2>
+        <ul class="hardening-list mb-0">
+          <li v-for="(item, index) in project.hardening" :key="`hard-${index}`">
+            <h3 class="sub-title mb-2">Done · {{ item.title }}</h3>
+            <p class="section-copy mb-0">{{ item.detail }}</p>
+          </li>
+        </ul>
+      </section>
+
       <section class="content-block" v-if="priorIteration">
         <h2 class="section-title accent-title mb-4">Vue First, React Second</h2>
         <p class="section-copy mb-4">{{ priorIteration.summary }}</p>
@@ -182,7 +200,7 @@
       <section class="content-block" v-if="nextSteps.length">
         <h2 class="section-title accent-title mb-4">Next Steps</h2>
         <p class="section-copy next-steps-intro mb-4">
-          Planned work after final QA — extending the web product, not restarting from scratch.
+          {{ project.nextStepsIntro || 'Left out of this slice on purpose.' }}
         </p>
         <ul class="next-steps-list mb-0">
           <li v-for="(item, index) in nextSteps" :key="`next-${index}`">{{ item }}</li>
@@ -605,6 +623,51 @@ watchEffect(() => {
 
 .next-steps-intro {
   max-width: 720px;
+}
+
+.architecture-flow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem 0.35rem;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.architecture-flow li {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin: 0;
+  padding: 0.7rem 0.9rem;
+  border: 1px solid rgba(167, 139, 250, 0.45);
+  border-radius: 999px;
+  background: #ffffff;
+  color: var(--saas-heading);
+  font-size: 0.98rem;
+  line-height: 1.4;
+}
+
+.architecture-flow li:not(:last-child)::after {
+  content: '→';
+  color: var(--saas-accent);
+  font-weight: 700;
+}
+
+.hardening-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 1.5rem;
+}
+
+.hardening-list li {
+  margin: 0;
+  padding: 1.25rem 1.35rem;
+  border: 1px solid rgba(167, 139, 250, 0.35);
+  border-radius: 16px;
+  background: #ffffff;
 }
 
 .next-steps-list {
