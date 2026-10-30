@@ -55,7 +55,7 @@ useSeoMeta({
 }
 
 .thank-you-shell {
-  background: #111827;
+  background: #5c3d55;
   border-radius: 1.5rem;
   padding: clamp(2.5rem, 4vw, 3.5rem);
   border: none;
@@ -66,7 +66,7 @@ useSeoMeta({
 .thank-you-card {
   max-width: 640px;
   margin-inline: auto;
-  color: #e2e8f0;
+  color: #f8e7ee;
 }
 
 .thank-you-card .case-title {
@@ -76,7 +76,7 @@ useSeoMeta({
 }
 
 .thank-you-card .section-copy {
-  color: rgba(226, 232, 240, 0.9);
+  color: rgba(248, 231, 238, 0.92);
   font-size: 1.1rem;
   line-height: 1.7;
 }
@@ -91,8 +91,8 @@ useSeoMeta({
 
 .custom-btn-outline {
   background: transparent;
-  border-color: rgba(226, 232, 240, 0.7);
-  color: #e2e8f0;
+  border-color: rgba(248, 231, 238, 0.7);
+  color: #f8e7ee;
 }
 
 .custom-btn-outline:hover {

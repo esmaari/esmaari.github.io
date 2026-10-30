@@ -3,9 +3,10 @@
     <div class="page-shell">
       <header class="contact-hero pe-xl-5">
         <p class="hero-label mb-2">Contact</p>
-        <h1 class="contact-title fw-bold mb-3">Open to a frontend role.</h1>
+        <h1 class="contact-title mb-3">Open to a frontend role.</h1>
         <p class="contact-lead">
-          Write if you are hiring for Vue or React work. I can walk through CosmicTrack, SineVega, or the client sites.
+          Write if you are hiring for Vue or React. If you got here from a video, say which one.
+          I can walk through CosmicTrack, SineVega, or the client sites.
         </p>
         <div class="contact-lead-underline"></div>
       </header>
@@ -108,7 +109,7 @@
 
 <style scoped>
 .contact-container {
-  background: #ffffff;
+  background: transparent;
 }
 
 .contact-grid {

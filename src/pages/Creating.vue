@@ -1,0 +1,130 @@
+<template>
+  <section class="section-spacious creating-page min-vh-100">
+    <div class="page-shell creating-shell">
+      <header class="creating-hero">
+        <p class="hero-label mb-2">Creating</p>
+        <h1 class="creating-title mb-3">Two Instagrams, and a YouTube channel that just opened.</h1>
+        <p class="creating-lead mb-0">
+          I film and post for my own account. I do the planning and the edits for someone else's.
+          YouTube is the new one. The real links are not on this page yet. I will drop them in when I have them.
+        </p>
+      </header>
+
+      <div class="channel-list">
+        <article class="channel-card channel-card--pink">
+          <p class="channel-kicker">Mine</p>
+          <h2>My Instagram</h2>
+          <p>The account I shoot and caption myself. Drawing, film stills, and whatever I am in the middle of.</p>
+          <p class="channel-soon">Link coming</p>
+        </article>
+
+        <article class="channel-card channel-card--aqua">
+          <p class="channel-kicker">For someone else</p>
+          <h2>An account I manage</h2>
+          <p>Not my name on it. I keep the calendar, cut the clips, and make sure it keeps posting.</p>
+          <p class="channel-soon">Link coming</p>
+        </article>
+
+        <article class="channel-card channel-card--sky">
+          <p class="channel-kicker">Just started</p>
+          <h2>YouTube</h2>
+          <p>I have started uploading. It is early, so the page will look thin until there is more to show.</p>
+          <p class="channel-soon">Link coming</p>
+        </article>
+      </div>
+    </div>
+  </section>
+</template>
+
+<script setup lang="ts">
+import { useHead, useSeoMeta } from '@unhead/vue'
+
+const base = 'https://esmaari.dev'
+const og = `${base}/og-preview.png`
+
+useHead({
+  title: 'Creating | Esma Ari',
+  link: [{ rel: 'canonical', href: base + '/creating' }]
+})
+
+useSeoMeta({
+  title: 'Creating | Esma Ari',
+  description: 'Esma Ari runs two Instagram accounts and has started a YouTube channel. Profile links are not published here yet.',
+  ogTitle: 'Creating | Esma Ari',
+  ogDescription: 'Instagram and a new YouTube channel, beside the frontend work.',
+  ogType: 'website',
+  ogUrl: base + '/creating',
+  ogImage: og,
+  twitterCard: 'summary_large_image',
+  twitterTitle: 'Creating | Esma Ari',
+  twitterDescription: 'Two Instagrams and a new YouTube channel.',
+  twitterImage: og
+})
+</script>
+
+<style scoped>
+.creating-shell {
+  max-width: 860px;
+}
+
+.creating-title {
+  font-size: clamp(2.4rem, 6vw, 4.4rem);
+  max-width: 16ch;
+}
+
+.creating-lead {
+  max-width: 62ch;
+  color: var(--text-muted);
+  font-size: 1.08rem;
+}
+
+.channel-list {
+  margin-top: 3.5rem;
+  display: grid;
+  gap: 1.25rem;
+}
+
+.channel-card {
+  background: var(--surface);
+  border-radius: 18px;
+  padding: 1.5rem 1.5rem 1.35rem 1.4rem;
+  border: 1px solid rgba(176, 132, 168, 0.28);
+  box-shadow: 0 10px 28px rgba(92, 61, 85, 0.06);
+}
+
+.channel-card--pink {
+  border-left: 6px solid var(--pink);
+}
+
+.channel-card--aqua {
+  border-left: 6px solid var(--aqua);
+}
+
+.channel-card--sky {
+  border-left: 6px solid var(--sky);
+}
+
+.channel-kicker {
+  margin-bottom: 0.35rem;
+  font-size: 0.78rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #8a6a78;
+}
+
+.channel-card h2 {
+  font-size: clamp(1.6rem, 3vw, 2.1rem);
+  margin-bottom: 0.6rem;
+}
+
+.channel-card p {
+  margin-bottom: 0.4rem;
+}
+
+.channel-soon {
+  margin-top: 0.8rem;
+  margin-bottom: 0;
+  font-weight: 600;
+  color: var(--primary);
+}
+</style>
