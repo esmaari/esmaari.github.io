@@ -4,17 +4,17 @@ import About from '@/pages/About.vue'
 import Portfolio from '@/pages/Portfolio.vue'
 import Services from '@/pages/Services.vue'
 import Contact from '@/pages/Contact.vue'
+import Creating from '@/pages/Creating.vue'
 import ProjectDetail from '@/pages/ProjectDetail.vue'
-import ThankYou from '@/pages/ThankYou.vue'
 
 
 const routes = [
     { path: '/', component: Home },
     { path: '/about', component: About },
     { path: '/portfolio', component: Portfolio },
+    { path: '/creating', component: Creating },
     { path: '/services', component: Services },
     { path: '/contact', component: Contact },
-    { path: '/thank-you', component: ThankYou },
     { path: '/projects/:slug', component: ProjectDetail }
 ]
 

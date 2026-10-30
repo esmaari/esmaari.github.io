@@ -5,8 +5,8 @@
         <p class="hero-label mb-2">How I work</p>
         <h1 class="services-title fw-bold mb-3">How I work on a frontend.</h1>
         <p class="services-subtitle mb-4">
-          This is the way I take a UI task from a rough requirement to a change someone else can keep editing.
-          I am looking for a frontend role, not running a client practice.
+          This is how I take a screen from a rough note to something the next person can change.
+          I am looking for a frontend role. I am not running a client practice.
         </p>
         <div class="accent-divider" aria-hidden="true"></div>
       </header>
@@ -129,7 +129,7 @@ useSeoMeta({
 
 <style scoped>
 .services-page {
-  background: var(--bg);
+  background: transparent;
 }
 
 .services-shell {

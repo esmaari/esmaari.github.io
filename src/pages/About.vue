@@ -10,6 +10,7 @@
               From 2018 to 2025 I worked as a frontend developer on Vue SPAs and e-commerce UI.
               Since leaving Netformic I have studied React and Next.js and built CosmicTrack, a personal product.
               I did not take client work in that time.
+              The other part of the week is a camera: my Instagram, an account I manage, and a YouTube channel I just started.
             </p>
           </div>
           <div class="col-lg-4">
@@ -122,12 +123,16 @@
           that supports user decisions.
         </p>
         <h3 class="competency-title mt-4">Outside Work</h3>
-        <ul class="clean-list mb-0">
+        <ul class="clean-list mb-3">
           <li>Filmmaking and cinematic storytelling</li>
           <li>Drawing and illustration</li>
           <li>Blogging and digital content creation</li>
           <li>Learning Thai language and culture</li>
         </ul>
+        <p class="about-text mb-0">
+          The accounts, the channel, and a scene from a camera acting class are on the
+          <router-link to="/creating" class="fw-semibold hover-highlight">Creating</router-link> page.
+        </p>
       </section>
 
       <section class="about-section">

@@ -5,8 +5,8 @@
         <p class="hero-label mb-2">Portfolio</p>
         <h1 class="portfolio-title fw-bold mb-3">Selected Work</h1>
         <p class="portfolio-intro mb-0">
-          CosmicTrack is the project I can walk through in detail. SineVega is a Vue movie browser, live on Netlify.
-          Client websites sit below that.
+          CosmicTrack is the long one. SineVega is the movie app. Client sites sit further down.
+          The camera work is on its own page.
         </p>
       </header>
 
@@ -244,12 +244,12 @@ const formatTechnologies = (techs: string[]) => {
 
 <style scoped>
 .portfolio-page {
-  --saas-primary: #1e293b;
-  --saas-accent: #a78bfa;
-  --saas-hover: #6366f1;
-  --saas-bg: #f8fafc;
-  --saas-heading: #0f172a;
-  --saas-body: #334155;
+  --saas-primary: #6a4564;
+  --saas-accent: #c9a0d4;
+  --saas-hover: #3d756f;
+  --saas-bg: transparent;
+  --saas-heading: #3c2a33;
+  --saas-body: #5e4652;
   --saas-transition: 200ms ease;
   background: var(--saas-bg);
 }

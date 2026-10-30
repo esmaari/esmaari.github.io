@@ -11,6 +11,7 @@
         <li><router-link to="/" exact @click="closeMenu">Home</router-link></li>
         <li><router-link to="/about" @click="closeMenu">About</router-link></li>
         <li><router-link to="/portfolio" @click="closeMenu">Portfolio</router-link></li>
+        <li><router-link to="/creating" @click="closeMenu">Creating</router-link></li>
         <li><router-link to="/services" @click="closeMenu">How I work</router-link></li>
         <li><router-link to="/contact" @click="closeMenu">Contact</router-link></li>
       </ul>
@@ -63,8 +64,8 @@ onBeforeUnmount(() => {
   position: sticky;
   top: 0;
   z-index: 1100;
-  background: rgba(255, 255, 255, 0.96);
-  border-bottom: 1px solid rgba(167, 139, 250, 0.28);
+  background: rgba(255, 250, 246, 0.9);
+  border-bottom: 1px solid rgba(176, 132, 168, 0.28);
   backdrop-filter: saturate(160%) blur(6px);
   transition: background-color var(--transition-fast), border-color var(--transition-fast);
 }
@@ -80,10 +81,11 @@ onBeforeUnmount(() => {
 }
 
 .brand {
-  font-size: 1.1rem;
-  font-weight: 700;
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  font-weight: 680;
   color: var(--text);
-  letter-spacing: 0.04em;
+  letter-spacing: -0.02em;
 }
 
 .menu-toggle {
@@ -181,8 +183,8 @@ onBeforeUnmount(() => {
     top: calc(100% + 1px);
     left: 0;
     right: 0;
-    background: #ffffff;
-    border-bottom: 1px solid rgba(167, 139, 250, 0.3);
+    background: #fffaf6;
+    border-bottom: 1px solid rgba(176, 132, 168, 0.35);
     padding: 0.9rem 0;
     gap: 0.45rem;
     flex-direction: column;

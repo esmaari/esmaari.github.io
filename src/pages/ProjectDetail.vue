@@ -482,12 +482,12 @@ watchEffect(() => {
 
 <style scoped>
 .case-page {
-  --saas-primary: #1e293b;
-  --saas-accent: #a78bfa;
-  --saas-hover: #6366f1;
-  --saas-bg: #f8fafc;
-  --saas-heading: #0f172a;
-  --saas-body: #334155;
+  --saas-primary: #6a4564;
+  --saas-accent: #c9a0d4;
+  --saas-hover: #3d756f;
+  --saas-bg: transparent;
+  --saas-heading: #3c2a33;
+  --saas-body: #5e4652;
   --saas-transition: 200ms ease;
   background: var(--saas-bg);
 }

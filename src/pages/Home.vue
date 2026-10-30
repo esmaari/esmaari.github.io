@@ -1,20 +1,25 @@
 <template>
   <section class="hero-section min-vh-100 d-flex align-items-center">
     <div class="page-shell hero-wrap position-relative">
-      <p class="hero-label mb-2">Home</p>
-      <p class="label mb-3">Frontend Engineer</p>
+      <div class="hero-orb">
+        <img src="@/assets/esmaHome.JPG" alt="Esma Ari" class="img-cover" />
+      </div>
 
-      <h1 class="hero-title fw-bold mb-4">
-        I build product interfaces in Vue and React.
+      <p class="hero-label mb-2">Home</p>
+      <p class="label mb-3">Frontend engineer in Munich</p>
+
+      <h1 class="hero-title mb-4">
+        I build the interface, then I go and film something.
       </h1>
 
       <p class="hero-copy mb-5">
-        Most of my professional work is Vue. Since 2025 I have been building CosmicTrack in React and Next.js.
+        The job was Vue for years. CosmicTrack is the Next.js app I have been making since.
+        Off the clock I run my own Instagram, I run someone else's, and I just opened a YouTube channel.
       </p>
 
       <div class="d-flex flex-wrap gap-3 mb-5">
-        <router-link to="/portfolio" class="custom-btn">View Projects</router-link>
-        <router-link to="/contact" class="github-btn">Contact</router-link>
+        <router-link to="/portfolio" class="custom-btn">The work</router-link>
+        <router-link to="/creating" class="github-btn">The camera</router-link>
       </div>
 
       <div class="section-divider"></div>
@@ -23,9 +28,6 @@
         Based in Munich. Open to frontend roles.
       </p>
 
-      <div class="hero-orb d-none d-lg-block" aria-hidden="true">
-        <img src="@/assets/esmaHome.JPG" alt="" class="img-cover" />
-      </div>
     </div>
   </section>
 </template>
@@ -43,9 +45,9 @@
 
   useSeoMeta({
     title: 'Home | Esma Ari Portfolio',
-    description: 'Frontend engineer in Munich. Vue in production, plus CosmicTrack, a personal React and Next.js product.',
-    ogTitle: 'Esma Ari Portfolio',
-    ogDescription: 'Frontend work by Esma Ari: Vue product experience and CosmicTrack.',
+    description: 'Esma Ari builds frontend products in Vue and React, and also films for Instagram and YouTube.',
+    ogTitle: 'Esma Ari',
+    ogDescription: 'Frontend work and a camera. Vue, CosmicTrack, and new video.',
     ogType: 'website',
     ogUrl: base + '/',
     ogImage: og,
@@ -80,19 +82,32 @@
   color: var(--text-muted);
 }
 
+.hero-orb {
+  width: 148px;
+  height: 148px;
+  margin-bottom: 1.6rem;
+  border-radius: 999px;
+  overflow: hidden;
+  border: 3px solid rgba(243, 198, 212, 0.9);
+  box-shadow: 0 18px 32px rgba(92, 61, 85, 0.14);
+}
+
+.hero-orb img {
+  width: 100%;
+  height: 100%;
+}
+
+@media (min-width: 992px) {
   .hero-orb {
     position: absolute;
     right: -30px;
     top: -20px;
     width: 270px;
     height: 270px;
-    border-radius: 999px;
-    overflow: hidden;
-    opacity: 0.94;
-    border: 1px solid rgba(167, 139, 250, 0.4);
-    box-shadow: 0 35px 65px rgba(30, 41, 59, 0.28);
-    transform: scale(1.05);
+    margin-bottom: 0;
+    box-shadow: 0 24px 40px rgba(92, 61, 85, 0.16);
   }
+}
 
 @media (max-width: 991px) {
   .hero-section {
